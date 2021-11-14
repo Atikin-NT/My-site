@@ -1,0 +1,110 @@
+//основание сойта
+#app{
+	width: 100%;
+	height: auto;
+	min-height: 2800px;
+	background: #1D2029;
+	z-index: 1;
+}
+
+//основание для статьей
+#normal_size_app{
+	float: left;
+	height: auto;
+	width: 58%;
+	margin: 150px 0 0 150px;
+}
+#maintext_content{
+	width: 100%;
+	height: 270px;
+}
+#mainimg_content{
+	width: 270px;
+	height: 270px;
+	float: left;
+}
+#title{
+	margin: 20px 0 0 10px;
+	width: 50%;
+	height: 100px;
+	float: left;
+}
+.corner{
+	margin-top: 50px;
+	float: left;
+	height: 30px;
+	width: 30px;
+	border-bottom: 3px solid #64FDF1;
+	border-left: 3px solid #64FDF1;
+	position: relative;
+}
+#text_app{
+	width: 80%;
+	height: auto;
+	float: left;
+	font-family: 'Rubik Bold';
+	font-style: normal;
+	font-weight: bold;
+	font-size: 12px;
+	color: #64FDF1;
+}
+.right{
+	border: none;
+	margin-top: 0;
+	border-top: 3px solid #64FDF1;
+	border-right: 3px solid #64FDF1;
+}
+//параметры заголовка------------------------------------------------------
+.param_art{
+	width: 50%;
+	height: 50px;
+	float: left;
+	margin: 20px 0 0 10px;
+}
+.views{
+	width: 25%;
+	height: 100%;
+	float: left;
+}
+.likes{
+	width: 25%;
+	height: 100%;
+	float: left;
+}
+.date_art{
+	width: 50%;
+	height: 100%;
+	float: left;
+}
+.normale_size_param{
+	width: 100%;
+	height: 30px;
+}
+.icon_param{
+	float: left;
+}
+.text_param{
+	float: left;
+	font-size: 18px;
+	color: #38E8DE;
+	margin: 5px 0 0 5px;
+	font-family: 'Rubik Bold';
+}
+//основной контент статьи---------------------------------------------------
+#content{
+	width: 100%;
+	height: auto;
+	h2{
+		font-size: 24px;
+		color: #fff;
+	}
+	p{
+		font-size: 18px;
+		color: #CCD1DD;
+	}
+	img{
+		display: block;
+		margin: 0 auto;
+		width: 540px;
+	}
+}

@@ -1,0 +1,28 @@
+{% extends 'user.html' %} <!-- подключаем базовый шаблон -->
+
+{% block content %}
+<div id="login_block">
+    <h1>Вход</h1>
+    <p>Пожалуйста, заполните следующие поля для входа в систему. Если у вас нет учетной записи <a href="{% url 'register' %}">зарегистрироваться тут!</a></p>
+    {% if form.errors %}
+        <p>Ваше имя и пароль не совпадают. Попробуйте снова (；⌣̀_⌣́) </p>
+    {% endif %}
+    <div id="login-form_user">
+        <form id="user_form" action="{% url 'login' %}" method="post">
+            {{ form.as_p }}
+            {% csrf_token %}
+            <input type="hidden" name="next" value="{{ next }}"/>
+            <div id="button_footer_send"><input type="submit" name="SendMess" value="Войти"></div>
+        </form>
+        <p><a href='{% url "password_reset" %}'>Забыли свой пароль?</a></p>
+    </div>
+    <div id="social_login">
+        <p>Или выполните вход через социальные сети</p>
+        <div id="social_block_user">
+            <div class="icon_login_with_social"></div>
+            <div class="icon_login_with_social"></div>
+            <div class="icon_login_with_social"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

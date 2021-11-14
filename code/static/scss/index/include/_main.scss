@@ -1,0 +1,56 @@
+@font-face {
+	font-family: 'Rubik'; 
+	src: local('Rubik'), local('Rubik'),
+		url('..//..//..//fonts//Rubik.ttf'); 
+}
+@font-face {
+	font-family: 'Rubik Bold'; 
+	src: local('Rubik Bold'), local('Rubik Bold'),
+		url('..//..//..//fonts//Rubik-Bold.ttf'); 
+}
+@font-face {
+	font-family: 'Hack'; 
+	src: local('Hack'), local('Hack'),
+		url('..//..//..//fonts//Hack-Regular.ttf'); 
+}
+@font-face {
+	font-family: 'Hack Bold'; 
+	src: local('Hack Bold'), local('Hack Bold'),
+		url('..//..//..//fonts//Hack-Bold.ttf'); 
+}
+html {
+	font-family: 'Rubik';
+}
+*{
+	scrollbar-width: thin;
+	scrollbar-color: #323846 #1D2029;
+}
+  
+  /* для Chrome/Edge/Safari */
+*::-webkit-scrollbar {
+	height: 12px;
+	width: 12px;
+}
+*::-webkit-scrollbar-track {
+	background: #1D2029;
+}
+*::-webkit-scrollbar-thumb {
+	background-color: #323846;
+	border-radius: 5px;
+	border: 3px solid #1D2029;
+}
+.tags_list::-webkit-scrollbar-track {
+	background: #F9FAFA;
+}
+.tags_list::-webkit-scrollbar-thumb {
+	background: #BEBEBE;
+	border-radius: 5px;
+	border: none;
+}
+
+$box_shadow_lm: rgba(8, 9, 10, 0.1);
+$bck_main_color: #EEF0F1;
+$bck_block_color: #F9FAFA;
+$text_app_color: #202833;
+$text_app_p_color: #454F5E;
+$text_selected_app_color: #386AE8;

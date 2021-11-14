@@ -1,0 +1,104 @@
+{% extends 'index.html' %}
+{% load markdown_extras %}
+
+{% block content %}
+<div id="app">
+    <div id="normal_size_app">
+        <div id="title">
+            <div id="color_topic"></div>
+            <div id="text_app_heshteg">#</div>
+            <div id="text_app">новая статья</div>
+        </div>
+        <div id="article_normal_size_block">
+            <div id="formsettings">
+<!--                <form method="post">-->
+<!--                    <div class="textform">-->
+<!--                        <div class="inputlist">-->
+<!--                            <label for="first-name">Заголовок</label>-->
+<!--                            <input type="text" class="form-control form-control-custom" id="first-name" placeholder="Заголовок" required="required">-->
+<!--                            <div class="memo">Заголовок</div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="textform">-->
+<!--                        <div class="inputlist">-->
+<!--                            <label for="first-name">Краткое описание</label>-->
+<!--                            <textarea class="form-control form-control-custom" id="description" placeholder="Write a short description about yourself."></textarea>-->
+<!--                            <div class="memo">Краткое описание</div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="imageform">-->
+<!--                        <img src="../images/test.jpg" alt="">-->
+<!--                    </div>-->
+<!--                    <div class="markdown_editor">-->
+<!--                        <div class="textform">-->
+<!--                            <div class="inputlist">-->
+<!--                                <label for="first-name">Ввод</label>-->
+<!--                                <textarea class="form-control form-control-custom markdown_area" id="description" placeholder="Write a short description about yourself."></textarea>-->
+<!--                                <div class="memo">Краткое описание</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="textform">-->
+<!--                            <div class="inputlist">-->
+<!--                                <label for="first-name">Вывод</label>-->
+<!--                                <textarea class="form-control form-control-custom" id="description" placeholder="Write a short description about yourself."></textarea>-->
+<!--                                <div class="memo">Краткое описание</div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <button class="btn btn-success btn-save-custom" type="button">Опубликовать</button>-->
+<!--                </form>-->
+                <form action="/newarticle/" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+<!--                    {{ form.non_field_errors }}-->
+                    <div class="textform">
+                        <div class="inputlist">
+                            <label for="{{ form.article_title.id_for_label }}">Заголовок</label>
+                            {{ form.article_title }}
+<!--                            <input type="text" class="form-control form-control-custom" id="first-name" placeholder="Заголовок" required="required">-->
+                            <div class="memo">Заголовок</div>
+                        </div>
+                    </div>
+                    <div class="imageform">
+                        <div class="inputlist">
+                            {{ form.article_picture.errors }}
+<!--                            <label for="{{ form.article_picture.id_for_label }}">Заголовок</label>-->
+                            {{ form.article_picture }}
+                            <div class="memo">Заголовок</div>
+                        </div>
+                    </div>
+                    <div class="textform">
+                        <div class="inputlist">
+                            <label for="{{ form.article_small_text.id_for_label }}">Краткое описание</label>
+                            {{ form.article_small_text }}
+                            <div class="memo">Краткое описание</div>
+                        </div>
+                    </div>
+                    <div class="textform">
+                        <div class="inputlist">
+                            <label for="{{ form.article_content_md.id_for_label }}">Ввод</label>
+                            {{ form.article_content_md }}
+                            <div class="memo">Ввод</div>
+                        </div>
+                    </div>
+                    <div class="textform">
+                        <div class="inputlist">
+<!--                            <label for="{{ form.prewie.id_for_label }}">Вывод</label>-->
+<!--                            {{ form.prewie }}-->
+                            {{form.article_content_md.value | markdown | safe}}
+                            <div class="memo">Вывод</div>
+                        </div>
+                    </div>
+                    <div class="textform">
+                        <div class="inputlist">
+                            <label for="{{ form.tagArticle.id_for_label }}">Заголовок</label>
+                            {{ form.tagArticle }}
+                        </div>
+                    </div>
+<!--                    <button class="btn btn-success btn-save-custom" type="button">Опубликовать</button>-->
+                    <input class="btn btn-success btn-save-custom" type="submit" value="Опубликовать">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

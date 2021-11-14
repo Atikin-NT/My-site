@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="description" content="{{ meta_description }}">
+	<meta name="author" content="Nikita Ivanov ivanov.n.a.0620@gmail.com">
+	<!-- <meta name="yandex-verification" content="a0050fefc0465978" /> -->
+	<link rel="stylesheet" href="../static/css/normalize.min.css">
+	<link rel="stylesheet" href="../static/css/halfmoon-variables.min.css" rel="stylesheet" />
+	<!-- <link rel="stylesheet" href="../static/css/article.css"> -->
+	<link rel="stylesheet" href="../static/css/index.css">
+	<link rel="stylesheet" href="../fontawesome/css/all.css">
+	<link rel="icon" href="../../static/img/favicon.ico" type="image/x-icon">
+  	<link rel="shortcut icon" href="../../static/img/favicon.ico" type="image/x-icon">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<!-- <script src="https://vk.com/js/api/openapi.js?168" type="text/javascript"></script> -->
+	<!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> -->
+	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script> -->
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+	<!-- <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+	<!-- <script>hljs.initHighlightingOnLoad();</script> -->
+	
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-168648072-1"></script> -->
+    
+    <!-- <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-168648072-1');
+    </script>
+	<title>{{ meta_title }}</title>
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+			$preloader = $('.loaderArea'),
+			$loader = $preloader.find('.loader');
+			if (sessionStorage.getItem('preloader-uuid-here')) {
+				//alert('User just refreshed the page');
+				$loader.fadeOut();
+				$preloader.fadeOut();
+				return;
+			} else {
+				//alert('Show Preloader!');
+				$preloader.show()
+				$preloader.delay(3000);
+				sessionStorage.setItem('preloader-uuid-here', '1');
+				$preloader.fadeOut('slow');
+			}
+		});
+	</script> -->
+</head>
+<body>
+	<main>
+		<nav id="top_nav">
+			<div class="normal_size normalSizeLight">
+				<div class="hamburger-menu">
+					<input id="menu__toggle" type="checkbox" />
+					<label class="menu__btn" for="menu__toggle">
+						<span></span>
+					</label>
+
+					<ul class="menu__box">
+						<li><a class="menu__item" href="/">Главная</a></li>
+						<li><a class="menu__item" href="/products/">Продукты</a></li>
+						<li><a class="menu__item" href="/tags">Теги</a></li>
+						<button class="btn login custom_click" type="button">
+							Вход
+						</button>
+						<button class="btn login custom_click" type="button">
+							Регистрация
+						</button>
+					</ul>
+				</div>
+				<div class="logo">
+					<!-- <a href="/"><img src="../../static/img/logo_full.svg" width="235px"></a> -->
+					<a href="#">
+						<img id="mainLogo" src="../images/logo_dm.svg">
+						<div id="logo_main_text_nav">NikTech</div>
+						<span class="badge">v.1.2</span>
+					</a>
+					
+				</div>
+				<menu>
+					<ul>
+						<li class="iskl"><a href="/">Главная</a></li>
+						<li><a href="/products/">Продукты</a></li>
+						<li><a href="/tags">Теги</a></li>
+					</ul>
+				</menu>
+				<div id="nav_top_icons">
+					<div class="input-group input-group-nav">
+						<div class="input-group-prepend">
+						  <span class="input-group-text input-text-custom">
+							<i class="fas fa-search"></i>
+						  </span>
+						</div>
+						<input type="text" class="form-control form-control-custom" placeholder="Поиск...">
+					</div>
+					<div class="flex_icon theme login_theme">
+							<button class="btn login custom_click" type="button">
+								Вход
+							</button>
+							<!-- <a href="#"><svg width="50" height="50" viewBox="0 0 50 50" fill="#E4E6E8" xmlns="http://www.w3.org/2000/svg">
+								<path d="M25 4.16669C13.7063 4.16669 4.16669 13.7063 4.16669 25C4.16669 36.2938 13.7063 45.8334 25 45.8334C36.2938 45.8334 45.8334 36.2938 45.8334 25C45.8334 13.7063 36.2938 4.16669 25 4.16669ZM25 14.5834C28.5979 14.5834 31.25 17.2334 31.25 20.8334C31.25 24.4334 28.5979 27.0834 25 27.0834C21.4042 27.0834 18.75 24.4334 18.75 20.8334C18.75 17.2334 21.4042 14.5834 25 14.5834ZM14.3625 34.9417C16.2313 32.1917 19.3479 30.3584 22.9167 30.3584H27.0834C30.6542 30.3584 33.7688 32.1917 35.6375 34.9417C32.975 37.7917 29.1979 39.5834 25 39.5834C20.8021 39.5834 17.025 37.7917 14.3625 34.9417Z"/>
+								</svg>
+							</a> -->
+						<!-- <div class="icon endicon">
+						{% if user.is_authenticated %}
+							<a href="{% url 'edit' %}">
+								{% if user.profile.photo %}
+									<img src="{{user.profile.photo.url}}">
+								{% else %}
+									<img src="../../static/img/default.png"/>
+								{% endif %}
+							</a>
+						{% else %}
+							<a href="{% url 'login' %}"><svg width="50" height="50" viewBox="0 0 50 50" fill="#E4E6E8" xmlns="http://www.w3.org/2000/svg">
+								<path d="M25 4.16669C13.7063 4.16669 4.16669 13.7063 4.16669 25C4.16669 36.2938 13.7063 45.8334 25 45.8334C36.2938 45.8334 45.8334 36.2938 45.8334 25C45.8334 13.7063 36.2938 4.16669 25 4.16669ZM25 14.5834C28.5979 14.5834 31.25 17.2334 31.25 20.8334C31.25 24.4334 28.5979 27.0834 25 27.0834C21.4042 27.0834 18.75 24.4334 18.75 20.8334C18.75 17.2334 21.4042 14.5834 25 14.5834ZM14.3625 34.9417C16.2313 32.1917 19.3479 30.3584 22.9167 30.3584H27.0834C30.6542 30.3584 33.7688 32.1917 35.6375 34.9417C32.975 37.7917 29.1979 39.5834 25 39.5834C20.8021 39.5834 17.025 37.7917 14.3625 34.9417Z"/>
+							</svg></a>
+						{% endif %}
+						</div> -->
+					</div>
+					<div class="flex_icon theme lm_mode_theme">
+							<button class="btn btn_theme" type="button" onclick="handleButtonClick()" onclick="handleButtonClick()">
+								<i class="far fa-moon" aria-hidden="true"></i>
+							</button>
+						<!-- <div class="icon endicon">
+						{% if user.is_authenticated %}
+							<a href="{% url 'edit' %}">
+								{% if user.profile.photo %}
+									<img src="{{user.profile.photo.url}}">
+								{% else %}
+									<img src="../../static/img/default.png"/>
+								{% endif %}
+							</a>
+						{% else %}
+							<a href="{% url 'login' %}"><svg width="50" height="50" viewBox="0 0 50 50" fill="#E4E6E8" xmlns="http://www.w3.org/2000/svg">
+								<path d="M25 4.16669C13.7063 4.16669 4.16669 13.7063 4.16669 25C4.16669 36.2938 13.7063 45.8334 25 45.8334C36.2938 45.8334 45.8334 36.2938 45.8334 25C45.8334 13.7063 36.2938 4.16669 25 4.16669ZM25 14.5834C28.5979 14.5834 31.25 17.2334 31.25 20.8334C31.25 24.4334 28.5979 27.0834 25 27.0834C21.4042 27.0834 18.75 24.4334 18.75 20.8334C18.75 17.2334 21.4042 14.5834 25 14.5834ZM14.3625 34.9417C16.2313 32.1917 19.3479 30.3584 22.9167 30.3584H27.0834C30.6542 30.3584 33.7688 32.1917 35.6375 34.9417C32.975 37.7917 29.1979 39.5834 25 39.5834C20.8021 39.5834 17.025 37.7917 14.3625 34.9417Z"/>
+							</svg></a>
+						{% endif %}
+						</div> -->
+					</div>
+				</div>
+			</div>
+		</nav>
+		<!-- <div id="particles-js"></div> -->
+		<div id="go_up">
+			<div id="button-up">
+				<i class="fas fa-caret-up"></i>
+			</div>
+		</div>
+		<div id="app_det">
+			<div id="normal_size_app">
+				<div id="maintext_content_det">
+					<div id="mainimg_content_det">
+						<img src="../images/img.png" width="250px">
+					</div>
+					<div id="title_det">
+						<div class="corner_det"></div>
+						<div id="text_app_det"><h1>Курс ценных бумаг попахивает безумием</h1></div>
+						<div class="corner_det right_det"></div>
+					</div>
+					<div class="param_art_det">
+						<div class="views_det">
+							<div class="normale_size_param_det">
+								<div class="icon_param_det">
+									<img src="../images/eye.svg">
+								</div>
+								<div class="text_param_det">
+									1.5k
+								</div>
+							</div>
+						</div>
+						<div class="likes_det">
+							<div class="normale_size_param_det">
+								<div class="icon_param_det">
+									<img src="../images/like.svg">
+								</div>
+								<div class="text_param_det">
+									1.5k
+								</div>
+							</div>
+						</div>
+						<div class="date_art_det">
+							<div class="normale_size_param_det">
+								<div class="text_param_det">10.06.2020</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="content_det">
+					<p>Существующая теория обеспечивает широкому кругу (специалистов) участие в формировании как самодостаточных, так и внешне зависимых концептуальных решений. Мы вынуждены отталкиваться от того, что сложившаяся структура организации создаёт предпосылки для дальнейших направлений развития. Мы вынуждены отталкиваться от того, что дальнейшее развитие различных форм деятельности напрямую зависит от первоочередных требований.</p>
+					<h2>Убеждённость некоторых оппонентов расставила все точки над i</h2>
+					<p>Имеется спорная точка зрения, гласящая примерно следующее: ключевые особенности структуры проекта набирают популярность среди определенных слоев населения, а значит, должны быть ограничены исключительно образом мышления. Реализация намеченных плановых заданий говорит о возможностях новых предложений.</p>
+					<img src="../images/picture.jpg">
+					<p>Внезапно, <a href="">hello</a> ключевые особенности структуры проекта ограничены исключительно образом мышления. В своём стремлении повысить качество жизни, они забывают, что разбавленное изрядной долей эмпатии, рациональное мышление выявляет срочную потребность инновационных методов управления процессами. В частности, постоянное информационно-пропагандистское обеспечение нашей деятельности создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса модели развития.</p>
+					<img src="../images/table.jpg">
+					<p>Как принято считать, явные признаки победы институционализации заблокированы в рамках своих собственных рациональных ограничений. Противоположная точка зрения подразумевает, что предприниматели в сети интернет и по сей день остаются уделом либералов, которые жаждут быть в равной степени предоставлены сами себе. С другой стороны, высокое качество позиционных исследований создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса инновационных методов управления процессами. А также действия представителей оппозиции могут быть объединены в целые кластеры себе подобных.</p>
+					<img src="../images/comment.jpg">
+				</div>
+			</div>
+		</div>
+		<div id="rigth_sounbar">
+			<div id="news">
+				<div id="body_news">
+					<div id="block_news_title">
+						<div id="text_news_news">Сегодня</div>
+					</div>
+					<div id="block_news">
+						<div id="icon">
+							<i class="fas fa-angle-double-right"></i>
+						</div>
+						<div id="text_news">
+							<div id="text_news_day">Независимые СМИ потому и независимы, что ночь оказалась долгой</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="tags">
+				<div id="body_tags">
+					<div id="body_tags_title">
+						<h3>Популярные теги</h3>
+					</div>
+					<div class="overflow-y-hidden overflow-y-md-auto tags_list">
+						<ul>
+							<li><a href="#">#webdev</a></li>
+							<li><a href="#">#beginners</a></li>
+							<li><a href="#">#tutorial</a></li>
+							<li><a href="#">#programming</a></li>
+							<li><a href="#">#react</a></li>
+							<li><a href="#">#productivity</a></li>
+							<li><a href="#">#css</a></li>
+							<li><a href="#">#python</a></li>
+							<li><a href="#">#html</a></li>
+							<li><a href="#">#codenewbie</a></li>
+							<li><a href="#">#devops</a></li>
+							<li><a href="#">#aws</a></li>
+							<li><a href="#">#node</a></li>
+							<li><a href="#">#career</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<div id="copyright">
+				<i class="far fa-copyright"></i>
+				Copyright 2020-2021
+			</div>
+			<div id="social">
+				<a href="https://t.me/niktech_nt"><i class="fab fa-telegram-plane"></i></a>
+				<a href="https://www.instagram.com/niktech_nt_site/"><i class="fab fa-instagram"></i></a>
+			</div>
+			<div id="email">
+				niktechsite@gmail.com
+			</div>
+		</footer>
+	</main>
+	<script>//button up
+		$(document).ready(function() {
+			let button = $('#button-up');
+			$(window).scroll (function () {
+				if ($(this).scrollTop () > 1000) {
+					button.fadeIn();
+				}
+				else {
+					button.fadeOut();
+				}
+			});
+			button.on('click', function(){
+				$('body, html').animate({
+					scrollTop: 0
+				}, 800);
+				return false;
+			});
+		});
+	</script>
+	<script src="../static/js/text_anim.js"></script>
+	<script src="../static/js/particles.js"></script>
+	<script src="../static/js/app.js"></script>
+	<script src="../static/js/lib/stats.js"></script>
+	<script>//скрытие побочной подгруппы
+		$(document).ready(function() {
+			if ($(window).width() > 1024){
+				let button = $('#rigth_sounbar');
+				$(window).scroll (function () {
+					if ($(this).scrollTop () > 2000) {
+						button.fadeOut();
+					}
+					else {
+						button.fadeIn();
+					}
+				});
+			}
+		});
+	</script>
+	<script src="../static/js/halfmoon.min.js"></script>
+	<script src="../static/js/custom.js"></script>
+	<!-- Yandex.Metrika counter -->
+    <!-- <script type="text/javascript" >
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    
+       ym(66314386, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true
+       });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/66314386" style="position:absolute; left:-9999px;" alt="" /></div></noscript> -->
+    <!-- /Yandex.Metrika counter -->
+</body>
+</html>

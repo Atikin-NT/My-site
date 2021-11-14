@@ -1,0 +1,97 @@
+{% extends 'index.html' %}
+{% block title %}{{article.article_title}}{% endblock %}
+{% block content %}
+<div id="app_det">
+    <div id="normal_size_app">
+        <div id="maintext_content_det">
+            <div id="mainimg_content_det">
+                <img src="{{ article.article_picture.url}}" alt="{{ article.article_picture_alt }}" width="250px">
+            </div>
+            <div id="title_det">
+                <div class="corner_det"></div>
+                <div id="text_app_det"><h1>{{article.article_title}}</h1></div>
+                <div class="corner_det right_det"></div>
+            </div>
+            <div class="param_art_det">
+                <div class="views_det">
+                    <div class="normale_size_param_det">
+                        <div class="icon_param_det">
+                            <img src="../../static/img/eye.svg">
+                        </div>
+                        <div class="text_param_det">
+                            {{article.views}}
+                        </div>
+                    </div>
+                </div>
+                <div class="likes_det">
+                    <div class="normale_size_param_det">
+                        <div class="icon_param_det">
+                            <img src="../../static/img/like.svg">
+                        </div>
+                        <div class="text_param_det">
+                            {{article.likes}}
+                        </div>
+                    </div>
+                </div>
+                <div class="date_art_det">
+                    <div class="normale_size_param_det">
+                        <div class="text_param_det">{{article.pub_date|date:'d.m.Y'}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="content_det">
+            {% autoescape off %}{{article.article_text}}{% endautoescape %}
+        </div>
+        <div id="likes_and_comments">
+            {% if user.is_authenticated %}
+            <div id="likes">
+                <p>Если вам понравилась статья, то поддержите ее лайком. Такая реакция будет мотивировать меня на улучшение этого сайта.</p>
+                <div class="text_with_like">
+                    Поставить лайк (♡˙︶˙♡):
+                </div>
+                <form action="{% url 'detail' article.id %}" method="post">
+                    {% csrf_token %}
+                    <button><img src="../../static/img/like.svg"></button>
+                </form>
+                <div class="text_with_like red_like_text">
+                    {{article.likes}}
+                </div>
+            </div>
+            {% else %}
+            <div id="likes">
+                <p>Что бы поставить лайк, необходимо зарегестрироваться (；･ω･)ア</p>
+            </div>
+            {% endif %}
+            <div class="advertising">
+                <div id="yandex_rtb_R-A-570155-1"></div>
+                <script type="text/javascript">
+                    (function(w, d, n, s, t) {
+                        w[n] = w[n] || [];
+                        w[n].push(function() {
+                            Ya.Context.AdvManager.render({
+                                blockId: "R-A-570155-1",
+                                renderTo: "yandex_rtb_R-A-570155-1",
+                                async: true
+                            });
+                        });
+                        t = d.getElementsByTagName("script")[0];
+                        s = d.createElement("script");
+                        s.type = "text/javascript";
+                        s.src = "//an.yandex.ru/system/context.js";
+                        s.async = true;
+                        t.parentNode.insertBefore(s, t);
+                    })(this, this.document, "yandexContextAsyncCallbacks");
+                </script>
+            </div>
+            <script type="text/javascript">
+              VK.init({apiId: 7546586, onlyWidgets: true});
+            </script>
+            <div id="vk_comments" style="margin: 0 0 50px 0;"></div>
+            <script type="text/javascript">
+                VK.Widgets.Comments('vk_comments');
+            </script>
+        </div>
+    </div>
+</div>
+{% endblock %}

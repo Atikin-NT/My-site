@@ -1,0 +1,64 @@
+
+#maintext_content_det{
+	width: 100%;
+	min-height: 270px;
+	height: auto;
+}
+#mainimg_content_det{
+	width: 280px;
+	height: 280px;
+	float: left;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	flex-direction: column;
+	border-radius: 5px 5px 5px 5px;
+	margin: 10px;
+	img{
+		height: 100%;
+		width: auto;
+		transition: 0.3s;
+	}
+	img:hover{
+		transform: scale(1.2);
+	}
+}
+#title_det{
+	margin: 0 0 0 30px;
+	width: 100%;
+	min-height: 300px;
+	height: auto;
+}
+#text_app_det{
+	width: 100%;
+	height: auto;
+	font-family: 'Rubik Bold';
+	font-size: 2em; 
+	color: #64FDF1;
+	.dud{
+		color: #F44336; 
+	}
+}
+//основной контент статьи---------------------------------------------------
+#content_det{
+	width: 100%;
+	height: auto;
+	h2{
+		font-size: 24px;
+		color: #fff;
+	}
+	p{
+		font-size: 18px;
+		color: #CCD1DD;
+	}
+	img{
+		display: block;
+		margin: 0 auto;
+		width: 540px;
+	}
+	h1, h2, h3, h4, h5, h6{
+		color: #386AE8;
+		font-family: "Rubik Bold";
+	}
+}

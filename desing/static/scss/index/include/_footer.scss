@@ -1,0 +1,83 @@
+footer{
+	width: 100%;
+	height: 100px;
+	background: #16171F;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#copyright{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	font-family: "Hack";
+	font-size: 1em;
+	color: #fff;
+	i{
+		font-size: 2em;
+		color: #64FDF1;
+		margin: 0px 10px 0px 0px;
+	}
+}
+#social{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	width: 100%;
+	font-size: 3em;
+	transition: 0.2s;
+	color: #fff;
+	a{
+		text-decoration: none;
+		color: #fff;
+	}
+	.fa-instagram{
+		margin-left: 20px;
+	}
+	.fa-telegram-plane:hover{
+		color: #2CA5E0;
+		transition: 0.2s;
+	}
+	.fa-instagram:hover{
+		color: #BC2A8D;
+		transition: 0.2s;
+	}
+}
+#email{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	font-size: 1em;
+	font-family: "Hack";
+	color: #64FDF1;
+}
+
+.dark-mode {
+	footer{
+		background: $bck_block_color;
+	}
+	#copyright{
+		color: $text_app_color;
+		i{
+			color: $text_selected_app_color;
+		}
+	}
+	#social{
+		color: $text_app_color;
+		a{
+			color: $text_app_p_color;
+		}
+		.fa-telegram-plane:hover{
+			color: #2CA5E0;
+		}
+		.fa-instagram:hover{
+			color: #BC2A8D;
+		}
+	}
+	#email{
+		color: $text_selected_app_color;
+	}	
+}

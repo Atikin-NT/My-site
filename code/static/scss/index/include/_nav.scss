@@ -1,0 +1,273 @@
+//общий блок
+#top_nav{
+	position: absolute;
+	width: 100%;
+	height: 80px;
+	background: #202833;
+	margin: 0 auto;
+	z-index: 3;
+}
+//ограничение в ширине
+.hamburger-menu{
+	display: none;
+}
+.normal_size{
+	max-width: 1400px;
+	height: inherit;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 0 auto;
+}
+//логотип
+.logo{
+	width: auto;
+	height: inherit;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: 50px;
+	//background: #E1BA44;
+	a{
+		width: auto;
+		height: 60px;
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+		text-decoration: none;
+		img{
+			width: auto;
+			height: inherit;
+		}
+		#logo_main_text_nav{
+			font-family: "Rubik";
+			font-size: 2em;
+			margin-left: 15px;
+			color: #fff;
+		}
+	}
+}
+.badge{
+	margin-left: 15px;
+	background-color: #202833;
+	border: #828282 solid 1px;
+	color: #fff;
+	font-family: "Rubik";
+}
+
+//менюшка
+menu{
+	padding: 0;
+	margin: 0;
+	width: auto;
+	height: inherit;
+	//background: #EBEA46;
+	ul{
+		width: 100%;
+		height: inherit;
+		margin: 0;
+		padding: 0;
+    	list-style: none;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+	}
+	li{
+		height: auto;
+		width: auto;
+		margin: 0;
+		text-decoration: none;
+		margin-left: 20px;
+		//background: #915745;
+	}
+	a{
+		display: inline-block;
+		width: 100%;
+		font-family: "Rubik";
+		text-decoration: none;
+		font-size: 1.2em;
+		color: #828282;
+		cursor: pointer;
+		transition: 0.3s;
+	}
+	a:hover{
+		color: #68FAF2;
+		transition: 0.3s;
+		text-decoration: none;
+	}
+}
+.iskl{
+	margin-left: 0;
+}
+
+//иконки меню сверху
+#nav_top_icons{
+	width: auto;
+	height: inherit;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	.flex_icon{
+		width: auto;
+		height: 50px;
+		margin-left: 30px;
+	}
+	.login_theme{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.lm_mode_theme{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.theme{
+		width: 50px;
+		height: 50px;
+	}
+}
+.icon{
+	height: inherit;
+	width: inherit;
+	//background: #D740C4;
+}
+.endicon{
+	margin: 25px 0 0 32%;
+}
+
+.btn{
+	height: 40px;
+	background-color: #2D3847;
+	border: none;
+	color: #fff;
+	font-family: "Rubik";
+}
+.btn:hover{
+	background-color: #405065;
+	color: #fff;
+}
+.btn.active, .btn:focus{
+	background-color: #2D3847;
+	border: #386AE8 solid 2px;
+	box-shadow:0px 0px 2px #386AE8;
+	color: #fff;
+}
+.btn.active:hover, .btn:focus:hover{
+	background-color: #405065;
+	color: #fff;
+}
+
+//кнопка темы светлая/темная
+.btn_theme{
+	width: 40px;
+	height: 40px;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	img{
+		height: 25px;
+		width: 25px;
+		color: #fff;
+	}
+}
+
+//поиск
+.input-group-nav{
+	width: 250px;
+}
+.input-text-custom{
+	color: #fff;
+	background-color: #2D3847;
+}
+.form-control-custom{
+	font-family: "Rubik";
+	color: #fff;
+	background-color: #2D3847;
+}
+.form-control-custom::placeholder{
+	color: #fff;
+}
+.form-control-custom:hover{
+	color: #fff;
+	background-color: #405065;
+}
+.form-control-custom.active, .form-control-custom:focus{
+	color: #fff;
+	background-color: #2D3847;
+	border: #386AE8 solid 2px;
+	box-shadow:0px 0px 2px #386AE8;
+}
+.form-control-custom.active:hover, .form-control-custom:focus:hover{
+	color: #fff;
+	background-color: #405065;
+}
+
+//светлая тема
+.dark-mode {
+	#top_nav{ 
+		background: #FFFFFF;
+		box-shadow: 0 1px 0 $box_shadow_lm;
+	}
+	.logo a #logo_main_text_nav{
+		color: #202833;
+	}
+	.badge{
+		background-color: #fff;
+		border: #565656 solid 1px;
+		color: #202833;
+	}
+	menu{
+		a{
+			color: #202833;
+		}
+		a:hover{
+			color: #386AE8;
+		}
+	}
+	.btn{
+		border: #D0D0D0 solid 1px;
+		background-color: #fff;
+		color: #202833;
+	}
+	.btn:hover{
+		border: #D0D0D0 solid 1px;
+		background-color: #F3F3F3;
+		color: #202833;
+	}
+	.btn.active, .btn:focus{
+		background-color: #fff;
+		color: #202833;
+	}
+	.btn.active:hover, .btn:focus:hover{
+		background-color: #F3F3F3;
+		color: #202833;
+	}
+	.input-text-custom{
+		color: #202833;
+		background-color: #fff;
+	}
+	.form-control-custom{
+		color: #202833;
+		background-color: #fff;
+	}
+	.form-control-custom::placeholder{
+		color: #202833;
+	}
+	.form-control-custom:hover{
+		color: #202833;
+		background-color: #F3F3F3;
+	}
+	.form-control-custom.active, .form-control-custom:focus{
+		color: #202833;
+		background-color: #fff;
+		border: #386AE8 solid 2px;
+		box-shadow:0px 0px 2px #386AE8;
+	}
+	.form-control-custom.active:hover, .form-control-custom:focus:hover{
+		color: #202833;
+		background-color: #F3F3F3;
+	}
+}

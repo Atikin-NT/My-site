@@ -1,0 +1,73 @@
+{% extends 'index.html' %}
+{% load markdown_extras %}
+
+{% block content %}
+<div id="app">
+    <div id="normal_size_app">
+        <div id="maintext_content_det">
+            <div id="title_det">
+                <div id="text_app_det">
+                    <div id="mainimg_content_det">
+                        <img src="{{ article.article_picture.url}}" alt="{{ article.article_picture_alt }}">
+                    </div>
+                    <h1>{{article.article_title}}</h1>
+                </div>
+            </div>
+            <div class="param_art">
+                <div class="param_art_left">
+                    <div class="icons_param like">
+                        <i class="fas fa-heart"></i>
+                        {{article.likes}} реакций
+                    </div>
+                    <div class="icons_param comment">
+                        <i class="fas fa-comment"></i>
+                        {{article.likes}} комментов
+                    </div>
+                    <div class="icons_param date_art">
+                        <i class="far fa-clock"></i>
+                        {{article.pub_date|date:'d.m.Y'}}
+                    </div>
+                </div>
+                <div class="param_art_right" id="time_to_read">
+                    {{article.time_to_read}} мин чтения
+                </div>
+            </div>
+        </div>
+        <div id="content_det">
+<!--            {% autoescape off %}{{article.article_text}}{% endautoescape %}-->
+            {{article.article_content_md | markdown | safe}}
+        </div>
+<!--        <div id="likes_and_comments">-->
+<!--            <div id="likes">-->
+<!--                <p>Если вам понравилась статья, то поддержите ее лайком. Такая реакция будет мотивировать меня на улучшение этого сайта.</p>-->
+<!--                <div class="text_with_like">-->
+<!--                    Поставить лайк (♡˙︶˙♡):-->
+<!--                </div>-->
+<!--                <form action="{% url 'detail' article.id %}" method="POST">-->
+<!--                    {% csrf_token %}-->
+<!--                    <button><i class="fas fa-heart"></i></button>-->
+<!--                </form>-->
+<!--                <div class="text_with_like red_like_text">-->
+<!--                    {{article.likes}}-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div id="comments"></div>-->
+<!--        </div>-->
+        <div id="likes_and_comments">
+            <p>Если вам понравилась статья, то поддержите ее лайком. Такая реакция будет мотивировать меня на улучшение этого сайта.</p>
+            <div id="likes">
+                <div class="reaction">
+                    <form action="{% url 'detail' article.id %}" method="POST">
+                        {% csrf_token %}
+<!--                        <input type="hidden" name="csrfmiddlewaretoken" value="w35lvB3lsmBhPGBljKdXWvVL6aSfw2vRw5lKRWzHgP0Za2sfPPWYMtN79e6wm3r1">-->
+                        <button><i class="fas fa-heart"></i></button>
+                    </form>
+                    <div class="text_with_like">
+                        {{article.likes}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	{% load static %}
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width? initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="description" content="{{ meta_description }}">
+	<meta name="author" content="Nikita Ivanov ivanov.n.a.0620@gmail.com">
+	<link rel="stylesheet" href="{% static 'css/normalize.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/halfmoon-variables.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/index.css' %}">
+	<link rel="stylesheet" href="{% static 'css/tags.css' %}">
+	<link rel="stylesheet" href="{% static 'fontawesome/css/all.css' %}">
+	<link rel="icon" href="../../static/img/favicon.ico" type="image/x-icon">
+  	<link rel="shortcut icon" href="../../static/img/favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+
+	<script>hljs.initHighlightingOnLoad();</script>
+
+	<title>{{ meta_title }}</title>
+	<script>
+		MathJax = {
+		  tex: {
+			inlineMath: [['$', '$'], ['\\(', '\\)']]
+		  }
+		};
+	</script>
+	<script id="MathJax-script" async
+	  	src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+	</script>
+	<script>window.noAdBlock = false;</script>
+</head>
+<body>
+	<script src="{% static 'js/_adverts.js' %}"></script>
+	<main>
+		<div id="modal_full">
+			<div id="modal_content_flex">
+				<div id="modal_content">
+					<div id="top"></div>
+					<h5>Вы используете ADBLOCK</h5>
+					<p>Без показа рекламы автору сайта не будет приходить вознаграждение за его труды, это очень грустно (╯︵╰,)</p>
+					<div id="buttons">
+						<button id="ok">Сейчас выключу</button>
+						<button id="pidr">Не буду выключать</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<nav id="top_nav">
+			<div class="GoogleAdv"></div>
+			<div class="normal_size normalSizeLight">
+				<div class="hamburger-menu">
+					<input id="menu__toggle" type="checkbox" />
+					<label class="menu__btn" for="menu__toggle">
+						<span></span>
+					</label>
+					<ul class="menu__box">
+						<li><a class="menu__item" href="/">Главная</a></li>
+						<li><a class="menu__item" href="/products/">Продукты</a></li>
+						<li><a class="menu__item" href="/tags">Теги</a></li>
+						<button class="btn login custom_click" type="button">
+							Вход
+						</button>
+						<button class="btn login custom_click" type="button">
+							Регистрация
+						</button>
+					</ul>
+				</div>
+				<div class="logo">
+					<a href="#">
+						<img id="mainLogo" src="../../static/img/logo_dm.svg">
+						<div id="logo_main_text_nav">NikTech</div>
+						<span class="badge">v.1.2</span>
+					</a>
+				</div>
+				<menu>
+					<ul>
+						<li class="iskl"><a href="/">Главная</a></li>
+						<li><a href="/products/">Продукты</a></li>
+						<li><a href="/tags/">Теги</a></li>
+					</ul>
+				</menu>
+				<div id="nav_top_icons">
+
+					<div class="input-group input-group-nav">
+						<div class="input-group-prepend">
+						  <span class="input-group-text input-text-custom">
+							<i class="fas fa-search"></i>
+						  </span>
+						</div>
+						<input type="text" class="form-control form-control-custom" placeholder="Поиск...">
+					</div>
+					<div class="flex_icon theme login_theme">
+						<button class="btn login custom_click" type="button">
+							{% if user.is_authenticated %}
+								Выход
+							{% else %}
+								Вход
+							{% endif %}
+						</button>
+					</div>
+					<div class="flex_icon theme lm_mode_theme">
+						<button class="btn btn_theme" type="button" onclick="handleButtonClick()" onclick="handleButtonClick()">
+							<i class="far fa-moon" aria-hidden="true"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<div id="go_up">
+			<div id="button-up">
+				<i class="fas fa-caret-up"></i>
+			</div>
+		</div>
+        <div id="app">
+			<div id="normal_size_app">
+				<div id="title">
+					<div id="color_topic"></div>
+					<div id="text_app_heshteg">#</div>
+					<div id="text_app">tags</div>
+				</div>
+                <div id="article_normal_size_block">
+                    <div class="tag_block">
+						<div class="indicator_color js_color"></div>
+						<div class="top_header_tag">
+							<img src="../../static/img/tags_icons/js.gif" alt="javascript" width="96px" height="96px">
+							<h3><a href="/tags/javascript">#javascript</a></h3>
+						</div>
+						<p>После того, как браузер был отнесен к одной из 3 основных технологий Интернета, JavaScript теперь можно найти практически везде, где вы найдете код.</p>
+						<p>Разработчики JavaScript быстро продвигаются вперед и продвигают разработку программного обеспечения; они могут быть такими же самоуверенными, как и используемые ими фреймворки, поэтому давайте сохраним здесь чистоту и сделаем это местом, где можно учиться друг у друга!</p>
+						<!-- <div class="app_button_follow">
+							<button class="btn app_button_follow_btn custom_click" type="button">Следовать</button>
+						</div> -->
+					</div>
+                    <div class="tag_block">
+						<div class="indicator_color java_color"></div>
+						<div class="top_header_tag">
+							<img src="../../static/img/tags_icons/java.gif" alt="java" width="96px" height="96px">
+							<h3><a href="/tags/java">#java</a></h3>
+						</div>
+						<p>Java - это язык программирования № 1 и платформа разработки. Это снижает затраты, сокращает сроки разработки, стимулирует инновации и улучшает сервисы приложений. С миллионами разработчиков, использующих более 51 миллиарда виртуальных машин Java по всему миру, Java продолжает оставаться платформой разработки, которую выбирают предприятия и разработчики.</p>
+						<!-- <div class="app_button_follow">
+							<button class="btn app_button_follow_btn custom_click" type="button">Следовать</button>
+						</div> -->
+					</div>
+                    <div class="tag_block">
+						<div class="indicator_color python_color"></div>
+						<div class="top_header_tag">
+							<img src="../../static/img/tags_icons/py.gif" alt="javascript" width="96px" height="96px">
+							<h3><a href="/tags/python">#python</a></h3>
+						</div>
+						<p>Высокоуровневый язык программирования общего назначения с динамической строгой типизацией и автоматическим управлением памятью, ориентированный на повышение производительности разработчика, читаемости кода и его качества, а также на обеспечение переносимости написанных на нём программ.</p>
+						<!-- <div class="app_button_follow">
+							<button class="btn app_button_follow_btn custom_click" type="button">Следовать</button>
+						</div> -->
+					</div>
+                    <div class="tag_block">
+						<div class="indicator_color github_color"></div>
+						<div class="top_header_tag">
+							<img src="../../static/img/tags_icons/github.gif" alt="javascript" width="96px" height="96px">
+							<h3><a href="/tags/github">#github</a></h3>
+						</div>
+						<p>Крупнейший веб-сервис для хостинга IT-проектов и их совместной разработки. Веб-сервис основан на системе контроля версий Git и разработан на Ruby on Rails и Erlang компанией GitHub, Inc.</p>
+						<!-- <div class="app_button_follow">
+							<button class="btn app_button_follow_btn custom_click" type="button">Следовать</button>
+						</div> -->
+					</div>
+                    <div class="tag_block">
+						<div class="indicator_color css_color"></div>
+						<div class="top_header_tag">
+							<img src="../../static/img/tags_icons/css.png" alt="css" width="96px" height="96px">
+							<h3><a href="/tags/css">#css</a></h3>
+						</div>
+						<p>CSS (Cascading Style Sheets) — это код, который вы используете для стилизации вашей веб-страницы.</p>
+						<!-- <div class="app_button_follow">
+							<button class="btn app_button_follow_btn custom_click" type="button">Следовать</button>
+						</div> -->
+					</div>
+                    <div class="tag_block">
+						<div class="indicator_color html_color"></div>
+						<div class="top_header_tag">
+							<img src="../../static/img/tags_icons/html.png" alt="html" width="96px" height="96px">
+							<h3><a href="/tags/html">#html</a></h3>
+						</div>
+						<p>HTML (Hypertext Markup Language) - это код, который используется для структурирования и отображения веб-страницы и её контента.</p>
+						<!-- <div class="app_button_follow">
+							<button class="btn app_button_follow_btn custom_click" type="button">Следовать</button>
+						</div> -->
+					</div>
+					<div class="tag_block">
+						<div class="indicator_color android_color"></div>
+						<div class="top_header_tag">
+							<img src="../../static/img/tags_icons/android.png" alt="android" width="96px" height="96px">
+							<h3><a href="/tags/android">#android</a></h3>
+						</div>
+						<p>Операционная система для смартфонов, планшетов, электронных книг, цифровых проигрывателей, наручных часов, фитнес-браслетов, игровых приставок, ноутбуков, нетбуков, смартбуков, очков Google Glass, телевизоров, проекторов и других устройств.</p>
+						<!-- <div class="app_button_follow">
+							<button class="btn app_button_follow_btn custom_click" type="button">Следовать</button>
+						</div> -->
+					</div>
+					<div class="tag_block">
+						<div class="indicator_color ios_color"></div>
+						<div class="top_header_tag">
+							<img src="../../static/img/tags_icons/apple.png" alt="apple" width="96px" height="96px">
+							<h3><a href="/tags/ios">#ios</a></h3>
+						</div>
+						<p>Мобильная операционная система для смартфонов, электронных планшетов, носимых проигрывателей и некоторых других устройств, разрабатываемая и выпускаемая американской компанией Apple.</p>
+						<!-- <div class="app_button_follow">
+							<button class="btn app_button_follow_btn custom_click" type="button">Следовать</button>
+						</div> -->
+					</div>
+					<div class="tag_block">
+						<div class="indicator_color c_color"></div>
+						<div class="top_header_tag">
+							<img src="../../static/img/tags_icons/c.png" alt="c" width="96px" height="96px">
+							<h3><a href="/tags/c">#c</a></h3>
+						</div>
+						<p>Компилируемый статически типизированный язык программирования общего назначения, разработанный в 1969-1973 годах сотрудником Bell Labs Деннисом Ритчи как развитие языка Би. Первоначально был разработан для реализации операционной системы UNIX, но впоследствии был перенесён на множество других платформ.</p>
+						<!-- <div class="app_button_follow">
+							<button class="btn app_button_follow_btn custom_click" type="button">Следовать</button>
+						</div> -->
+					</div>
+					<div class="tag_block">
+						<div class="indicator_color cpp_color"></div>
+						<div class="top_header_tag">
+							<img src="../../static/img/tags_icons/cpp.png" alt="cpp" width="96px" height="96px">
+							<h3><a href="/tags/cpp">#cpp</a></h3>
+						</div>
+						<p>Широко используется для разработки программного обеспечения, являясь одним из самых популярных языков программирования. Область его применения включает создание операционных систем, разнообразных прикладных программ, драйверов устройств, приложений для встраиваемых систем, высокопроизводительных серверов, а также игр.</p>
+						<!-- <div class="app_button_follow">
+							<button class="btn app_button_follow_btn custom_click" type="button">Следовать</button>
+						</div> -->
+					</div>
+					<div class="tag_block">
+						<div class="indicator_color cs_color"></div>
+						<div class="top_header_tag">
+							<img src="../../static/img/tags_icons/cs.png" alt="cs" width="96px" height="96px">
+							<h3><a href="/tags/cs">#cs</a></h3>
+						</div>
+						<p>Объектно-ориентированный язык программирования. Разработан в 1998-2001 годах группой инженеров компании Microsoft под руководством Андерса Хейлсберга и Скотта Вильтаумота как язык разработки приложений для платформы Microsoft .NET Framework.</p>
+						<!-- <div class="app_button_follow">
+							<button class="btn app_button_follow_btn custom_click" type="button">Следовать</button>
+						</div> -->
+					</div>
+					<div class="tag_block">
+						<div class="indicator_color begginers_color"></div>
+						<div class="top_header_tag">
+							<img src="../../static/img/tags_icons/begginers.gif" alt="begginers" width="96px" height="96px">
+							<h3><a href="/tags/begginers">#begginers</a></h3>
+						</div>
+						<p>"Путешествие в тысячу миль начинается с одного шага". - Китайская Пословица</p>
+						<!-- <div class="app_button_follow">
+							<button class="btn app_button_follow_btn custom_click" type="button">Следовать</button>
+						</div> -->
+					</div>
+					<div class="tag_block">
+						<div class="indicator_color react_color"></div>
+						<div class="top_header_tag">
+							<img src="../../static/img/tags_icons/react.png" alt="react" width="96px" height="96px">
+							<h3><a href="/tags/react">#react</a></h3>
+						</div>
+						<p>JavaScript-библиотека с открытым исходным кодом для разработки пользовательских интерфейсов. React разрабатывается и поддерживается Facebook, Instagram и сообществом отдельных разработчиков и корпораций.</p>
+						<!-- <div class="app_button_follow">
+							<button class="btn app_button_follow_btn custom_click" type="button">Следовать</button>
+						</div> -->
+					</div>
+					<div class="tag_block">
+						<div class="indicator_color tutorial_color"></div>
+						<div class="top_header_tag">
+							<img src="../../static/img/tags_icons/tutorial.png" alt="tutorial" width="96px" height="96px">
+							<h3><a href="/tags/tutorial">#tutorial</a></h3>
+						</div>
+						<p>Учебник - это тег общего назначения. Мы приветствуем все типы обучающих программ, связанных с кодом или нет! Все дело в обучении и использовании учебных пособий для обучения</p>
+						<!-- <div class="app_button_follow">
+							<button class="btn app_button_follow_btn custom_click" type="button">Следовать</button>
+						</div> -->
+					</div>
+					<div class="tag_block">
+						<div class="indicator_color node_color"></div>
+						<div class="top_header_tag">
+							<img src="../../static/img/tags_icons/node.png" alt="node" width="96px" height="96px">
+							<h3><a href="/tags/node">#node</a></h3>
+						</div>
+						<p>Программная платформа, основанная на движке V8, превращающая JavaScript из узкоспециализированного языка в язык общего назначения.</p>
+						<!-- <div class="app_button_follow">
+							<button class="btn app_button_follow_btn custom_click" type="button">Следовать</button>
+						</div> -->
+					</div>
+					<div class="tag_block">
+						<div class="indicator_color opensource_color"></div>
+						<div class="top_header_tag">
+							<img src="../../static/img/tags_icons/opensource.png" alt="opensource" width="96px" height="96px">
+							<h3><a href="/tags/opensource">#opensource</a></h3>
+						</div>
+						<p>Да Пребудет С Вами Источник! Статьи об открытом исходном коде и свободном программном обеспечении как философии и ее применении к разработке программного обеспечения и управлению проектами.</p>
+						<!-- <div class="app_button_follow">
+							<button class="btn app_button_follow_btn custom_click" type="button">Следовать</button>
+						</div> -->
+					</div>
+					<div class="tag_block">
+						<div class="indicator_color career_color"></div>
+						<div class="top_header_tag">
+							<img src="../../static/img/tags_icons/career.png" alt="career" width="96px" height="96px">
+							<h3><a href="/tags/career">#career</a></h3>
+						</div>
+						<p>Этот тег предназначен для всего, что связано с карьерой! Предложения о работе, конфликты на рабочем месте, собеседования, резюме, продвижение по службе и т.д.</p>
+						<!-- <div class="app_button_follow">
+							<button class="btn app_button_follow_btn custom_click" type="button">Следовать</button>
+						</div> -->
+					</div>
+					<div class="tag_block">
+						<div class="indicator_color security_color"></div>
+						<div class="top_header_tag">
+							<img src="../../static/img/tags_icons/security.png" alt="security" width="96px" height="96px">
+							<h3><a href="/tags/security">#security</a></h3>
+						</div>
+						<p>Oтрасль компьютерной безопасности, связанная специальным образом не только с Интернетом, но и с сетевой безопасностью, поскольку она применяется к другим приложениям или операционным системам в целом.</p>
+						<!-- <div class="app_button_follow">
+							<button class="btn app_button_follow_btn custom_click" type="button">Следовать</button>
+						</div> -->
+					</div>
+					<div class="tag_block">
+						<div class="indicator_color linux_color"></div>
+						<div class="top_header_tag">
+							<img src="../../static/img/tags_icons/linux.gif" alt="linux" width="96px" height="96px">
+							<h3><a href="/tags/linux">#linux</a></h3>
+						</div>
+						<p>Linux — семейство Unix-подобных операционных систем на базе ядра Linux, включающих тот или иной набор утилит и программ проекта GNU, и, возможно, другие компоненты.</p>
+						<!-- <div class="app_button_follow">
+							<button class="btn app_button_follow_btn custom_click" type="button">Следовать</button>
+						</div> -->
+					</div>
+					<div class="tag_block">
+						<div class="indicator_color php_color"></div>
+						<div class="top_header_tag">
+							<img src="../../static/img/tags_icons/php.png" alt="php" width="96px" height="96px">
+							<h3><a href="/tags/php">#php</a></h3>
+						</div>
+						<p>Скриптовый язык общего назначения, интенсивно применяемый для разработки веб-приложений. В настоящее время поддерживается подавляющим большинством хостинг-провайдеров и является одним из лидеров среди языков, применяющихся для создания динамических веб-сайтов.</p>
+						<!-- <div class="app_button_follow">
+							<button class="btn app_button_follow_btn custom_click" type="button">Следовать</button>
+						</div> -->
+					</div>
+					<div class="tag_block">
+						<div class="indicator_color angular_color"></div>
+						<div class="top_header_tag">
+							<img src="../../static/img/tags_icons/angular.png" alt="angular" width="96px" height="96px">
+							<h3><a href="/tags/angular">#angular</a></h3>
+						</div>
+						<p>JavaScript-фреймворк с открытым исходным кодом. Предназначен для разработки одностраничных приложений. Его цель - расширение браузерных приложений на основе MVC-шаблона, а также упрощение тестирования и разработки.</p>
+						<!-- <div class="app_button_follow">
+							<button class="btn app_button_follow_btn custom_click" type="button">Следовать</button>
+						</div> -->
+					</div>
+					<div class="tag_block">
+						<div class="indicator_color machinelearning_color"></div>
+						<div class="top_header_tag">
+							<img src="../../static/img/tags_icons/machinelearning.png" alt="machinelearning" width="96px" height="96px">
+							<h3><a href="/tags/machinelearning">#machinelearning</a></h3>
+						</div>
+						<p>Класс методов искусственного интеллекта, характерной чертой которых является не прямое решение задачи, а обучение за счёт применения решений множества сходных задач.</p>
+						<!-- <div class="app_button_follow">
+							<button class="btn app_button_follow_btn custom_click" type="button">Следовать</button>
+						</div> -->
+					</div>
+					<div class="tag_block">
+						<div class="indicator_color database_color"></div>
+						<div class="top_header_tag">
+							<img src="../../static/img/tags_icons/database.png" alt="database" width="96px" height="96px">
+							<h3><a href="/tags/database">#database</a></h3>
+						</div>
+						<p>Совокупность данных, хранимых в соответствии со схемой данных, манипулирование которыми выполняют в соответствии с правилами средств моделирования данных.</p>
+						<!-- <div class="app_button_follow">
+							<button class="btn app_button_follow_btn custom_click" type="button">Следовать</button>
+						</div> -->
+					</div>
+					<div class="tag_block">
+						<div class="indicator_color blockchain_color"></div>
+						<div class="top_header_tag">
+							<img src="../../static/img/tags_icons/blockchain.png" alt="blockchain" width="96px" height="96px">
+							<h3><a href="/tags/blockchain">#blockchain</a></h3>
+						</div>
+						<p>Обозреватель биткойн-блоков и сервис криптовалютных кошельков. Сервис также позволяет просматривать блокчейн-информацию, например транзакции и хешрейт сети.</p>
+						<!-- <div class="app_button_follow">
+							<button class="btn app_button_follow_btn custom_click" type="button">Следовать</button>
+						</div> -->
+					</div>
+                </div>
+			</div>
+		</div>
+		<footer>
+			<div id="copyright">
+				<i class="far fa-copyright"></i>
+				Copyright 2020-2021
+			</div>
+			<div id="social">
+				<a href="https://t.me/niktech_nt"><i class="fab fa-telegram-plane"></i></a>
+				<a href="https://www.instagram.com/niktech_nt_site/"><i class="fab fa-instagram"></i></a>
+			</div>
+			<div id="email">
+				niktechsite@gmail.com
+			</div>
+		</footer>
+	</main>
+	<script>//button up
+		$(document).ready(function() {
+			let button = $('#button-up');
+			$(window).scroll (function () {
+				if ($(this).scrollTop () > 1000) {
+					button.fadeIn();
+				}
+				else {
+					button.fadeOut();
+				}
+			});
+			button.on('click', function(){
+				$('body, html').animate({
+					scrollTop: 0
+				}, 800);
+				return false;
+			});
+		});
+	</script>
+<!--	<script src="../static/js/text_anim.js"></script>-->
+	<script src="../static/js/particles.js"></script>
+	<script src="../static/js/app.js"></script>
+	<script src="../static/js/lib/stats.js"></script>
+	<script>//скрытие побочной подгруппы
+		$(document).ready(function() {
+			if ($(window).width() > 1024){
+				let button = $('#rigth_sounbar');
+				$(window).scroll (function () {
+					if ($(this).scrollTop () > 2000) {
+						button.fadeOut();
+					}
+					else {
+						button.fadeIn();
+					}
+				});
+			}
+		});
+	</script>
+	<script src="../static/js/halfmoon.min.js"></script>
+	<script src="../static/js/custom.js"></script>
+	<!-- Yandex.Metrika counter -->
+    <!-- <script type="text/javascript" >
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+       ym(66314386, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true
+       });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/66314386" style="position:absolute; left:-9999px;" alt="" /></div></noscript> -->
+    <!-- /Yandex.Metrika counter -->
+	<script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+		  config: ["MMLorHTML.js"],
+		  jax: ["input/TeX", "output/HTML-CSS", "output/NativeMML"],
+		  extensions: ["MathMenu.js", "MathZoom.js"]
+		});
+	</script>
+</body>
+</html>

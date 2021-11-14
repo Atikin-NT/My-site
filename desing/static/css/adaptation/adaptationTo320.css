@@ -1,0 +1,371 @@
+@media only screen and (min-width: 320px) and (max-width: 766px) {
+  nav {
+    position: fixed;
+    width: 100%;
+    height: 55px;
+  }
+  .logo {
+    width: 235px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .logo img {
+    position: relative;
+    top: 2px;
+    height: 50px;
+    left: 0;
+  }
+  .hamburger-menu {
+    height: 0;
+  }
+  #menu__toggle {
+    opacity: 0;
+  }
+  #menu__toggle:checked ~ .menu__btn > span {
+    transform: rotate(45deg);
+  }
+  #menu__toggle:checked ~ .menu__btn > span::before {
+    top: 0;
+    transform: rotate(0);
+  }
+  #menu__toggle:checked ~ .menu__btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+  #menu__toggle:checked ~ .menu__box {
+    visibility: visible;
+    left: 0;
+  }
+  .menu__btn {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 14px;
+    left: 20px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 1;
+  }
+  .menu__btn > span,
+  .menu__btn > span::before,
+  .menu__btn > span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #E4E6E8;
+    transition-duration: .25s;
+  }
+  .menu__btn > span::before {
+    content: '';
+    top: -8px;
+  }
+  .menu__btn > span::after {
+    content: '';
+    top: 8px;
+  }
+  .menu__box {
+    display: block;
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    left: -100%;
+    width: 200px;
+    height: 100%;
+    margin: 0;
+    padding: 80px 0;
+    list-style: none;
+    background-color: #202833;
+    box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
+    transition-duration: .25s;
+  }
+  .menu__item {
+    display: block;
+    padding: 12px 24px;
+    color: #64FDF1;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    transition-duration: .25s;
+  }
+  .menu__item:hover {
+    color: #E4E6E8;
+  }
+  #find {
+    position: relative;
+    top: 12px;
+    float: right;
+    right: 50px;
+    width: 30px;
+    height: 30px;
+  }
+  #find svg {
+    width: 30px;
+    height: 30px;
+  }
+  .icon {
+    height: 30px;
+    width: 30px;
+    margin: 0;
+  }
+  #okno {
+    margin-top: 55px;
+  }
+  #form_normal_size input {
+    width: 300px;
+    height: 70px;
+    margin: 30px 0 0 0;
+    font-size: 13px;
+  }
+  .close img {
+    height: 25px;
+    width: 25px;
+    margin: 52px 0 0 0;
+  }
+  #login {
+    position: relative;
+    top: 12px;
+    float: right;
+    right: -15px;
+    width: 30px;
+    height: 55px;
+  }
+  #login svg {
+    width: 30px;
+    height: 30px;
+  }
+  .endicon {
+    margin: 0;
+  }
+  menu {
+    display: none;
+  }
+  .hamburger-menu {
+    display: block;
+  }
+  #go_up {
+    display: none;
+  }
+  #rigth_sounbar {
+    display: none;
+  }
+  #normal_size_app {
+    width: 100%;
+    margin: 100px 0 0 0;
+  }
+  #title {
+    width: 300px;
+    margin: 0 auto;
+  }
+  #text_app {
+    font-size: 30px;
+  }
+  #app {
+    height: 5500px;
+  }
+  article {
+    width: 90%;
+    min-width: 290px;
+    height: 400px;
+  }
+  .image {
+    height: 190px;
+    width: 100%;
+    float: none;
+  }
+  .image img {
+    margin: 0;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .text_art {
+    width: 96%;
+    margin: 0 2% 0 2%;
+    height: 210px;
+    float: none;
+  }
+  .text_main_art {
+    height: 125px;
+    width: 100%;
+  }
+  .title_main_art {
+    padding: 0;
+  }
+  .second_text_main_art {
+    height: 85px;
+    font-size: 12px;
+  }
+  .param_art {
+    margin: 30px 0 0 0;
+  }
+  .views {
+    width: 33%;
+    float: left;
+  }
+  .likes {
+    width: 33%;
+    float: left;
+  }
+  .date_art {
+    width: 33%;
+    float: left;
+  }
+  .normale_size_param {
+    width: 80px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .icon_param {
+    width: 25px;
+    height: 25px;
+  }
+  .icon_param img {
+    width: 25px;
+    height: 25px;
+  }
+  .text_param {
+    height: 25px;
+    font-size: 12px;
+    margin: 8px 0 0 5px;
+  }
+  .advertising {
+    width: 90%;
+    height: 200px;
+  }
+  #paginator {
+    height: 25px;
+    margin-top: 50px;
+  }
+  #normal_size_pag {
+    width: 265px;
+  }
+  .arrow {
+    width: 25px;
+  }
+  .arrow svg {
+    height: 25px;
+    width: 25px;
+  }
+  #main_pag_index {
+    margin: 0 8px 0 8px;
+    width: 198px;
+  }
+  .button_index_pag {
+    width: 28px;
+    height: 25px;
+  }
+  .hidden_paginator {
+    display: none;
+  }
+  .index_pag {
+    font-size: 13px;
+    height: 21px;
+    width: 22px;
+    margin: 2px 0 0 2px;
+  }
+  #downstairs_footer {
+    height: 60px;
+  }
+  #upstairs_footer {
+    height: 340px;
+    width: 100%;
+  }
+  #copyright {
+    float: right;
+    width: 100%;
+  }
+  #copyright_norm_size {
+    margin: 10px auto;
+  }
+  #upstairs_footer_norm_size {
+    width: 100%;
+    margin-left: 0px;
+  }
+  .class_footer {
+    width: 100%;
+  }
+  .top_footer {
+    height: 90px;
+  }
+  .bottom_footer {
+    height: 250px;
+  }
+  .hidden_footer {
+    display: none;
+  }
+  .logo_and_social_footer {
+    height: 90px;
+    width: 50%;
+    float: left;
+  }
+  .logo_and_social_footer img {
+    width: 100%;
+    height: 40px;
+    position: relative;
+    top: 20px;
+    left: 20px;
+    transform: translate(0%, 0%);
+  }
+  #titel_footer_social {
+    height: 40px;
+  }
+  #icon_footer_social {
+    height: 50px;
+  }
+  #text_titel_footer_social {
+    font-size: 12px;
+  }
+  #norm_size_icon_social {
+    width: 100px;
+    height: 30px;
+  }
+  .icon_place {
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+  }
+  .icon_place svg {
+    width: 30px;
+    height: 30px;
+  }
+  .first {
+    margin-left: 0;
+  }
+  .title_art_footer {
+    font-size: 18px;
+    margin-top: 0;
+  }
+  #contact_form {
+    width: 255px;
+    height: 220px;
+    margin: 0 auto;
+  }
+  #contact_form input {
+    width: 255px;
+    height: 30px;
+    margin-top: 8px;
+    font-size: 13px;
+  }
+  #contact_form textarea {
+    font-size: 13px;
+  }
+  #button_footer_send input {
+    width: 140px;
+    height: 20px;
+    float: right;
+    background: #386AE8;
+    border: none;
+    border-radius: 10px;
+  }
+  #button_footer_send input:hover {
+    background: #507EF2;
+    cursor: pointer;
+  }
+}

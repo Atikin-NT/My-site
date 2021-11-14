@@ -1,0 +1,37 @@
+{% extends 'user.html' %} <!-- подключаем базовый шаблон -->
+
+{% block content %}
+<div id="user_up_block">
+    <div id="user_logo">
+        {% if user.profile.photo %}
+            <img src="{{user.profile.photo.url}}" width="80px" height="80px">
+        {% else %}
+            <img src="../../static/img/default.png" width="80px" height="80px"/>
+        {% endif %}
+    </div>
+    <div id="user_name">
+        {{user.username}}
+    </div>
+    <div id="user_logout">
+        <a href="/logout/">Выйти</a>
+    </div>
+</div>
+<div id="user_down_block">
+    <div id="personal_information">
+        <div class="main_text_user">Персональная информация</div>
+        <form id="user_form" action="." method="post" enctype="multipart/form-data">
+            {{ user_form.as_p }}
+            {{ profile_form.as_p }}
+            {% csrf_token %}
+            <p><a href="/password-change/">Изменить пароль</a></p>
+            <div id="button_footer_send"><input type="submit" name="SendMess" value="Сохранить"></div>
+        </form>
+    </div>
+    <div id="user_future">
+        <div class="main_text_user">В разработке</div>
+        <div id="inthefuture_text_center">
+            <img src="../../static/img/in_work.png" width="150px" height="150px">
+        </div>
+    </div>
+</div>
+{% endblock %}

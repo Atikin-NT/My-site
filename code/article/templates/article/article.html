@@ -1,0 +1,164 @@
+{% extends 'index.html' %} <!-- подключаем базовый шаблон -->
+
+{% block content %}
+<div id="app">
+    <div id="normal_size_app">
+        <div id="title">
+            <div id="color_topic"></div>
+            <div id="text_app_heshteg">#</div>
+            <div id="text_app">{{meta_title}}</div>
+<!--            <div id="app_button_follow">-->
+<!--                <button class="btn app_button_follow_btn custom_click" type="button">Следовать</button>-->
+<!--            </div>-->
+        </div>
+        <div id="article_normal_size_block">
+            {% if posts %}
+                {% for a in posts %}
+                    <article>
+                        <a href="{% url 'detail' a.id %}">
+                        <div class="article_about_art">
+                            <div class="text_art">
+                                <div class="text_main_art">
+                                    <div class="second_text_main_art">
+                                        <div class="image">
+                                            <img src="{{ a.article_picture.url}}" alt="{{ post.article_picture_alt }}">
+                                        </div>
+                                        <h2>{{a.article_title}}</h2>
+                                        <p>{{a.article_small_text}}</p>
+                                    </div>
+                                </div>
+                                <div class="param_art">
+									<div class="param_art_left">
+										<div class="icons_param like">
+											<i class="fas fa-heart"></i>
+											{{a.likes}} реакций
+										</div>
+										<div class="icons_param comment">
+											<i class="fas fa-comment"></i>
+											{{a.likes}} комментов
+										</div>
+										<div class="icons_param date_art">
+											<i class="far fa-clock"></i>
+											{{a.pub_date|date:'d.m.Y'}}
+										</div>
+									</div>
+									<div class="param_art_right">
+										{{a.time_to_read}} мин чтения
+									</div>
+								</div>
+                            </div>
+						</div>
+						<div class="author">
+							<div class="author_author">
+								<img src="C:\Users\Ave\Desktop\tmp\avatar.jpg">
+								<h4>NikTech</h4>
+							</div>
+							<div class="heshteg_author">
+                                {% for tag in a.tagArticle %}
+                                    {% if tag.id == 1 %}
+                                        <a class="iskl" href="{% url 'tags' tag %}">#{{tag}}</a>
+                                    {% else %}
+                                        <a href="{% url 'tags' tag %}">#{{tag}}</a>
+                                    {% endif %}
+                                {% endfor %}
+							</div>
+						</div>
+                        </a>
+                    </article>
+                    {% if a.id == adver1 %}
+                        <div class="advertising"></div>
+                    {% endif %}
+                    {% if a.id == adver2 %}
+                        <div class="advertising"></div>
+                    {% endif %}
+                    {% if a.id == adver3 %}
+                        <div class="advertising"></div>
+                    {% endif %}
+                {% endfor %}
+        </div>
+        <div id="paginator">
+            <div id="normal_size_pag">
+                {% if posts.has_previous %}
+                <div class="arrow">
+                    <a href="?page={{ posts.previous_page_number }}"><svg width="50" height="50" viewBox="0 0 50 50" fill="#C4C4C4" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M50 25C50 31.6304 47.3661 37.9893 42.6777 42.6777C37.9893 47.3661 31.6304 50 25 50C18.3696 50 12.0107 47.3661 7.32233 42.6777C2.63392 37.9893 0 31.6304 0 25C0 18.3696 2.63392 12.0107 7.32233 7.32233C12.0107 2.63392 18.3696 0 25 0C31.6304 0 37.9893 2.63392 42.6777 7.32233C47.3661 12.0107 50 18.3696 50 25ZM26.1063 33.2687C26.3996 33.5621 26.5645 33.9601 26.5645 34.375C26.5645 34.7899 26.3996 35.1879 26.1063 35.4813C25.8129 35.7746 25.4149 35.9395 25 35.9395C24.5851 35.9395 24.1871 35.7746 23.8937 35.4813L14.5187 26.1063C14.3732 25.9611 14.2578 25.7887 14.179 25.5989C14.1003 25.409 14.0597 25.2055 14.0597 25C14.0597 24.7945 14.1003 24.591 14.179 24.4011C14.2578 24.2113 14.3732 24.0389 14.5187 23.8937L23.8937 14.5187C24.039 14.3735 24.2115 14.2582 24.4013 14.1796C24.5911 14.101 24.7945 14.0605 25 14.0605C25.2055 14.0605 25.4089 14.101 25.5987 14.1796C25.7885 14.2582 25.961 14.3735 26.1063 14.5187C26.2515 14.664 26.3668 14.8365 26.4454 15.0263C26.524 15.2161 26.5645 15.4195 26.5645 15.625C26.5645 15.8305 26.524 16.0339 26.4454 16.2237C26.3668 16.4135 26.2515 16.586 26.1063 16.7313L19.3969 23.4375H34.375C34.7894 23.4375 35.1868 23.6021 35.4799 23.8951C35.7729 24.1882 35.9375 24.5856 35.9375 25C35.9375 25.4144 35.7729 25.8118 35.4799 26.1049C35.1868 26.3979 34.7894 26.5625 34.375 26.5625H19.3969L26.1063 33.2687Z"/>
+                    </svg></a>
+                </div>
+                {% endif %}
+                <div id="main_pag_index">
+                {% for i in posts.paginator.page_range %}
+                    {% if posts.number > 4 %}
+                        {% if posts.number > flag3 %}
+                            {% if posts.number > i %}
+                                {% if i > flagmin %}
+                                <div class="button_index_pag">
+                                    <div class="index_pag"><div class="index_pag_text"><a href="?page={{ i }}">{{ i }}</a></div></div>
+                                </div>
+                                {% endif %}
+                            {% endif %}
+                            {% if posts.number == i %}
+                            <div class="button_index_pag">
+                                <div class="index_pag"><div class="index_pag_text"><a href="?page={{ i }}">{{ i }}</a></div></div>
+                            </div>
+                            {% endif %}
+                            {% if posts.number < i %}
+                                {% if i <= posts.paginator.count %}
+                                <div class="button_index_pag">
+                                    <div class="index_pag"><div class="index_pag_text"><a href="?page={{ i }}">{{ i }}</a></div></div>
+                                </div>
+                                {% endif %}
+                            {% endif %}
+                        {% else %}
+                            {% if posts.number > i %}
+                                {% if flag1 < i %}
+                                <div class="button_index_pag">
+                                    <div class="index_pag"><div class="index_pag_text"><a href="?page={{ i }}">{{ i }}</a></div></div>
+                                </div>
+                                {% endif %}
+                            {% endif %}
+                            {% if posts.number == i %}
+                            <div class="button_index_pag">
+                                <div class="index_pag"><div class="index_pag_text"><a href="?page={{ i }}">{{ i }}</a></div></div>
+                            </div>
+                            {% endif %}
+                            {% if posts.number < i %}
+                                {% if flag2 > i %}
+                                <div class="button_index_pag">
+                                    <div class="index_pag"><div class="index_pag_text"><a href="?page={{ i }}">{{ i }}</a></div></div>
+                                </div>
+                                {% endif %}
+                            {% endif %}
+                        {% endif %}
+                    {% else %}
+                        {% if i < 11 %}
+                            {% if posts.number == i %}
+                            <div class="button_index_pag">
+                                <div class="index_pag"><div class="index_pag_text"><a href="?page={{ i }}">{{ i }}</a></div></div>
+                            </div>
+                            {% else %}
+                            <div class="button_index_pag">
+                                <div class="index_pag"><div class="index_pag_text"><a href="?page={{ i }}">{{ i }}</a></div></div>
+                            </div>
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                </div>
+                {% if posts.has_next %}
+                <div class="arrow right">
+                    <a href="?page={{ posts.next_page_number }}"><svg width="50" height="50" viewBox="0 0 50 50" fill="#C4C4C4"xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M50 25C50 31.6304 47.3661 37.9893 42.6777 42.6777C37.9893 47.3661 31.6304 50 25 50C18.3696 50 12.0107 47.3661 7.32233 42.6777C2.63392 37.9893 0 31.6304 0 25C0 18.3696 2.63392 12.0107 7.32233 7.32233C12.0107 2.63392 18.3696 0 25 0C31.6304 0 37.9893 2.63392 42.6777 7.32233C47.3661 12.0107 50 18.3696 50 25ZM23.8937 33.2687C23.6004 33.5621 23.4355 33.9601 23.4355 34.375C23.4355 34.7899 23.6004 35.1879 23.8937 35.4813C24.1871 35.7746 24.5851 35.9395 25 35.9395C25.4149 35.9395 25.8129 35.7746 26.1063 35.4813L35.4813 26.1063C35.6268 25.9611 35.7422 25.7887 35.821 25.5989C35.8997 25.409 35.9403 25.2055 35.9403 25C35.9403 24.7945 35.8997 24.591 35.821 24.4011C35.7422 24.2113 35.6268 24.0389 35.4813 23.8937L26.1063 14.5187C25.961 14.3735 25.7885 14.2582 25.5987 14.1796C25.4089 14.101 25.2055 14.0605 25 14.0605C24.7945 14.0605 24.5911 14.101 24.4013 14.1796C24.2115 14.2582 24.039 14.3735 23.8937 14.5187C23.7485 14.664 23.6332 14.8365 23.5546 15.0263C23.476 15.2161 23.4355 15.4195 23.4355 15.625C23.4355 15.8305 23.476 16.0339 23.5546 16.2237C23.6332 16.4135 23.7485 16.586 23.8937 16.7313L30.6031 23.4375H15.625C15.2106 23.4375 14.8132 23.6021 14.5201 23.8951C14.2271 24.1882 14.0625 24.5856 14.0625 25C14.0625 25.4144 14.2271 25.8118 14.5201 26.1049C14.8132 26.3979 15.2106 26.5625 15.625 26.5625H30.6031L23.8937 33.2687Z"/>
+                    </svg></a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% else %}
+            <div class="title_main_art">
+                Ничего не найдено<br><br>
+                (；⌣̀_⌣́)
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

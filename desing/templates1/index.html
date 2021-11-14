@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width? initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="description" cjntent="NikTech Top">
+	<meta name="author" content="NikTech">
+	<link rel="stylesheet" href="../static/css/normalize.min.css">
+	<link rel="stylesheet" href="../static/css/article.css">
+	<link rel="stylesheet" href="../static/css/index.css">
+	<link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+  	<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<title>NikTech</title>
+</head>
+<body>
+	<main>
+		<nav>
+			<div id="normal_size">
+				<div class="hamburger-menu">
+					<input id="menu__toggle" type="checkbox" />
+					<label class="menu__btn" for="menu__toggle">
+						<span></span>
+					</label>
+
+					<ul class="menu__box">
+						<li><a class="menu__item" href="#">Главная</a></li>
+						<li><a class="menu__item" href="#">Кодинг</a></li>
+						<li><a class="menu__item" href="#">Новости</a></li>
+						<li><a class="menu__item" href="#">Прочее</a></li>
+						<li><a class="menu__item" href="#">Софт для ПК</a></li>
+					</ul>
+				</div>
+				<div class="logo">
+					<img src="../images/logo_full.svg" width="235px">
+				</div>
+				<menu>
+					<ul>
+						<li class="iskl"><a href="">Главная</a></li>
+						<li><a href="">Кодинг</a></li>
+						<li><a href="">Новости</a></li>
+						<li><a href="">Прочее</a></li>
+						<li><a href="">Софт для ПК</a></li>
+					</ul>
+				</menu>
+				<div id="find">
+					<div class="icon">
+						<a href="#findPlace"><svg width="50" height="50" viewBox="0 0 50 50" fill="#E4E6E8" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M20 9.99996C17.3478 9.99996 14.8043 11.0535 12.9289 12.9289C11.0536 14.8043 10 17.3478 10 20C10 22.6521 11.0536 25.1957 12.9289 27.071C14.8043 28.9464 17.3478 30 20 30C22.6522 30 25.1957 28.9464 27.0711 27.071C28.9464 25.1957 30 22.6521 30 20C30 17.3478 28.9464 14.8043 27.0711 12.9289C25.1957 11.0535 22.6522 9.99996 20 9.99996ZM5 20C4.9997 17.6392 5.55661 15.3117 6.62543 13.2068C7.69425 11.1019 9.24481 9.27896 11.151 7.88628C13.0572 6.4936 15.2652 5.57049 17.5954 5.19205C19.9256 4.8136 22.3122 4.99049 24.5612 5.70834C26.8101 6.42619 28.8579 7.66472 30.5379 9.3232C32.2179 10.9817 33.4828 13.0133 34.2296 15.2528C34.9765 17.4923 35.1841 19.8764 34.8358 22.2113C34.4875 24.5462 33.593 26.766 32.225 28.69L44.2675 40.7325C44.7229 41.204 44.9749 41.8355 44.9692 42.491C44.9635 43.1465 44.7006 43.7735 44.237 44.237C43.7735 44.7005 43.1465 44.9635 42.491 44.9692C41.8355 44.9749 41.204 44.7229 40.7325 44.2675L28.6925 32.2275C26.4484 33.8232 23.8084 34.7704 21.0617 34.9653C18.315 35.1602 15.5677 34.5952 13.1207 33.3324C10.6738 32.0696 8.62172 30.1575 7.18931 27.8058C5.7569 25.4542 4.99946 22.7535 5 20V20Z"/>
+						</svg>
+						</a>
+					</div>
+				</div>
+				<div id="login">
+					<div class="icon endicon">
+						<a href="#"><svg width="50" height="50" viewBox="0 0 50 50" fill="#E4E6E8" xmlns="http://www.w3.org/2000/svg">
+<path d="M25 4.16669C13.7063 4.16669 4.16669 13.7063 4.16669 25C4.16669 36.2938 13.7063 45.8334 25 45.8334C36.2938 45.8334 45.8334 36.2938 45.8334 25C45.8334 13.7063 36.2938 4.16669 25 4.16669ZM25 14.5834C28.5979 14.5834 31.25 17.2334 31.25 20.8334C31.25 24.4334 28.5979 27.0834 25 27.0834C21.4042 27.0834 18.75 24.4334 18.75 20.8334C18.75 17.2334 21.4042 14.5834 25 14.5834ZM14.3625 34.9417C16.2313 32.1917 19.3479 30.3584 22.9167 30.3584H27.0834C30.6542 30.3584 33.7688 32.1917 35.6375 34.9417C32.975 37.7917 29.1979 39.5834 25 39.5834C20.8021 39.5834 17.025 37.7917 14.3625 34.9417Z"/>
+</svg></a>
+					</div>
+				</div>
+			</div>
+			<div id="findPlace">
+				<div id="okno">
+					<div id="form_normal_size">
+						<form>
+							<input type="text" placeholder="Введи слово или фразу для поиска ...">
+						</form>
+					</div>
+					<a href="#" class="close"><img src="../images/close.svg" width="50px"></a>
+				</div>
+			</div>
+		</nav>
+		<div id="go_up">
+			<div id="button-up">
+				<svg width="50" height="50" viewBox="0 0 60 60" fill="#323846" xmlns="http://www.w3.org/2000/svg">
+				<path d="M7.50009 47.5H52.5001C52.9557 47.4985 53.4023 47.3729 53.7918 47.1365C54.1813 46.9002 54.4989 46.562 54.7106 46.1586C54.9222 45.7551 55.0198 45.3016 54.9929 44.8467C54.9659 44.3919 54.8154 43.9531 54.5576 43.5775L32.0576 11.0775C31.1251 9.72996 28.8801 9.72996 27.9451 11.0775L5.44509 43.5775C5.18465 43.9523 5.03193 44.3914 5.0035 44.8469C4.97508 45.3025 5.07205 45.7572 5.28388 46.1615C5.4957 46.5658 5.81428 46.9043 6.205 47.1403C6.59572 47.3763 7.04364 47.5007 7.50009 47.5Z"/>
+				</svg>
+			</div>
+		</div>
+		<div id="app">
+			<canvas id="canvas"></canvas>
+			<div id="normal_size_app">
+				<div id="title">
+					<div class="corner"></div>
+					<div id="text_app">Софт для пк</div>
+					<div class="corner right"></div>
+				</div>
+				<article>
+					<div class="image">
+						<div class="image_inside">
+							<img src="../images/%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0.png" width="160px">
+						</div>
+					</div>
+					<div class="text_art">
+						<div class="text_main_art">
+							<div class="title_main_art">
+								Название статьи
+							</div>
+							<div class="second_text_main_art">
+								Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes. Cum sociis natoque penatibus et magnis dis parturient montes
+							</div>
+						</div>
+						<div class="param_art">
+							<div class="views">
+								<div class="normale_size_param">
+									<div class="icon_param">
+										<img src="../images/eye.svg">
+									</div>
+									<div class="text_param">
+										1.5k
+									</div>
+								</div>
+							</div>
+							<div class="likes">
+								<div class="normale_size_param">
+									<div class="icon_param">
+										<img src="../images/like.svg">
+									</div>
+									<div class="text_param">
+										1.5k
+									</div>
+								</div>
+							</div>
+							<div class="date_art">
+								<div class="normale_size_param">
+									<div class="text_param">10.06.2020</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+				<article>
+					<div class="image">
+						<div class="image_inside">
+							<img src="../images/%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0.png" width="160px">
+						</div>
+					</div>
+					<div class="text_art">
+						<div class="text_main_art">
+							<div class="title_main_art">
+								Название статьи
+							</div>
+							<div class="second_text_main_art">
+								Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes. Cum sociis natoque penatibus et magnis dis parturient montes
+							</div>
+						</div>
+						<div class="param_art">
+							<div class="views">
+								<div class="normale_size_param">
+									<div class="icon_param">
+										<img src="../images/eye.svg">
+									</div>
+									<div class="text_param">
+										1.5k
+									</div>
+								</div>
+							</div>
+							<div class="likes">
+								<div class="normale_size_param">
+									<div class="icon_param">
+										<img src="../images/like.svg">
+									</div>
+									<div class="text_param">
+										1.5k
+									</div>
+								</div>
+							</div>
+							<div class="date_art">
+								<div class="normale_size_param">
+									<div class="text_param">10.06.2020</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+				<article>
+					<div class="image">
+						<div class="image_inside">
+							<img src="../images/%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0.png" width="160px">
+						</div>
+					</div>
+					<div class="text_art">
+						<div class="text_main_art">
+							<div class="title_main_art">
+								Название статьи
+							</div>
+							<div class="second_text_main_art">
+								Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes. Cum sociis natoque penatibus et magnis dis parturient montes
+							</div>
+						</div>
+						<div class="param_art">
+							<div class="views">
+								<div class="normale_size_param">
+									<div class="icon_param">
+										<img src="../images/eye.svg">
+									</div>
+									<div class="text_param">
+										1.5k
+									</div>
+								</div>
+							</div>
+							<div class="likes">
+								<div class="normale_size_param">
+									<div class="icon_param">
+										<img src="../images/like.svg">
+									</div>
+									<div class="text_param">
+										1.5k
+									</div>
+								</div>
+							</div>
+							<div class="date_art">
+								<div class="normale_size_param">
+									<div class="text_param">10.06.2020</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+				<div class="advertising"></div>
+				<article>
+					<div class="image">
+						<div class="image_inside">
+						<img src="../images/%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0.png" width="160px">
+						</div>
+					</div>
+					<div class="text_art">
+						<div class="text_main_art">
+							<div class="title_main_art">
+								Название статьи
+							</div>
+							<div class="second_text_main_art">
+								Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes. Cum sociis natoque penatibus et magnis dis parturient montes
+							</div>
+						</div>
+						<div class="param_art">
+							<div class="views">
+								<div class="normale_size_param">
+									<div class="icon_param">
+										<img src="../images/eye.svg">
+									</div>
+									<div class="text_param">
+										1.5k
+									</div>
+								</div>
+							</div>
+							<div class="likes">
+								<div class="normale_size_param">
+									<div class="icon_param">
+										<img src="../images/like.svg">
+									</div>
+									<div class="text_param">
+										1.5k
+									</div>
+								</div>
+							</div>
+							<div class="date_art">
+								<div class="normale_size_param">
+									<div class="text_param">10.06.2020</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+				<article>
+					<div class="image">
+						<div class="image_inside">
+							<img src="../images/%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0.png" width="160px">
+						</div>
+					</div>
+					<div class="text_art">
+						<div class="text_main_art">
+							<div class="title_main_art">
+								Название статьи
+							</div>
+							<div class="second_text_main_art">
+								Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes. Cum sociis natoque penatibus et magnis dis parturient montes
+							</div>
+						</div>
+						<div class="param_art">
+							<div class="views">
+								<div class="normale_size_param">
+									<div class="icon_param">
+										<img src="../images/eye.svg">
+									</div>
+									<div class="text_param">
+										1.5k
+									</div>
+								</div>
+							</div>
+							<div class="likes">
+								<div class="normale_size_param">
+									<div class="icon_param">
+										<img src="../images/like.svg">
+									</div>
+									<div class="text_param">
+										1.5k
+									</div>
+								</div>
+							</div>
+							<div class="date_art">
+								<div class="normale_size_param">
+									<div class="text_param">10.06.2020</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+				<article>
+					<div class="image">
+						<div class="image_inside">
+							<img src="../images/%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0.png" width="160px">
+						</div>
+					</div>
+					<div class="text_art">
+						<div class="text_main_art">
+							<div class="title_main_art">
+								Название статьи
+							</div>
+							<div class="second_text_main_art">
+								Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes. Cum sociis natoque penatibus et magnis dis parturient montes
+							</div>
+						</div>
+						<div class="param_art">
+							<div class="views">
+								<div class="normale_size_param">
+									<div class="icon_param">
+										<img src="../images/eye.svg">
+									</div>
+									<div class="text_param">
+										1.5k
+									</div>
+								</div>
+							</div>
+							<div class="likes">
+								<div class="normale_size_param">
+									<div class="icon_param">
+										<img src="../images/like.svg">
+									</div>
+									<div class="text_param">
+										1.5k
+									</div>
+								</div>
+							</div>
+							<div class="date_art">
+								<div class="normale_size_param">
+									<div class="text_param">10.06.2020</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+				<div class="advertising"></div>
+				<article>
+					<div class="image">
+						<div class="image_inside">
+							<img src="../images/%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0.png" width="160px">
+						</div>
+					</div>
+					<div class="text_art">
+						<div class="text_main_art">
+							<div class="title_main_art">
+								Название статьи
+							</div>
+							<div class="second_text_main_art">
+								Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes. Cum sociis natoque penatibus et magnis dis parturient montes
+							</div>
+						</div>
+						<div class="param_art">
+							<div class="views">
+								<div class="normale_size_param">
+									<div class="icon_param">
+										<img src="../images/eye.svg">
+									</div>
+									<div class="text_param">
+										1.5k
+									</div>
+								</div>
+							</div>
+							<div class="likes">
+								<div class="normale_size_param">
+									<div class="icon_param">
+										<img src="../images/like.svg">
+									</div>
+									<div class="text_param">
+										1.5k
+									</div>
+								</div>
+							</div>
+							<div class="date_art">
+								<div class="normale_size_param">
+									<div class="text_param">10.06.2020</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+				<article>
+					<div class="image">
+						<div class="image_inside">
+							<img src="../images/%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0.png" width="160px">
+						</div>
+					</div>
+					<div class="text_art">
+						<div class="text_main_art">
+							<div class="title_main_art">
+								Название статьи
+							</div>
+							<div class="second_text_main_art">
+								Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes. Cum sociis natoque penatibus et magnis dis parturient montes
+							</div>
+						</div>
+						<div class="param_art">
+							<div class="views">
+								<div class="normale_size_param">
+									<div class="icon_param">
+										<img src="../images/eye.svg">
+									</div>
+									<div class="text_param">
+										1.5k
+									</div>
+								</div>
+							</div>
+							<div class="likes">
+								<div class="normale_size_param">
+									<div class="icon_param">
+										<img src="../images/like.svg">
+									</div>
+									<div class="text_param">
+										1.5k
+									</div>
+								</div>
+							</div>
+							<div class="date_art">
+								<div class="normale_size_param">
+									<div class="text_param">10.06.2020</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+				<article>
+					<div class="image">
+						<div class="image_inside">
+							<img src="../images/%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0.png" width="160px">
+						</div>
+					</div>
+					<div class="text_art">
+						<div class="text_main_art">
+							<div class="title_main_art">
+								Название статьи
+							</div>
+							<div class="second_text_main_art">
+								Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes. Cum sociis natoque penatibus et magnis dis parturient montes
+							</div>
+						</div>
+						<div class="param_art">
+							<div class="views">
+								<div class="normale_size_param">
+									<div class="icon_param">
+										<img src="../images/eye.svg">
+									</div>
+									<div class="text_param">
+										1.5k
+									</div>
+								</div>
+							</div>
+							<div class="likes">
+								<div class="normale_size_param">
+									<div class="icon_param">
+										<img src="../images/like.svg">
+									</div>
+									<div class="text_param">
+										1.5k
+									</div>
+								</div>
+							</div>
+							<div class="date_art">
+								<div class="normale_size_param">
+									<div class="text_param">10.06.2020</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+				<div class="advertising"></div>
+				<article>
+					<div class="image">
+						<div class="image_inside">
+							<img src="../images/%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0.png" width="160px">
+						</div>
+					</div>
+					<div class="text_art">
+						<div class="text_main_art">
+							<div class="title_main_art">
+								Название статьи
+							</div>
+							<div class="second_text_main_art">
+								Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes. Cum sociis natoque penatibus et magnis dis parturient montes
+							</div>
+						</div>
+						<div class="param_art">
+							<div class="views">
+								<div class="normale_size_param">
+									<div class="icon_param">
+										<img src="../images/eye.svg">
+									</div>
+									<div class="text_param">
+										1.5k
+									</div>
+								</div>
+							</div>
+							<div class="likes">
+								<div class="normale_size_param">
+									<div class="icon_param">
+										<img src="../images/like.svg">
+									</div>
+									<div class="text_param">
+										1.5k
+									</div>
+								</div>
+							</div>
+							<div class="date_art">
+								<div class="normale_size_param">
+									<div class="text_param">10.06.2020</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</article>
+				<div id="paginator">
+					<div id="normal_size_pag">
+						<div class="arrow">
+							<svg width="50" height="50" viewBox="0 0 50 50" fill="#C4C4C4" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M50 25C50 31.6304 47.3661 37.9893 42.6777 42.6777C37.9893 47.3661 31.6304 50 25 50C18.3696 50 12.0107 47.3661 7.32233 42.6777C2.63392 37.9893 0 31.6304 0 25C0 18.3696 2.63392 12.0107 7.32233 7.32233C12.0107 2.63392 18.3696 0 25 0C31.6304 0 37.9893 2.63392 42.6777 7.32233C47.3661 12.0107 50 18.3696 50 25ZM26.1063 33.2687C26.3996 33.5621 26.5645 33.9601 26.5645 34.375C26.5645 34.7899 26.3996 35.1879 26.1063 35.4813C25.8129 35.7746 25.4149 35.9395 25 35.9395C24.5851 35.9395 24.1871 35.7746 23.8937 35.4813L14.5187 26.1063C14.3732 25.9611 14.2578 25.7887 14.179 25.5989C14.1003 25.409 14.0597 25.2055 14.0597 25C14.0597 24.7945 14.1003 24.591 14.179 24.4011C14.2578 24.2113 14.3732 24.0389 14.5187 23.8937L23.8937 14.5187C24.039 14.3735 24.2115 14.2582 24.4013 14.1796C24.5911 14.101 24.7945 14.0605 25 14.0605C25.2055 14.0605 25.4089 14.101 25.5987 14.1796C25.7885 14.2582 25.961 14.3735 26.1063 14.5187C26.2515 14.664 26.3668 14.8365 26.4454 15.0263C26.524 15.2161 26.5645 15.4195 26.5645 15.625C26.5645 15.8305 26.524 16.0339 26.4454 16.2237C26.3668 16.4135 26.2515 16.586 26.1063 16.7313L19.3969 23.4375H34.375C34.7894 23.4375 35.1868 23.6021 35.4799 23.8951C35.7729 24.1882 35.9375 24.5856 35.9375 25C35.9375 25.4144 35.7729 25.8118 35.4799 26.1049C35.1868 26.3979 34.7894 26.5625 34.375 26.5625H19.3969L26.1063 33.2687Z"/></svg>
+						</div>
+						<div id="main_pag_index">
+							<div class="button_index_pag">
+								<div class="index_pag"><div class="index_pag_text">1</div></div>
+							</div>
+							<div class="button_index_pag">
+								<div class="index_pag"><div class="index_pag_text">2</div></div>
+							</div>
+							<div class="button_index_pag">
+								<div class="index_pag"><div class="index_pag_text">3</div></div>
+							</div>
+							<div class="button_index_pag">
+								<div class="index_pag"><div class="index_pag_text">4</div></div>
+							</div>
+							<div class="button_index_pag">
+								<div class="index_pag"><div class="index_pag_text">5</div></div>
+							</div>
+							<div class="button_index_pag">
+								<div class="index_pag"><div class="index_pag_text">6</div></div>
+							</div>
+							<div class="button_index_pag">
+								<div class="index_pag"><div class="index_pag_text">7</div></div>
+							</div>
+							<div class="button_index_pag hidden_paginator">
+								<div class="index_pag "><div class="index_pag_text"><a href="/">8</a></div></div>
+							</div>
+							<div class="button_index_pag hidden_paginator">
+								<div class="index_pag"><div class="index_pag_text">9</div></div>
+							</div>
+							<div class="button_index_pag hidden_paginator">
+								<div class="index_pag"><div class="index_pag_text">10</div></div>
+							</div>
+						</div>
+						<div class="arrow right">
+							<svg width="50" height="50" viewBox="0 0 50 50" fill="#C4C4C4"xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M50 25C50 31.6304 47.3661 37.9893 42.6777 42.6777C37.9893 47.3661 31.6304 50 25 50C18.3696 50 12.0107 47.3661 7.32233 42.6777C2.63392 37.9893 0 31.6304 0 25C0 18.3696 2.63392 12.0107 7.32233 7.32233C12.0107 2.63392 18.3696 0 25 0C31.6304 0 37.9893 2.63392 42.6777 7.32233C47.3661 12.0107 50 18.3696 50 25ZM23.8937 33.2687C23.6004 33.5621 23.4355 33.9601 23.4355 34.375C23.4355 34.7899 23.6004 35.1879 23.8937 35.4813C24.1871 35.7746 24.5851 35.9395 25 35.9395C25.4149 35.9395 25.8129 35.7746 26.1063 35.4813L35.4813 26.1063C35.6268 25.9611 35.7422 25.7887 35.821 25.5989C35.8997 25.409 35.9403 25.2055 35.9403 25C35.9403 24.7945 35.8997 24.591 35.821 24.4011C35.7422 24.2113 35.6268 24.0389 35.4813 23.8937L26.1063 14.5187C25.961 14.3735 25.7885 14.2582 25.5987 14.1796C25.4089 14.101 25.2055 14.0605 25 14.0605C24.7945 14.0605 24.5911 14.101 24.4013 14.1796C24.2115 14.2582 24.039 14.3735 23.8937 14.5187C23.7485 14.664 23.6332 14.8365 23.5546 15.0263C23.476 15.2161 23.4355 15.4195 23.4355 15.625C23.4355 15.8305 23.476 16.0339 23.5546 16.2237C23.6332 16.4135 23.7485 16.586 23.8937 16.7313L30.6031 23.4375H15.625C15.2106 23.4375 14.8132 23.6021 14.5201 23.8951C14.2271 24.1882 14.0625 24.5856 14.0625 25C14.0625 25.4144 14.2271 25.8118 14.5201 26.1049C14.8132 26.3979 15.2106 26.5625 15.625 26.5625H30.6031L23.8937 33.2687Z"/>
+</svg>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--<div id="app_det">
+			<div id="normal_size_app">
+				<div id="maintext_content_det">
+					<div id="mainimg_content_det">
+						<img src="../images/img.png" width="250px">
+					</div>
+					<div id="title_det">
+						<div class="corner_det"></div>
+						<div id="text_app_det"><h1>Курс ценных бумаг попахивает безумием</h1></div>
+						<div class="corner_det right_det"></div>
+					</div>
+					<div class="param_art_det">
+						<div class="views"_det>
+							<div class="normale_size_param_det">
+								<div class="icon_param_det">
+									<img src="../images/eye.svg">
+								</div>
+								<div class="text_param_det">
+									1.5k
+								</div>
+							</div>
+						</div>
+						<div class="likes_det">
+							<div class="normale_size_param_det">
+								<div class="icon_param_det">
+									<img src="../images/like.svg">
+								</div>
+								<div class="text_param_det">
+									1.5k
+								</div>
+							</div>
+						</div>
+						<div class="date_art_det">
+							<div class="normale_size_param_det">
+								<div class="text_param_det">10.06.2020</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="content_det">
+					<p>Существующая теория обеспечивает широкому кругу (специалистов) участие в формировании как самодостаточных, так и внешне зависимых концептуальных решений. Мы вынуждены отталкиваться от того, что сложившаяся структура организации создаёт предпосылки для дальнейших направлений развития. Мы вынуждены отталкиваться от того, что дальнейшее развитие различных форм деятельности напрямую зависит от первоочередных требований.</p>
+					<h2>Убеждённость некоторых оппонентов расставила все точки над i</h2>
+					<p>Имеется спорная точка зрения, гласящая примерно следующее: ключевые особенности структуры проекта набирают популярность среди определенных слоев населения, а значит, должны быть ограничены исключительно образом мышления. Реализация намеченных плановых заданий говорит о возможностях новых предложений.</p>
+					<img src="../images/picture.jpg">
+					<p>Внезапно, ключевые особенности структуры проекта ограничены исключительно образом мышления. В своём стремлении повысить качество жизни, они забывают, что разбавленное изрядной долей эмпатии, рациональное мышление выявляет срочную потребность инновационных методов управления процессами. В частности, постоянное информационно-пропагандистское обеспечение нашей деятельности создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса модели развития.</p>
+					<img src="../images/table.jpg">
+					<p>Как принято считать, явные признаки победы институционализации заблокированы в рамках своих собственных рациональных ограничений. Противоположная точка зрения подразумевает, что предприниматели в сети интернет и по сей день остаются уделом либералов, которые жаждут быть в равной степени предоставлены сами себе. С другой стороны, высокое качество позиционных исследований создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса инновационных методов управления процессами. А также действия представителей оппозиции могут быть объединены в целые кластеры себе подобных.</p>
+					<img src="../images/comment.jpg">
+				</div>
+				<div class="advertising"></div>
+				<div id="likes_and_comments">
+					<div id="likes">
+						<p>Если вам понравилась статья, то поддержите ее лайком. Такая реакция будет мотивировать меня на улучшение этого сайта.</p>
+						<div class="text_with_like">
+							Поставить лайк (♡˙︶˙♡): 
+						</div>
+						<form action="{% url 'detail' article.id %}" method="post">
+							<button><img src="../images/like.svg"></button>
+						</form>
+						<div class="text_with_like red_like_text">
+							15
+						</div>
+					</div>
+					<div id="comments"></div>
+				</div>
+			</div>
+		</div>-->
+		<div id="rigth_sounbar">
+			<div id="news">
+				<div id="body_news">
+					<div id="block_news_title">
+						<div id="text_news_news">Новость дня</div>
+					</div>
+					<div id="block_news">
+						<div id="icon">
+							<svg width="25" height="30" viewBox="0 0 25 30" fill="#262E3E" xmlns="http://www.w3.org/2000/svg">
+							<path d="M5.87085 9.69624L7.34377 7.92874L13.2365 15L7.34377 22.0712L5.87085 20.3037L10.2917 15L5.87085 9.69624Z" fill="#262E3E"/>
+							<path d="M13.2365 7.92874L11.7635 9.69624L16.1833 15L11.7635 20.3037L13.2365 22.0712L19.1292 15L13.2365 7.92874Z"/>
+							</svg>
+						</div>
+						<div id="text_news">
+							<div id="text_news_day">День программиста</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="something">
+				<div id="body_smg">
+					<div id="up_smg">
+						<div id="up_smg_text">Я не придумал,  какой интересный виджет сюда поставить. Возможно вы подскажете</div>
+						<img src="../images/Emoji.svg" width="60px">
+					</div>
+					<div id="down_smg">
+						<form>
+							<textarea name="GoodIdeaText" placeholder="Есть одна клевая идея..."></textarea>
+							<input type="submit" name="GoodIdea" value="Отправить">
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<div id="upstairs_footer">
+				<div id="upstairs_footer_norm_size">
+					<div class="class_footer border_footer top_footer">
+						<div class="logo_and_social_footer">
+							<img src="../images/logo_full.svg" width="300">
+						</div>
+						<div class="logo_and_social_footer">
+							<div id="titel_footer_social">
+								<div id="text_titel_footer_social">Мы в социальных сетях</div>
+							</div>
+							<div id="icon_footer_social">
+								<div id="norm_size_icon_social">
+									<div class="icon_place first">
+										<svg width="60" height="60" viewBox="0 0 60 60" fill="#C4C4C4" xmlns="http://www.w3.org/2000/svg">
+											<path d="M29.9998 1.19971C14.0938 1.19971 1.1998 14.0937 1.1998 29.9997C1.1998 45.9057 14.0938 58.7997 29.9998 58.7997C45.9058 58.7997 58.7998 45.9057 58.7998 29.9997C58.7998 14.0937 45.9058 1.19971 29.9998 1.19971ZM41.0758 33.6927C41.0758 33.6927 43.6228 36.2067 44.2498 37.3737C44.2678 37.3977 44.2768 37.4217 44.2828 37.4337C44.5378 37.8627 44.5978 38.1957 44.4718 38.4447C44.2618 38.8587 43.5418 39.0627 43.2958 39.0807H38.7958C38.4838 39.0807 37.8298 38.9997 37.0378 38.4537C36.4288 38.0277 35.8288 37.3287 35.2438 36.6477C34.3708 35.6337 33.6148 34.7577 32.8528 34.7577C32.756 34.7575 32.6598 34.7727 32.5678 34.8027C31.9918 34.9887 31.2538 35.8107 31.2538 38.0007C31.2538 38.6847 30.7138 39.0777 30.3328 39.0777H28.2718C27.5698 39.0777 23.9128 38.8317 20.6728 35.4147C16.7068 31.2297 13.1368 22.8357 13.1068 22.7577C12.8818 22.2147 13.3468 21.9237 13.8538 21.9237H18.3988C19.0048 21.9237 19.2028 22.2927 19.3408 22.6197C19.5028 23.0007 20.0968 24.5157 21.0718 26.2197C22.6528 28.9977 23.6218 30.1257 24.3988 30.1257C24.5445 30.124 24.6876 30.0869 24.8158 30.0177C25.8298 29.4537 25.6408 25.8387 25.5958 25.0887C25.5958 24.9477 25.5928 23.4717 25.0738 22.7637C24.7018 22.2507 24.0688 22.0557 23.6848 21.9837C23.8402 21.7692 24.045 21.5953 24.2818 21.4767C24.9778 21.1287 26.2318 21.0777 27.4768 21.0777H28.1698C29.5198 21.0957 29.8678 21.1827 30.3568 21.3057C31.3468 21.5427 31.3678 22.1817 31.2808 24.3687C31.2538 24.9897 31.2268 25.6917 31.2268 26.5197C31.2268 26.6997 31.2178 26.8917 31.2178 27.0957C31.1878 28.2087 31.1518 29.4717 31.9378 29.9907C32.0403 30.055 32.1588 30.0893 32.2798 30.0897C32.5528 30.0897 33.3748 30.0897 35.6008 26.2707C36.2873 25.0415 36.8839 23.7641 37.3858 22.4487C37.4308 22.3707 37.5628 22.1307 37.7188 22.0377C37.8339 21.979 37.9616 21.9492 38.0908 21.9507H43.4338C44.0158 21.9507 44.4148 22.0377 44.4898 22.2627C44.6218 22.6197 44.4658 23.7087 42.0268 27.0117L40.9378 28.4487C38.7268 31.3467 38.7268 31.4937 41.0758 33.6927V33.6927Z"/>
+										</svg>
+									</div>
+									<div class="icon_place">
+										<svg width="60" height="60" viewBox="0 0 60 60" fill="#C4C4C4" xmlns="http://www.w3.org/2000/svg">
+											<path d="M29.9998 1.19971C14.0938 1.19971 1.1998 14.0937 1.1998 29.9997C1.1998 45.9057 14.0938 58.7997 29.9998 58.7997C45.9058 58.7997 58.7998 45.9057 58.7998 29.9997C58.7998 14.0937 45.9058 1.19971 29.9998 1.19971ZM36.8218 21.1017H32.4928C31.9798 21.1017 31.4098 21.7767 31.4098 22.6737V25.7997H36.8248L36.0058 30.2577H31.4098V43.6407H26.3008V30.2577H21.6658V25.7997H26.3008V23.1777C26.3008 19.4157 28.9108 16.3587 32.4928 16.3587H36.8218V21.1017V21.1017Z"/>
+										</svg>
+									</div>
+									<div class="icon_place">
+										<svg width="60" height="60" viewBox="0 0 60 60" fill="#C4C4C4" xmlns="http://www.w3.org/2000/svg">
+											<path d="M30 0.9375C13.9444 0.9375 0.9375 13.9462 0.9375 30C0.9375 46.0538 13.9462 59.0625 30 59.0625C46.0556 59.0625 59.0625 46.0538 59.0625 30C59.0625 13.9462 46.0538 0.9375 30 0.9375ZM44.2744 20.8481L39.5044 43.3256C39.1519 44.9194 38.2031 45.3056 36.8794 44.5556L29.6137 39.2006L26.1094 42.5756C25.7231 42.9619 25.395 43.29 24.645 43.29L25.1606 35.895L38.625 23.73C39.2119 23.2144 38.4956 22.9219 37.7213 23.4375L21.0806 33.9131L13.9088 31.6744C12.3506 31.1831 12.315 30.1162 14.2369 29.3662L42.2569 18.5606C43.5581 18.0919 44.6944 18.8775 44.2725 20.8463L44.2744 20.8481Z"/>
+										</svg>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="class_footer border_footer hidden_footer">
+						<div class="title_art_footer">Случайный пост</div>
+						<div class="random_article_footer">
+							<div class="norm_size_random_art">
+								<img src="../images/img.png" width="80px">
+								<div class="text_random_art_footer">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis
+								</div>
+							</div>
+						</div>
+						<div class="random_article_footer">
+							<div class="norm_size_random_art">
+								<img src="../images/img.png">
+								<div class="text_random_art_footer">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="class_footer bottom_footer">
+						<div class="title_art_footer">Обратная связь</div>
+						<form id="contact_form">
+							<input type="text" name="UserName" placeholder="Имя">
+							<input type="email" placeholder="Ваша почта">
+							<textarea name="UserMess" placeholder="Сообщение"></textarea>
+							<div id="button_footer_send"><input type="submit" name="SendMess" value="Отправить"></div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div id="downstairs_footer">
+				<div id="copyright">
+					<div id="copyright_norm_size">
+						<img src="../images/copyright.svg">
+						<div id="copyright_text">Copyright 2020</div>
+					</div>
+				</div>
+				<menu>
+					<ul>
+						<li class="iskl"><a href="">Главная</a></li>
+						<li><a href="">Кодинг</a></li>
+						<li><a href="">Новости</a></li>
+						<li><a href="">Прочее</a></li>
+						<li><a href="">Софт для ПК</a></li>
+					</ul>
+				</menu>
+			</div>
+		</footer>
+	</main>
+	<script>
+// Init Stats
+var stats = new Stats();
+stats.setMode(0);
+stats.domElement.style.position = 'absolute';
+stats.domElement.style.left = '0px';
+stats.domElement.style.top = '0px';
+document.body.appendChild(stats.domElement);
+
+
+/*!
+ * Mantis.js / jQuery / Zepto.js plugin for Constellation
+ * @version 1.2.2
+ * @author Acauã Montiel <contato@acauamontiel.com.br>
+ * @license http://acaua.mit-license.org/
+ */
+(function ($, window) {
+	var $window = $(window);
+	/**
+	 * Makes a nice constellation on canvas
+	 * @constructor Constellation
+	 */
+	function Constellation (canvas, options) {
+		var $canvas = $(canvas),
+			context = canvas.getContext('2d'),
+			defaults = {
+				star: {
+					color: 'rgba(255, 255, 255, .5)',
+					width: 1,
+					randomWidth: true
+				},
+				line: {
+					color: 'rgba(255, 255, 255, .5)',
+					width: 0.2
+				},
+				position: {
+					x: 0,
+					y: 0
+				},
+				width: window.innerWidth,
+				height: window.innerHeight,
+				velocity: 0.1,
+				length: 100,
+				distance: 120,
+				radius: 150,
+				stars: []
+			},
+			config = $.extend(true, {}, defaults, options);
+
+		function Star () {
+			this.x = Math.random() * canvas.width;
+			this.y = Math.random() * canvas.height;
+
+			this.vx = (config.velocity - (Math.random() * 0.5));
+			this.vy = (config.velocity - (Math.random() * 0.5));
+
+			this.radius = config.star.randomWidth ? (Math.random() * config.star.width) : config.star.width;
+		}
+
+		Star.prototype = {
+			create: function(){
+				context.beginPath();
+				context.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+				context.fill();
+			},
+
+			animate: function(){
+				var i;
+				for (i = 0; i < config.length; i++) {
+
+					var star = config.stars[i];
+
+					if (star.y < 0 || star.y > canvas.height) {
+						star.vx = star.vx;
+						star.vy = - star.vy;
+					} else if (star.x < 0 || star.x > canvas.width) {
+						star.vx = - star.vx;
+						star.vy = star.vy;
+					}
+
+					star.x += star.vx;
+					star.y += star.vy;
+				}
+			},
+
+			line: function(){
+				var length = config.length,
+					iStar,
+					jStar,
+					i,
+					j;
+
+				for (i = 0; i < length; i++) {
+					for (j = 0; j < length; j++) {
+						iStar = config.stars[i];
+						jStar = config.stars[j];
+
+						if (
+							(iStar.x - jStar.x) < config.distance &&
+							(iStar.y - jStar.y) < config.distance &&
+							(iStar.x - jStar.x) > - config.distance &&
+							(iStar.y - jStar.y) > - config.distance
+						) {
+							if (
+								(iStar.x - config.position.x) < config.radius &&
+								(iStar.y - config.position.y) < config.radius &&
+								(iStar.x - config.position.x) > - config.radius &&
+								(iStar.y - config.position.y) > - config.radius
+							) {
+								context.beginPath();
+								context.moveTo(iStar.x, iStar.y);
+								context.lineTo(jStar.x, jStar.y);
+								context.stroke();
+								context.closePath();
+							}
+						}
+					}
+				}
+			}
+		};
+
+		this.createStars = function () {
+			var length = config.length,
+				star,
+				i;
+
+			context.clearRect(0, 0, canvas.width, canvas.height);
+
+			for (i = 0; i < length; i++) {
+				config.stars.push(new Star());
+				star = config.stars[i];
+
+				star.create();
+			}
+
+			star.line();
+			star.animate();
+		};
+
+		this.setCanvas = function () {
+			canvas.width = config.width;
+			canvas.height = config.height;
+		};
+
+		this.setContext = function () {
+			context.fillStyle = config.star.color;
+			context.strokeStyle = config.line.color;
+			context.lineWidth = config.line.width;
+		};
+
+		this.setInitialPosition = function () {
+			if (!options || !options.hasOwnProperty('position')) {
+				config.position = {
+					x: canvas.width * 0.5,
+					y: canvas.height * 0.5
+				};
+			}
+		};
+
+		this.loop = function (callback) {
+			callback();
+
+			this.rAF = window.requestAnimationFrame(function () {
+				stats.begin();
+				this.loop(callback);
+				stats.end();
+			}.bind(this));
+		};
+
+		this.handlers = {
+			window: {
+				mousemove: function(e){
+					config.position.x = e.pageX - $canvas.offset().left;
+					config.position.y = e.pageY - $canvas.offset().top;
+				},
+				resize: function () {
+					window.cancelAnimationFrame(this.rAF);
+				}
+			}
+		};
+
+		this.bind = function () {
+			$window
+				.on('mousemove', this.handlers.window.mousemove)
+				.on('resize', this.handlers.window.resize.bind(this));
+		};
+
+		this.unbind = function () {
+			$window
+				.off('mousemove', this.handlers.window.mousemove)
+				.off('resize', this.handlers.window.resize);
+		}
+
+		this.init = function () {
+			this.setCanvas();
+			this.setContext();
+			this.setInitialPosition();
+			this.loop(this.createStars);
+			this.bind();
+		};
+	}
+
+	function instantiate(element, options) {
+		var c = new Constellation(element, options);
+		c.init();
+	}
+
+	$.fn.constellation = function (options) {
+		return this.each(function () {
+			$window.on('resize', () => {
+				instantiate(this, options);
+			});
+
+			instantiate(this, options);
+		});
+	};
+})($, window);
+
+// Init plugin
+$('canvas').constellation({
+	star: {
+		width: 3
+	},
+	line: {
+		color: 'rgba(255, 255, 255, .5)'
+	},
+	length: (window.innerWidth / 6),
+	radius: (window.innerWidth / 5)
+});
+</script>
+	<script>//button up
+		$(document).ready(function() {
+			let button = $('#button-up');
+			$(window).scroll (function () {
+				if ($(this).scrollTop () > 1000) {
+					button.fadeIn();
+				} 
+				else {
+					button.fadeOut();
+				}
+			});	 
+			button.on('click', function(){
+				$('body, html').animate({
+					scrollTop: 0
+				}, 800);
+				return false;
+			});		 
+		});
+	</script>
+	<script>//скрытие побочной подгруппы
+		$(document).ready(function() {
+			if ($(window).width() > 1024){
+				let button = $('#rigth_sounbar');
+				$(window).scroll (function () {
+					if ($(this).scrollTop () > 2800) {
+						button.fadeOut();
+					} 
+					else {
+						button.fadeIn();
+					}
+				});
+			}	  
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width? initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="description" content="NikTech Top">
+	<meta name="author" content="Nikita Ivanov ivanov.n.a.0620@gmail.com">
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'css/normalize.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/user.css' %}">
+	<link rel="icon" href="../../static/img/favicon.ico" type="image/x-icon">
+  	<link rel="shortcut icon" href="../../static/img/favicon.ico" type="image/x-icon">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<title>NikTech</title>
+</head>
+<body>
+	<main>
+		<nav>
+			<div id="normal_size">
+				<div class="hamburger-menu">
+					<input id="menu__toggle" type="checkbox" />
+					<label class="menu__btn" for="menu__toggle">
+						<span></span>
+					</label>
+
+					<ul class="menu__box">
+						<li><a class="menu__item" href="/">Главная</a></li>
+						<li><a class="menu__item" href="/coding/">Кодинг</a></li>
+						<li><a class="menu__item" href="/news/">Новости</a></li>
+						<li><a class="menu__item" href="/something/">Прочее</a></li>
+						<li><a class="menu__item" href="/soft">Софт для ПК</a></li>
+					</ul>
+				</div>
+				<div class="logo">
+					<a href="/"><img src="../../static/img/logo_full.svg" width="235px"></a>
+				</div>
+				<menu>
+					<ul>
+						<li class="iskl"><a href="/">Главная</a></li>
+						<li><a href="/coding/">Кодинг</a></li>
+						<li><a href="/news/">Новости</a></li>
+						<li><a href="/something/">Прочее</a></li>
+						<li><a href="/soft">Софт для ПК</a></li>
+					</ul>
+				</menu>
+				<div id="find">
+					<div class="icon">
+						<a href="#findPlace"><svg width="50" height="50" viewBox="0 0 50 50" fill="#E4E6E8" xmlns="http://www.w3.org/2000/svg">
+							<path fill-rule="evenodd" clip-rule="evenodd" d="M20 9.99996C17.3478 9.99996 14.8043 11.0535 12.9289 12.9289C11.0536 14.8043 10 17.3478 10 20C10 22.6521 11.0536 25.1957 12.9289 27.071C14.8043 28.9464 17.3478 30 20 30C22.6522 30 25.1957 28.9464 27.0711 27.071C28.9464 25.1957 30 22.6521 30 20C30 17.3478 28.9464 14.8043 27.0711 12.9289C25.1957 11.0535 22.6522 9.99996 20 9.99996ZM5 20C4.9997 17.6392 5.55661 15.3117 6.62543 13.2068C7.69425 11.1019 9.24481 9.27896 11.151 7.88628C13.0572 6.4936 15.2652 5.57049 17.5954 5.19205C19.9256 4.8136 22.3122 4.99049 24.5612 5.70834C26.8101 6.42619 28.8579 7.66472 30.5379 9.3232C32.2179 10.9817 33.4828 13.0133 34.2296 15.2528C34.9765 17.4923 35.1841 19.8764 34.8358 22.2113C34.4875 24.5462 33.593 26.766 32.225 28.69L44.2675 40.7325C44.7229 41.204 44.9749 41.8355 44.9692 42.491C44.9635 43.1465 44.7006 43.7735 44.237 44.237C43.7735 44.7005 43.1465 44.9635 42.491 44.9692C41.8355 44.9749 41.204 44.7229 40.7325 44.2675L28.6925 32.2275C26.4484 33.8232 23.8084 34.7704 21.0617 34.9653C18.315 35.1602 15.5677 34.5952 13.1207 33.3324C10.6738 32.0696 8.62172 30.1575 7.18931 27.8058C5.7569 25.4542 4.99946 22.7535 5 20V20Z"/>
+						</svg>
+						</a>
+					</div>
+				</div>
+				<div id="login">
+					<div class="icon endicon">
+					{% if user.is_authenticated %}
+						<a href="{% url 'edit' %}">
+							{% if user.profile.photo %}
+								<img src="{{user.profile.photo.url}}">
+							{% else %}
+								<img src="../../static/img/default.png"/>
+							{% endif %}
+						</a>
+					{% else %}
+						<a href="{% url 'login' %}"><svg width="50" height="50" viewBox="0 0 50 50" fill="#E4E6E8" xmlns="http://www.w3.org/2000/svg">
+							<path d="M25 4.16669C13.7063 4.16669 4.16669 13.7063 4.16669 25C4.16669 36.2938 13.7063 45.8334 25 45.8334C36.2938 45.8334 45.8334 36.2938 45.8334 25C45.8334 13.7063 36.2938 4.16669 25 4.16669ZM25 14.5834C28.5979 14.5834 31.25 17.2334 31.25 20.8334C31.25 24.4334 28.5979 27.0834 25 27.0834C21.4042 27.0834 18.75 24.4334 18.75 20.8334C18.75 17.2334 21.4042 14.5834 25 14.5834ZM14.3625 34.9417C16.2313 32.1917 19.3479 30.3584 22.9167 30.3584H27.0834C30.6542 30.3584 33.7688 32.1917 35.6375 34.9417C32.975 37.7917 29.1979 39.5834 25 39.5834C20.8021 39.5834 17.025 37.7917 14.3625 34.9417Z"/>
+						</svg></a>
+					{% endif %}
+					</div>
+				</div>
+			</div>
+			<div id="findPlace">
+				<div id="okno">
+					<div id="form_normal_size">
+						<form action="{% url 'index' %}">
+							<input name="search" type="text" placeholder="Введи слово или фразу для поиска ...">
+						</form>
+					</div>
+					<a href="#" class="close"><img src="../../static/img/close.svg" width="50px"></a>
+				</div>
+			</div>
+		</nav>
+		<div id="app_user">
+			<div id="normal_size_app_user">
+			{% block content %}{% endblock %}
+			</div>
+		</div>
+		<footer>
+			<div id="downstairs_footer">
+				<div id="copyright">
+					<div id="copyright_norm_size">
+						<img src="../../static/img/copyright.svg">
+						<div id="copyright_text">Copyright 2020</div>
+					</div>
+				</div>
+				<menu>
+					<ul>
+						<li class="iskl"><a href="/">Главная</a></li>
+						<li><a href="/coding/">Кодинг</a></li>
+						<li><a href="/news/">Новости</a></li>
+						<li><a href="/something/">Прочее</a></li>
+						<li><a href="/soft">Софт для ПК</a></li>
+					</ul>
+				</menu>
+			</div>
+		</footer>
+	</main>
+	<script>//button up
+		$(document).ready(function() {
+			let button = $('#button-up');
+			$(window).scroll (function () {
+				if ($(this).scrollTop () > 1000) {
+					button.fadeIn();
+				}
+				else {
+					button.fadeOut();
+				}
+			});
+			button.on('click', function(){
+				$('body, html').animate({
+					scrollTop: 0
+				}, 800);
+				return false;
+			});
+		});
+	</script>
+	<script>//скрытие побочной подгруппы
+		$(document).ready(function() {
+			if ($(window).width() > 1024){
+				let button = $('#rigth_sounbar');
+				$(window).scroll (function () {
+					if ($(this).scrollTop () > 2000) {
+						button.fadeOut();
+					}
+					else {
+						button.fadeIn();
+					}
+				});
+			}
+		});
+	</script>
+</body>
+</html>

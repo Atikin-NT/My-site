@@ -1,0 +1,14 @@
+{
+   "vk_bot" :   [
+     {
+       "token" :   "Вася" ,
+       "group" :   5000
+     }
+   ],
+  "tg_bot" :   [
+     {
+       "token" :   "1668670487:AAFY33GR81tRtjQwvOWpzumndBpQemI0fxA" ,
+       "group" :   "@niktech_nt"
+     }
+   ]
+ }

@@ -1,0 +1,234 @@
+//основание сойта
+#app_user{
+    width: 100%;
+    height: 1000px;
+    background: #1D2029;
+}
+
+#normal_size_app_user{
+	width: 80%;
+    height: 900px;
+	position: relative;
+	top: 58%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+#user_up_block{
+	width: 700px;
+	border-radius: 20px;
+	height: 100px;
+	margin: 0 auto;
+	background: #323846;
+}
+#user_logo{
+	width: 80px;
+	height: 80px;
+	margin: 10px 0 0 20px;
+	float: left;
+	img{
+		border-radius: 50%;
+	}
+}
+#user_name{
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 19px;
+	color: #CCD1DD;
+	width: 300px;
+	height: 30px;
+	margin: 35px 0 0 20px;
+	float: left;
+}
+#user_logout{
+	text-decoration: none;
+	font-weight: 600;
+	font-size: 19px;
+	width: 80px;
+	height: 30px;
+	margin: 35px 20px 0 0;
+	float: right;
+	a{
+		text-decoration: none;
+		color: #F44336;
+	}
+}
+#user_down_block{
+	width: 700px;
+	border-radius: 20px;
+	min-height: 720px;
+	height: auto;
+	//display: flex;
+	margin: 20px auto;
+	background: #323846;
+}
+#personal_information{
+	width: 49%;
+	height: 100%;
+	float: left;
+	a{
+		text-decoration: none;
+		color: #38E8DE;
+		font-weight: 600;
+		font-size: 18px;
+		margin: 10px;
+	}
+}
+#user_future{
+	border-left: 1px solid #1D2029;
+	width: 49%;
+	height: 100%;
+	float: left;
+}
+.main_text_user{
+	text-align: center;
+	width: 100%;
+	height: 60px;
+	font-weight: 800;
+	font-size: 20px;
+	color: #fff;
+	margin-top: 5px;
+}
+#inthefuture_text_center{
+	width: 150px;
+	height: 150px;
+	margin: 10px auto;
+}
+#user_form{
+	width: 260px;
+    height: auto;
+    margin: 5px auto;
+	color: #B2B2B2;
+	label{ 
+		font-weight: 800;
+		font-size: 18px;
+		color: #38E8DE;
+		height: 40px;
+	}
+	p {
+		label[for="photo-clear_id"] {
+  			display: none;
+		}
+	}
+	input{
+		width: 255px;
+		height: 35px;
+		border: 1px solid #FFFFFF;
+		border-radius: 10px;
+		margin: 10px 0 10px 0;
+		background: none;
+		color: #fff;
+		font-weight: 600;
+		font-size: 18px;
+	}
+	#id_photo{
+		border: none;
+		font-size: 16px;
+	}
+	#photo-clear_id{
+		display: none;
+	}
+	#photo-clear_id{
+		height: 30px;
+		width: 70px;
+		float: right;
+	}
+	textarea{
+		width: 255px;
+		height: 80px;
+		border: 1px solid #FFFFFF;
+		border-radius: 10px;
+		margin-top: 10px;
+		background: none;
+		color: #fff;
+		font-weight: 600;
+		font-size: 18px;
+		resize: none;
+	}
+	textarea:focus, input:focus{
+		outline: none;
+		border: 1px solid #386AE8;
+	}
+}
+.helptext{
+	color: #B2B2B2;
+	font-weight: 600;
+	font-size: 18px;
+}
+#button_footer_send{
+	height: 50px;
+	width: 100%;
+	input{
+		width: 160px;
+		height: 30px;
+		float: right;
+		background: #386AE8;
+		border: none;
+		border-radius: 10px;
+	}
+	input:hover{
+		background: #507EF2;
+		cursor: pointer;
+	}
+}
+//---------------------------------------------------------------------------
+//-----------------------------------------------login--------------------------------
+//---------------------------------------------------------------------------
+#login_block{
+	h1{
+		margin: 0;
+		text-align: center;
+		width: 100%;
+		height: 50px;
+		font-size: 34px;
+		color: #fff;
+	}
+	width: 700px;
+	margin: 0 auto;
+	min-height: 300px;
+	background: #323846;
+	border-radius: 20px;
+	p{
+		margin: 10px;
+		font-size: 20px;
+		color: #CCD1DD;
+		a{
+			text-decoration: none;
+			color: #46A29F;
+		}
+		a:hover{
+			
+			color: #68FAF2;
+		}
+	}
+	.errorlist{
+		list-style: none;
+		color: #F44336;
+	}
+}
+#login-form_user{
+	min-height: 280px;
+	height: auto;
+	width: 100%;
+	p{
+		margin: 10px;
+	}
+}
+#social_login{
+	width: 100%;
+	height: 120px;
+	p{
+		margin: 10px;
+	}
+}
+#social_block_user{
+	margin: 10px 0 0 10px;
+	width: 210px;
+	height: 60px;
+}
+.icon_login_with_social{
+	width: 60px;
+	height: 60px;
+	margin-left: 10px;
+	float: left;
+	background: #CDFC5F;
+}

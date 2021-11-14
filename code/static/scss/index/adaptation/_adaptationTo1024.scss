@@ -1,0 +1,36 @@
+@media only screen and (min-width : 1024px) and (max-width : 1200px){
+	//nav
+	menu{
+		li{
+			margin-left: 10px;
+		}
+		a{
+			font-size: 1em;
+		}
+	}
+	//sidebar
+	#text_news_news{
+		font-size: 1.6em;
+	}
+	#body_tags_title h3{
+		font-size: 1.4em;
+	}
+	//app
+	.second_text_main_art h2{
+		font-size: 2em;
+	}
+	.second_text_main_art p{
+		font-size: 0.9em;
+	}
+	.icons_param{
+		font-size: 1em;
+	}
+	.heshteg_author a{
+		font-size: 0.9em;
+	}
+	//параметры статьи
+	.text_param{
+		font-size: 14px;
+		margin: 8px 0 0 5px;
+	}
+}

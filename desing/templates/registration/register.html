@@ -1,0 +1,27 @@
+{% extends 'user.html' %} <!-- подключаем базовый шаблон -->
+
+{% block content %}
+<div id="login_block">
+    <h1>Создайте аккаунт</h1>
+    {% if form.errors %}
+        <p>Ваше имя и пароль не совпадают. Попробуйте снова (；⌣̀_⌣́) </p>
+    {% else %}
+        <p>Пожалуйста, зарегистрируйтесь, следуя форме ниже</p>
+    {% endif %}
+    <div id="login-form_user">
+        <form id="user_form" action="." method="post">
+            {{ user_form.as_p }}
+            {% csrf_token %}
+            <div id="button_footer_send"><input type="submit" name="SendMess" value="Создать аккаунт"></div>
+        </form>
+    </div>
+    <div id="social_login">
+        <p>Или выполните вход через социальные сети</p>
+        <div id="social_block_user">
+            <div class="icon_login_with_social"></div>
+            <div class="icon_login_with_social"></div>
+            <div class="icon_login_with_social"></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

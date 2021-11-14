@@ -1,0 +1,21 @@
+@media only screen and (min-width : 1024px) and (max-width : 1200px){
+	//article
+	menu{
+		li{
+			margin-left: 10px;
+		}
+		a{
+			font-size: 16px;
+		}
+	}
+	.corner_det{
+		height: 20px;
+		width: 20px;
+	}
+	#text_app_det{
+		font-size: 10px;
+	}
+	.text_param_det{
+		font-size: 16px;
+	}
+}
