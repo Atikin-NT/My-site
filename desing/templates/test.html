@@ -1,0 +1,302 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width? initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="description" content="">
+	<meta name="author" content="Nikita Ivanov ivanov.n.a.0620@gmail.com">
+	<link rel="stylesheet" href="../static/css/normalize.min.css">
+	<link rel="stylesheet" href="../static/css/halfmoon-variables.min.css"/>
+	<link rel="stylesheet" href="../static/css/article.css">
+	<link rel="stylesheet" href="../static/css/index.css">
+	<link rel="stylesheet" href="../static/css/newarticle.css">
+	<link rel="stylesheet" href="../static/fontawesome/css/all.css">
+	<link rel="icon" href="../../static/img/favicon.ico" type="image/x-icon">
+  	<link rel="shortcut icon" href="../../static/img/favicon.ico" type="image/x-icon">
+	<!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> -->
+	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script> -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+	<!-- <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+	<!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> -->
+
+	<!-- <script>hljs.initHighlightingOnLoad();</script> -->
+
+	<!-- <title></title>
+	<script>
+		MathJax = {
+		  tex: {
+			inlineMath: [['$', '$'], ['\\(', '\\)']]
+		  }
+		};
+	</script>
+	<script id="MathJax-script" async
+	  	src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+	</script> -->
+	<!-- <script>window.noAdBlock = false;</script> -->
+</head>
+<body>
+	<!-- <script src="/static/js/_adverts.js"></script> -->
+	<main>
+		<div id="modal_full">
+			<div id="modal_content_flex">
+				<div id="modal_content">
+					<div id="top"></div>
+					<h5>Вы используете ADBLOCK</h5>
+					<p>Без показа рекламы автору сайта не будет приходить вознаграждение за его труды, это очень грустно (╯︵╰,)</p>
+					<div id="buttons">
+						<button id="ok">Сейчас выключу</button>
+						<button id="pidr">Не буду выключать</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<nav id="top_nav">
+			<div class="GoogleAdv"></div>
+			<div class="normal_size normalSizeLight">
+				<div class="hamburger-menu">
+					<input id="menu__toggle" type="checkbox" />
+					<label class="menu__btn" for="menu__toggle">
+						<span></span>
+					</label>
+					<ul class="menu__box">
+						<li><a class="menu__item" href="/">Главная</a></li>
+						<li><a class="menu__item" href="/products/">Продукты</a></li>
+						<li><a class="menu__item" href="/tags">Теги</a></li>
+						<button class="btn login custom_click" type="button">
+							Вход
+						</button>
+						<button class="btn login custom_click" type="button">
+							Регистрация
+						</button>
+					</ul>
+				</div>
+				<div class="logo">
+					<a href="#">
+						<img id="mainLogo" src="../../static/img/logo_dm.svg">
+						<div id="logo_main_text_nav">NikTech</div>
+						<span class="badge">v.1.2</span>
+					</a>
+				</div>
+				<menu>
+					<ul>
+						<li class="iskl"><a href="/">Главная</a></li>
+						<li><a href="/products/">Продукты</a></li>
+						<li><a href="/tags/">Теги</a></li>
+					</ul>
+				</menu>
+				<div id="nav_top_icons">
+
+					<div class="input-group input-group-nav">
+						<div class="input-group-prepend">
+						  <span class="input-group-text input-text-custom">
+							<i class="fas fa-search"></i>
+						  </span>
+						</div>
+						<input type="text" class="form-control form-control-custom" placeholder="Поиск...">
+					</div>
+					<div class="flex_icon theme login_theme">
+						<button class="btn login custom_click" type="button">
+							
+								<i class="fas fa-cog"></i>
+								<i class="fas fa-caret-down"></i>
+								<ul class="settings_menu">
+									<li><a href="/articles/25">Ваши статьи</a></li>
+									<li><a href="/newarticle">Написать статью</a></li>
+									<li><a href="/profilesettings">Настройки</a></li>
+									<li class="quit"><a href="/logout">Выйти</a></li>
+								</ul>
+							
+						</button>
+					</div>
+					<div class="flex_icon theme lm_mode_theme">
+						<button class="btn btn_theme" type="button" onclick="handleButtonClick()" onclick="handleButtonClick()">
+							<i class="far fa-moon" aria-hidden="true"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<div id="go_up">
+			<div id="button-up">
+				<i class="fas fa-caret-up"></i>
+			</div>
+		</div>
+		
+<div id="app">
+    <div id="normal_size_app">
+        <div id="title">
+            <div id="color_topic"></div>
+            <div id="text_app_heshteg">#</div>
+            <div id="text_app">новая статья</div>
+        </div>
+        <div id="article_normal_size_block">
+			<div id="mobile_adaptetion">
+				<p>На телефоне вносить изменения в статью очень неудобно. Зайдите пожалуйста на сайт с планшета или компьютера и у вас появиться возможность редактирования</p>
+				<mytext>С заботой,<br> <strong>NikTech</strong></mytext>
+			</div>
+            <div id="formsettings">
+                <form action="/newarticle/" method="post" enctype="multipart/form-data" id="form">
+                    <input type="hidden" name="csrfmiddlewaretoken" value="cCNAKBCGkV3xlwoqMHajQ2e3qxNEOQwGwEFbnEuy58Ezea6lIU2lfp1NDQ2anAcU">
+                    <div class="textform">
+                        <div class="inputlist">
+                            <label for="id_article_title">Заголовок</label>
+                            <input type="text" name="article_title" maxlength="200" required id="id_article_title">
+                            <div class="memo">Заголовок</div>
+                        </div>
+                    </div>
+                    <div class="imageform">
+						<input type="file" onchange="previewFile()" accept="image/png, image/gif, image/jpeg" name="article_picture" required id="id_article_picture">
+						<label for="id_article_picture">
+							<i class="fas fa-image"></i>
+							Выберите картинку
+						</label>
+						<img src="../images/dojocat.jpg" height="200" alt="Profile Image" id="profile_image">
+                    </div>
+                    <div class="textform">
+                        <div class="inputlist">
+                            <label for="id_article_small_text">Краткое описание</label>
+                            <textarea name="article_small_text" cols="40" rows="10" required id="id_article_small_text">
+</textarea>
+                            <div class="memo">Краткое описание</div>
+                        </div>
+                    </div>
+                    <div class="textform">
+                        <div class="inputlist">
+                            <label for="id_article_content_md">Ввод</label>
+                            <div class="markdownx">
+    <textarea name="myfield" cols="40" rows="10" required id="id_myfield" class="markdownx-editor markdownx-editor" data-markdownx-editor-resizable data-markdownx-urls-path="/markdownx/markdownify/" data-markdownx-upload-urls-path="/markdownx/upload/" data-markdownx-latency="500">
+</textarea>
+
+	<div class="markdownx-preview"><p>12321</p>
+		<p><strong>Hello</strong></p>
+		<h2>Hello</h2>
+	</div>
+</div>
+                        </div>
+                    </div>
+                    <div class="textform">
+                        <div class="inputlist">
+                            <label for="">Тэги</label>
+							<div class="memo">Вы можете выбрать до 5 тэгов</div>
+                            <ul id="id_tagArticle">
+    <li><label for="id_tagArticle_0"><input type="checkbox" name="tagArticle" value="python" id="id_tagArticle_0">
+ python</label>
+
+</li>
+    <li><label for="id_tagArticle_1"><input type="checkbox" name="tagArticle" value="webdev" id="id_tagArticle_1">
+ webdev</label>
+
+</li>
+    <li><label for="id_tagArticle_2"><input type="checkbox" name="tagArticle" value="c++" id="id_tagArticle_2">
+ c++</label>
+
+</li>
+    <li><label for="id_tagArticle_3"><input type="checkbox" name="tagArticle" value="c#" id="id_tagArticle_3">
+ c#</label>
+
+</li>
+    <li><label for="id_tagArticle_4"><input type="checkbox" name="tagArticle" value="base" id="id_tagArticle_4">
+ base</label>
+
+</li>
+    <li><label for="id_tagArticle_5"><input type="checkbox" name="tagArticle" value="sql" id="id_tagArticle_5">
+ sql</label>
+
+</li>
+</ul>
+                        </div>
+                    </div>
+                    <input class="btn btn-success btn-save-custom" type="submit" value="Опубликовать">
+                </form>
+                <!-- <script src="../static/markdownx/js/markdownx.js"></script> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+		<footer>
+			<div id="copyright">
+				<i class="far fa-copyright"></i>
+				Copyright 2020-2021
+			</div>
+			<div id="social">
+				<a href="https://t.me/niktech_nt"><i class="fab fa-telegram-plane"></i></a>
+				<a href="https://www.instagram.com/niktech_nt_site/"><i class="fab fa-instagram"></i></a>
+			</div>
+			<div id="email">
+				niktechsite@gmail.com
+			</div>
+		</footer>
+	</main>
+	<script>//button up
+		$(document).ready(function() {
+			let button = $('#button-up');
+			$(window).scroll (function () {
+				if ($(this).scrollTop () > 1000) {
+					button.fadeIn();
+				}
+				else {
+					button.fadeOut();
+				}
+			});
+			button.on('click', function(){
+				$('body, html').animate({
+					scrollTop: 0
+				}, 800);
+				return false;
+			});
+		});
+	</script>
+<!--	<script src="../static/js/text_anim.js"></script>-->
+	<!-- <script src="../static/js/particles.js"></script> -->
+	<script src="../static/js/app.js"></script>
+	<!-- <script src="../static/js/lib/stats.js"></script> -->
+	<script>//скрытие побочной подгруппы
+		$(document).ready(function() {
+			if ($(window).width() > 1024){
+				let button = $('#rigth_sounbar');
+				$(window).scroll (function () {
+					if ($(this).scrollTop () > 2000) {
+						button.fadeOut();
+					}
+					else {
+						button.fadeIn();
+					}
+				});
+			}
+		});
+	</script>
+	<script src="../static/js/halfmoon.min.js"></script>
+	<script src="../static/js/custom.js"></script>
+	<!-- <script type="text/x-mathjax-config">
+		MathJax.Hub.Config({
+		  config: ["MMLorHTML.js"],
+		  jax: ["input/TeX", "output/HTML-CSS", "output/NativeMML"],
+		  extensions: ["MathMenu.js", "MathZoom.js"]
+		});
+	</script> -->
+	<script>
+	function previewFile() {
+		var preview = document.getElementById('profile_image');
+		console.log(preview);
+		// var file    = document.querySelector('input[type=file]').files[0];
+		file    = document.getElementById('form').querySelector(`[name="article_picture"]`).files[0];
+		var reader  = new FileReader();
+	  
+		reader.onloadend = function () {
+		  preview.src = reader.result;
+		}
+	  
+		if (file) {
+		  reader.readAsDataURL(file);
+		} else {
+		  preview.src = "";
+		}
+	}
+	</script>
+</body>
+</html>

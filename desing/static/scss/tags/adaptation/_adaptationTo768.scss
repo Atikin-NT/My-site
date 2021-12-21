@@ -1,0 +1,15 @@
+@media only screen and (min-width : 766px) and (max-width : 1024px){
+	#article_normal_size_block{
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.tag_block{
+		p{
+			font-size: 0.8em;
+		}
+	}
+	.top_header_tag{
+		h3{
+			font-size: 1.8em;
+		}
+	}
+}

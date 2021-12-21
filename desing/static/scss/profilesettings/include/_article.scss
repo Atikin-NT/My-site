@@ -1,0 +1,221 @@
+//основание для статьей
+#normal_size_app{
+	height: 100%;
+	min-height: 100vh;
+	width: 90%;
+	margin: 110px 15px 15px 100px;
+}
+#mobile_adaptetion{
+	display: none;
+}
+#text_app{
+	white-space: nowrap;
+}
+
+#addarticle_block{
+	width: 100%;
+	height: 80px;
+}
+#icon_add_article{
+	width: inherit;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	button{
+		width: 60px;
+		height: 60px;
+		background-color: #46AF69;
+		margin-top: 40px;
+		border: none;
+		border-radius: 100%;
+		cursor: pointer;
+		i{
+			font-size: 2em;
+			color: #fff;
+		}
+		&:hover{
+			transform: rotate(180deg);
+			transition: 1s;
+		}
+	}
+}
+#footer_add{
+	width: inherit;
+	height: 40px;
+	background: #50C878;
+}
+
+#addarticle_text{
+	width: 100%;
+	height: auto;
+}
+#addarticle_text_support{
+	padding: 10px;
+	font-size: 1em;
+	font-family: "Rubik";
+	color: $text_app_color;
+	text-align: center;
+}
+
+
+// поля для ввода значений
+
+#formsettings{
+	padding: 15px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	form{
+		width: 100%;
+	}
+}
+.textform{
+	margin: 10px 0;
+	width: 100%;
+}
+.inputlist{
+	padding: 5px;
+	label{
+		font-size: 1.5em;
+		font-family: "Rubik";
+		color: $bck_main_color;
+	}
+	textarea{
+		width: 100%;
+		resize: vertical;
+	}
+	ul{
+		margin-top: 10px;
+		list-style-type: none;
+		display: flex;
+		flex-flow: row wrap;
+	}
+	li{
+		flex-basis: 33%;
+	}
+}
+.memo{
+	font-size: 1em;
+	font-family: "Rubik";
+	color: #8D8E8F;
+	margin-top: 3px;
+}
+#dateform{
+	width: 150px;
+}
+
+.imageform{
+	width: 100%;
+	height: auto;
+	padding: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column-reverse;
+	img{
+		width: 280px;
+		height: 280px;
+		border-radius: 5px;
+	}
+	input{
+		display: none;
+	}
+	label[for = id_article_picture]{
+		margin-top: 10px;
+		width: 280px;
+		height: 40px;
+		background: #386AE8;
+		border-radius: 5px;
+		padding: 10px;
+		font-family: "Hack";
+		font-size: 1em;
+		color: #fff;
+		&:hover{
+			cursor: pointer;
+		}
+	}
+	label[for = Avatar]{
+		font-size: 1.5em;
+		font-family: "Rubik";
+		color: $bck_main_color;
+	}
+}
+
+.btn-save-custom{
+	margin-bottom: 20px;
+	float: left;
+}
+
+// страница регистрации
+.errorlist{
+	color: #EB4C42;
+	font-family: "Hack Bold";
+}
+
+//register done
+#login_block{
+	h1{
+		color: $bck_main_color;
+		font-family: "Rubik";
+	}
+	p{
+		color: $bck_block_color;
+	}
+	a{
+		color: inherit;
+		font-family: "Rubik";
+		text-decoration: none;
+		color: #64FDF1; // ENAcoin
+		border-bottom: 3px solid #535B75;
+		&:hover {
+			border-bottom-color: #96A6D5;
+		}
+	}
+	ul{
+		list-style: none;
+	}
+}
+
+//login
+#social_login{
+	height: 50px;
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: row;
+	font-family: "Rubik";
+	color: $bck_block_color;
+	a{
+		font-size: 2em;
+		margin-left: 20px;
+		background: $text_app_p_color;
+		color: $bck_block_color;
+		border-radius: 5px;
+		height: 50px;
+		width: 50px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		transition: 0.5s;
+		border-bottom: none;
+		&:hover{
+			color: $text_selected_app_color;
+		}
+	}
+}
+
+//dark
+.dark-mode{
+	#title_acc{
+		box-shadow: 0 0 0 1px $box_shadow_lm;
+	}
+	.inputlist{
+		label{
+			color: $text_app_color;
+		}
+	}
+}

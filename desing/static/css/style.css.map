@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAcA,AAAA,IAAI,CAAC;EACH,UAAU,EAAE,4DAAuE;EACnF,QAAQ,EAAE,MAAM;CACjB",
+    "mappings": "AAcA,AAAA,IAAI,CAAC;EACH,UAAU,EAAE,0DAAuE;EACnF,QAAQ,EAAE,MAAM;CACjB",
     "sources": [
         "../../beautiful-animated-background-site,/scss/style.scss"
     ],

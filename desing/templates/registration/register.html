@@ -1,27 +1,272 @@
-{% extends 'user.html' %} <!-- подключаем базовый шаблон -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="description" content="{{ meta_description }}">
+	<meta name="author" content="Nikita Ivanov ivanov.n.a.0620@gmail.com">
+	<!-- <meta name="yandex-verification" content="a0050fefc0465978" /> -->
+	<link rel="stylesheet" href="../../static/css/normalize.min.css">
+	<link rel="stylesheet" href="../../static/css/halfmoon-variables.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="../../static/css/index.css">
+	<link rel="stylesheet" href="../../static/css/profilesettings.css">
+	<link rel="stylesheet" href="../../static/fontawesome/css/all.css">
+	<link rel="icon" href="../../../static/img/favicon.ico" type="image/x-icon">
+  	<link rel="shortcut icon" href="../../static/img/favicon.ico" type="image/x-icon">
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<!-- <script src="https://vk.com/js/api/openapi.js?168" type="text/javascript"></script> -->
+	<!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> -->
+	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script> -->
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+	<!-- <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+	<!-- <script>hljs.initHighlightingOnLoad();</script> -->
+	
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-168648072-1"></script> -->
+    
+    <!-- <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-168648072-1');
+    </script>
+	<title>{{ meta_title }}</title>
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+			$preloader = $('.loaderArea'),
+			$loader = $preloader.find('.loader');
+			if (sessionStorage.getItem('preloader-uuid-here')) {
+				//alert('User just refreshed the page');
+				$loader.fadeOut();
+				$preloader.fadeOut();
+				return;
+			} else {
+				//alert('Show Preloader!');
+				$preloader.show()
+				$preloader.delay(3000);
+				sessionStorage.setItem('preloader-uuid-here', '1');
+				$preloader.fadeOut('slow');
+			}
+		});
+	</script> -->
+</head>
+<body>
+	<main>
+		<nav id="top_nav">
+			<div class="normal_size normalSizeLight">
+				<div class="hamburger-menu">
+					<input id="menu__toggle" type="checkbox" />
+					<label class="menu__btn" for="menu__toggle">
+						<span></span>
+					</label>
 
-{% block content %}
-<div id="login_block">
-    <h1>Создайте аккаунт</h1>
-    {% if form.errors %}
-        <p>Ваше имя и пароль не совпадают. Попробуйте снова (；⌣̀_⌣́) </p>
-    {% else %}
-        <p>Пожалуйста, зарегистрируйтесь, следуя форме ниже</p>
-    {% endif %}
-    <div id="login-form_user">
-        <form id="user_form" action="." method="post">
-            {{ user_form.as_p }}
-            {% csrf_token %}
-            <div id="button_footer_send"><input type="submit" name="SendMess" value="Создать аккаунт"></div>
-        </form>
-    </div>
-    <div id="social_login">
-        <p>Или выполните вход через социальные сети</p>
-        <div id="social_block_user">
-            <div class="icon_login_with_social"></div>
-            <div class="icon_login_with_social"></div>
-            <div class="icon_login_with_social"></div>
-        </div>
-    </div>
-</div>
-{% endblock %}
+					<ul class="menu__box">
+						<li><a class="menu__item" href="/">Главная</a></li>
+						<li><a class="menu__item" href="/products/">Продукты</a></li>
+						<li><a class="menu__item" href="/tags">Теги</a></li>
+						<button class="btn login custom_click" type="button">
+							Вход
+						</button>
+						<button class="btn login custom_click" type="button">
+							Регистрация
+						</button>
+					</ul>
+				</div>
+				<div class="logo">
+					<!-- <a href="/"><img src="../../static/img/logo_full.svg" width="235px"></a> -->
+					<a href="#">
+						<img id="mainLogo" src="../images/logo_dm.svg">
+						<div id="logo_main_text_nav">NikTech</div>
+						<span class="badge">v.1.2</span>
+					</a>
+					
+				</div>
+				<menu>
+					<ul>
+						<li class="iskl"><a href="/">Главная</a></li>
+						<li><a href="/products/">Продукты</a></li>
+						<li><a href="/tags">Теги</a></li>
+					</ul>
+				</menu>
+				<div id="nav_top_icons">
+					<div class="input-group input-group-nav">
+						<div class="input-group-prepend">
+						  <span class="input-group-text input-text-custom">
+							<i class="fas fa-search"></i>
+						  </span>
+						</div>
+						<input type="text" class="form-control form-control-custom" placeholder="Поиск...">
+					</div>
+					<div class="flex_icon theme login_theme">
+						<button class="btn login custom_click" type="button">
+							<i class="fas fa-cog"></i>
+							<i class="fas fa-caret-down"></i>
+							<ul class="settings_menu">
+								<li><a href="/userId">Ваши статьи</a></li>
+								<li><a href="/newarticle">Написать статью</a></li>
+								<li class="quit"><a href="/quit">Выйти</a></li>
+							</ul>
+						</button>
+					</div>
+					<div class="flex_icon theme lm_mode_theme">
+						<button class="btn btn_theme" type="button" onclick="handleButtonClick()" onclick="handleButtonClick()">
+							<i class="far fa-moon" aria-hidden="true"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<!-- <div id="particles-js"></div> -->
+		<div id="go_up">
+			<div id="button-up">
+				<i class="fas fa-caret-up"></i>
+			</div>
+		</div>
+		<!-- {% block content %}{% endblock %} -->
+		<div id="app">
+			<div id="normal_size_app">
+				<div id="title">
+					<div id="color_topic"></div>
+					<div id="text_app_heshteg">#</div>
+					<div id="text_app">Создать аккаунт</div>
+				</div>
+				<div id="article_normal_size_block">
+					<div id="formsettings">
+						<div class="imageform">
+							<input type="file" onchange="previewFile()" accept="image/png, image/gif, image/jpeg" name="article_picture" required id="id_article_picture">
+							<label for="id_article_picture">
+								<i class="fas fa-image"></i>
+								Выберите картинку
+							</label>
+							<img src="../../images/dojocat.jpg" height="200" alt="Profile Image" id="profile_image">
+							<label for="Avatar">Ваш аватар</label>
+						</div>
+                        <div class="textform">
+                            <div class="inputlist">
+                                <label for="first-name">Ваш никнейм</label>
+                                <input type="text" class="form-control form-control-custom" id="first-name" placeholder="nickname" required="required">
+                                <div class="memo">Ваше имя, которое будут видеть все пользователи. Можете написать настоящее или выдумать.</div>
+                            </div>
+                        </div>
+                        <div class="textform">
+                            <div class="inputlist">
+                                <label for="first-name">Email</label>
+                                <input type="email" class="form-control form-control-custom" id="first-name" placeholder="email" required="required">
+                                <div class="memo">Ваш адрес электроной почты</div>
+                            </div>
+                        </div>
+                        <div class="textform">
+                            <div class="inputlist">
+                                <label for="first-name">Краткое описание</label>
+								<textarea class="form-control form-control-custom" id="description" placeholder="Write a short description about yourself."></textarea>
+                                <div class="memo">Краткое описание вашего аккаунта. Его будут выдеть другие пользователи на вашей странице со статьями.</div>
+                                <ul class="errorlist"><li>Passwords don't match.</li></ul>
+                            </div>
+                        </div>
+                        <div class="textform">
+                            <div class="inputlist">
+                                <label for="first-name">Где вы живете?</label>
+                                <input type="text" class="form-control form-control-custom" id="first-name" placeholder="Location" required="required">
+                                <div class="memo">Вы можете указать или страну, или планету, или выдуманный мир</div>
+                                <ul class="errorlist"><li>Passwords don't match.</li></ul>
+                            </div>
+                        </div>
+                        <div class="textform">
+                            <div class="inputlist">
+								<label for="first-name">Ваша дата рождения</label>
+                                <input type="date" class="form-control form-control-custom" id="dateform" value="2003-10-10">
+                            </div>
+                        </div>
+                        <div class="textform">
+                            <div class="inputlist">
+                                <label for="first-name">Пароль</label>
+                                <input type="password" class="form-control form-control-custom" id="first-name" placeholder="password" required="required">
+                            </div>
+                        </div>
+                        <div class="textform">
+                            <div class="inputlist">
+                                <label for="first-name">Повторение пароля</label>
+                                <input type="password" class="form-control form-control-custom" id="first-name" placeholder="password" required="required">
+                            </div>
+                        </div>
+                        <button class="btn btn-success btn-save-custom" type="button">Сохранить</button>
+                    </div>
+				</div>
+			</div>
+		</div>
+		<footer>
+			<div id="copyright">
+				<i class="far fa-copyright"></i>
+				Copyright 2020-2021
+			</div>
+			<div id="social">
+				<a href="https://t.me/niktech_nt"><i class="fab fa-telegram-plane"></i></a>
+				<a href="https://www.instagram.com/niktech_nt_site/"><i class="fab fa-instagram"></i></a>
+			</div>
+			<div id="email">
+				niktechsite@gmail.com
+			</div>
+		</footer>
+	</main>
+	<script>//button up
+		$(document).ready(function() {
+			let button = $('#button-up');
+			$(window).scroll (function () {
+				if ($(this).scrollTop () > 1000) {
+					button.fadeIn();
+				}
+				else {
+					button.fadeOut();
+				}
+			});
+			button.on('click', function(){
+				$('body, html').animate({
+					scrollTop: 0
+				}, 800);
+				return false;
+			});
+		});
+	</script>
+	<script src="../static/js/text_anim.js"></script>
+	<script src="../static/js/particles.js"></script>
+	<script src="../static/js/app.js"></script>
+	<script src="../static/js/lib/stats.js"></script>
+	<script>//скрытие побочной подгруппы
+		$(document).ready(function() {
+			if ($(window).width() > 1024){
+				let button = $('#rigth_sounbar');
+				$(window).scroll (function () {
+					if ($(this).scrollTop () > 2000) {
+						button.fadeOut();
+					}
+					else {
+						button.fadeIn();
+					}
+				});
+			}
+		});
+	</script>
+	<script src="../static/js/halfmoon.min.js"></script>
+	<script src="../static/js/custom.js"></script>
+	<script>
+		function previewFile() {
+			var preview = document.getElementById('profile_image');
+			console.log(preview);
+			// var file    = document.querySelector('input[type=file]').files[0];
+			file    = document.getElementById('form').querySelector(`[name="article_picture"]`).files[0];
+			var reader  = new FileReader();
+		  
+			reader.onloadend = function () {
+			  preview.src = reader.result;
+			}
+		  
+			if (file) {
+			  reader.readAsDataURL(file);
+			} else {
+			  preview.src = "";
+			}
+		}
+	</script>
+</body>
+</html>
