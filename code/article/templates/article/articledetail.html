@@ -34,38 +34,51 @@
             </div>
         </div>
         <div id="content_det">
-<!--            {% autoescape off %}{{article.article_text}}{% endautoescape %}-->
             {{article.article_content_md | markdown | safe}}
         </div>
-<!--        <div id="likes_and_comments">-->
-<!--            <div id="likes">-->
-<!--                <p>Если вам понравилась статья, то поддержите ее лайком. Такая реакция будет мотивировать меня на улучшение этого сайта.</p>-->
-<!--                <div class="text_with_like">-->
-<!--                    Поставить лайк (♡˙︶˙♡):-->
-<!--                </div>-->
-<!--                <form action="{% url 'detail' article.id %}" method="POST">-->
-<!--                    {% csrf_token %}-->
-<!--                    <button><i class="fas fa-heart"></i></button>-->
-<!--                </form>-->
-<!--                <div class="text_with_like red_like_text">-->
-<!--                    {{article.likes}}-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div id="comments"></div>-->
-<!--        </div>-->
         <div id="likes_and_comments">
-            <p>Если вам понравилась статья, то поддержите ее лайком. Такая реакция будет мотивировать меня на улучшение этого сайта.</p>
+<!--            <p>Если вам понравилась статья, то поддержите ее лайком. Такая реакция будет мотивировать меня на улучшение этого сайта.</p>-->
             <div id="likes">
                 <div class="reaction">
                     <form action="{% url 'detail' article.id %}" method="POST">
                         {% csrf_token %}
-<!--                        <input type="hidden" name="csrfmiddlewaretoken" value="w35lvB3lsmBhPGBljKdXWvVL6aSfw2vRw5lKRWzHgP0Za2sfPPWYMtN79e6wm3r1">-->
                         <button><i class="fas fa-heart"></i></button>
                     </form>
                     <div class="text_with_like">
                         {{article.likes}}
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="rigth_sounbar">
+    <div id="news">
+        <div id="body_news">
+            <div id="block_news_title">
+                <div id="text_news_news">Сегодня</div>
+            </div>
+            <div id="block_news">
+                <div id="icon">
+                    <i class="fas fa-angle-double-right"></i>
+                </div>
+                <div id="text_news">
+                    <div id="text_news_day">{{day_text}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="tags">
+        <div id="body_tags">
+            <div id="body_tags_title">
+                <h3>Популярные теги</h3>
+            </div>
+            <div class="overflow-y-hidden overflow-y-md-auto tags_list">
+                <ul>
+                    {% for tag in allTags %}
+                        <li><a href="{% url 'tags' tag %}">#{{tag}}</a></li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
     </div>

@@ -55,7 +55,7 @@
 				<div id="login">
 					<div class="icon endicon">
 					{% if user.is_authenticated %}
-						<a href="{% url 'edit' %}">
+						<a href="{% url 'profilesettings' %}">
 							{% if user.profile.photo %}
 								<img src="{{user.profile.photo.url}}">
 							{% else %}

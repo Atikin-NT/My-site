@@ -123,7 +123,7 @@
 	input{
 		display: none;
 	}
-	label[for = id_article_picture]{
+	label[for = id_article_picture], label[for = id_avatar]{
 		margin-top: 10px;
 		width: 280px;
 		height: 40px;
@@ -131,7 +131,7 @@
 		border-radius: 5px;
 		padding: 10px;
 		font-family: "Hack";
-		font-size: 1em;
+		font-size: 1em; 
 		color: #fff;
 		&:hover{
 			cursor: pointer;

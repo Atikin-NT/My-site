@@ -1,26 +1,106 @@
-{% extends 'user.html' %} <!-- подключаем базовый шаблон -->
+{% extends 'index.html' %} <!-- подключаем базовый шаблон -->
 
 {% block content %}
-<div id="login_block">
-    <h1>Создайте аккаунт</h1>
-    {% if form.errors %}
-        <p>Ваше имя и пароль не совпадают. Попробуйте снова (；⌣̀_⌣́) </p>
-    {% else %}
-        <p>Пожалуйста, зарегистрируйтесь, следуя форме ниже</p>
-    {% endif %}
-    <div id="login-form_user">
-        <form id="user_form" action="." method="post">
-            {{ user_form.as_p }}
-            {% csrf_token %}
-            <div id="button_footer_send"><input type="submit" name="SendMess" value="Создать аккаунт"></div>
-        </form>
-    </div>
-    <div id="social_login">
-        <p>Или выполните вход через социальные сети</p>
-        <div id="social_block_user">
-            <div class="icon_login_with_social"></div>
-            <div class="icon_login_with_social"></div>
-            <div class="icon_login_with_social"></div>
+<div id="app">
+    <div id="normal_size_app">
+        <div id="title">
+            <div id="color_topic"></div>
+            <div id="text_app_heshteg">#</div>
+            {% if profile_flag_edit == 0%}
+                <div id="text_app">Создать аккаунт</div>
+            {% else %}
+                <div id="text_app">Редактировать аккаунт</div>
+            {% endif %}
+        </div>
+        <div id="article_normal_size_block">
+            <div id="formsettings">
+                {% if profile_flag_edit == 0%}
+                    <form id="form" action="{% url 'register' %}" method="post" enctype="multipart/form-data">
+                {% else %}
+                    <form id="form" action="{% url 'profilesettings' %}" method="post" enctype="multipart/form-data">
+                {% endif %}
+                    {% csrf_token %}
+                    <div class="imageform">
+                        {{ profile_form.avatar }}
+                        <label for="{{ profile_form.avatar.id_for_label }}">
+                            <i class="fas fa-image"></i>
+                            Выберите картинку
+                        </label>
+                        {% if profile_flag_edit == 0 %}
+                            <img src="../../static/img/default/def_acc.png" height="200" alt="Profile Image" id="profile_image">
+                        {% else %}
+                            <img src="{{ user.profile.avatar.url }}" height="200" alt="Profile Image" id="profile_image">
+                        {% endif %}
+                        {{ profile_form.avatar.errors }}
+                    </div>
+                    <div class="textform">
+                        <div class="inputlist">
+                            <label for="{{ user_form.username.id_for_label }}">Ваш никнейм</label>
+                            {{ user_form.username }}
+                            <div class="memo">Ваше имя, которое будут видеть все пользователи. Можете написать настоящее или выдумать.</div>
+                            {{ user_form.username.errors }}
+                        </div>
+                    </div>
+                    <div class="textform">
+                        <div class="inputlist">
+                            <label for="{{ user_form.email.id_for_label }}">Email</label>
+                            {{ user_form.email }}
+                            <div class="memo">Ваш адрес электроной почты</div>
+                            {{ user_form.email.errors }}
+                        </div>
+                    </div>
+                    <div class="textform">
+                        <div class="inputlist">
+                            <label for="{{ profile_form.description.id_for_label }}">Краткое описание</label>
+                            {{ profile_form.description }}
+                            <div class="memo">Краткое описание вашего аккаунта. Его будут выдеть другие пользователи на вашей странице со статьями.</div>
+                             {{ profile_form.description.errors }}
+                        </div>
+                    </div>
+                    <div class="textform">
+                        <div class="inputlist">
+                            <label for="{{ profile_form.where_you_leave.id_for_label }}">Где вы живете?</label>
+                            {{ profile_form.where_you_leave }}
+                            <div class="memo">Вы можете указать или страну, или планету, или выдуманный мир</div>
+                            {{ profile_form.where_you_leave.errors }}
+                        </div>
+                    </div>
+                    <div class="textform">
+                        <div class="inputlist">
+                            <label for="{{ profile_form.date_of_birth.id_for_label }}">Ваша дата рождения</label>
+                            {{ profile_form.date_of_birth }}
+                            {{ profile_form.date_of_birth.errors }}
+                        </div>
+                    </div>
+                    {% if profile_flag_edit == 0%}
+                        <div class="textform">
+                            <div class="inputlist">
+                                <label for="{{ user_form.password.id_for_label }}">Пароль</label>
+                                {{ user_form.password }}
+                            </div>
+                        </div>
+                        <div class="textform">
+                            <div class="inputlist">
+                                <label for="{{ user_form.password2.id_for_label }}">Повторение пароля</label>
+                                {{ user_form.password2 }}
+                                {{ user_form.password2.errors }}
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="textform">
+                            <div class="inputlist">
+                                <div class="memo"><a href="{% url 'password_change' %}">Изменить</a> пароль</div>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if profile_flag_edit == 0%}
+                        <input class="btn btn-success btn-save-custom" type="submit" name="SendMess" value="Создать аккаунт">
+                    {% else %}
+                        <input class="btn btn-success btn-save-custom" type="submit" name="SendMess" value="Сохранить изменения">
+                    {% endif %}
+                </form>
+                {{ form.media }}
+            </div>
         </div>
     </div>
 </div>

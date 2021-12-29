@@ -55,8 +55,9 @@ class Products(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-    avatar = models.ImageField('Аватарка', upload_to='users/', blank=True)
-    description = models.TextField('Description', default='')
+    avatar = models.ImageField('Аватарка', upload_to='users/')
+    description = models.TextField('Description', default='', null=False, blank=True)
+    where_you_leave = models.TextField('Где вы живете?', default='Парадиз', blank=True, null=True)
     date_of_birth = models.DateField('Дата рождения (необязательно)', blank=True, null=True)
 
     def __str__(self):

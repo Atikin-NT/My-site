@@ -869,6 +869,14 @@ article {
   min-height: 210px;
 }
 
+.second_text_main_art a {
+  text-decoration: none;
+}
+
+.second_text_main_art a:hover {
+  cursor: pointer;
+}
+
 .second_text_main_art p {
   color: #CCD1DD;
   font-family: "Rubik";
@@ -993,6 +1001,29 @@ article {
           flex-direction: row;
 }
 
+.author_author a {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  text-decoration: none;
+}
+
+.author_author a:hover {
+  cursor: pointer;
+}
+
 .author_author img {
   width: 40px;
   height: 40px;
@@ -1012,9 +1043,9 @@ article {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1043,6 +1074,42 @@ article {
 
 .heshteg_author .iskl {
   margin: 0;
+}
+
+.actions_with_article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  font-family: "Hack Bold";
+  font-size: 1em;
+  margin-right: 15px;
+}
+
+.actions_with_article a {
+  text-decoration: none;
+  padding: 5px;
+}
+
+.actions_with_article a:hover {
+  cursor: pointer;
+}
+
+.actions_with_article .edit {
+  color: #50C878;
+}
+
+.actions_with_article .delete {
+  color: #EB4C42;
 }
 
 #paginator {
@@ -1199,6 +1266,14 @@ article {
 
 .dark-mode .advertising {
   background: #E4E6E8;
+}
+
+.dark-mode .actions_with_article .edit {
+  color: #50C878;
+}
+
+.dark-mode .actions_with_article .delete {
+  color: #EB4C42;
 }
 
 footer {

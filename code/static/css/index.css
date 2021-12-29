@@ -1,26 +1,27 @@
 @charset "UTF-8";
 @font-face {
   font-family: 'Rubik';
-  src: local("Rubik"), local("Rubik"), url("../fonts/Rubik.ttf");
+  src: local("Rubik"), local("Rubik"), url("..//..//../fonts/Rubik.ttf");
 }
 
 @font-face {
   font-family: 'Rubik Bold';
-  src: local("Rubik Bold"), local("Rubik Bold"), url("../fonts/Rubik-Bold.ttf");
+  src: local("Rubik Bold"), local("Rubik Bold"), url("..//..//../fonts/Rubik-Bold.ttf");
 }
 
 @font-face {
   font-family: 'Hack';
-  src: local("Hack"), local("Hack"), url("../fonts/Hack-Regular.ttf");
+  src: local("Hack"), local("Hack"), url("..//..//../fonts/Hack-Regular.ttf");
 }
 
 @font-face {
   font-family: 'Hack Bold';
-  src: local("Hack Bold"), local("Hack Bold"), url("../fonts/Hack-Bold.ttf");
+  src: local("Hack Bold"), local("Hack Bold"), url("..//..//../fonts/Hack-Bold.ttf");
 }
 
 html {
   font-family: 'Rubik';
+  overflow-x: hidden;
 }
 
 * {
@@ -309,19 +310,19 @@ menu a:hover {
 }
 
 .form-control-custom::-webkit-input-placeholder {
-  color: #fff;
+  color: #88898A;
 }
 
 .form-control-custom:-ms-input-placeholder {
-  color: #fff;
+  color: #88898A;
 }
 
 .form-control-custom::-ms-input-placeholder {
-  color: #fff;
+  color: #88898A;
 }
 
 .form-control-custom::placeholder {
-  color: #fff;
+  color: #88898A;
 }
 
 .form-control-custom:hover {
@@ -868,6 +869,14 @@ article {
   min-height: 210px;
 }
 
+.second_text_main_art a {
+  text-decoration: none;
+}
+
+.second_text_main_art a:hover {
+  cursor: pointer;
+}
+
 .second_text_main_art p {
   color: #CCD1DD;
   font-family: "Rubik";
@@ -992,6 +1001,29 @@ article {
           flex-direction: row;
 }
 
+.author_author a {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  text-decoration: none;
+}
+
+.author_author a:hover {
+  cursor: pointer;
+}
+
 .author_author img {
   width: 40px;
   height: 40px;
@@ -1011,9 +1043,9 @@ article {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;

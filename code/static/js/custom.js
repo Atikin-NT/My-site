@@ -19,7 +19,27 @@ function Adblock(){
 }
 
 Adblock();
+var listNameFornewArticle = ["article_title", "article_small_text", "article_small_text", "myfield",
+                             "avatar", "username", "email", "description", "where_you_leave", "date_of_birth",
+                             "password", "password2", "old_password", "new_password1", "new_password2", "markdownx-preview"]
 
+
+for (let i =0; i < listNameFornewArticle.length; i++){
+    if (document.getElementById('form') == null || document.getElementById('form').querySelector(`[name="${listNameFornewArticle[i]}"]`) == null) continue;
+    document.getElementById('form').querySelector(`[name="${listNameFornewArticle[i]}"]`).classList.add("form-control");
+    document.getElementById('form').querySelector(`[name="${listNameFornewArticle[i]}"]`).classList.add("form-control-custom");
+}
+
+if (document.getElementsByClassName('markdownx-preview')[0]){
+    document.getElementsByClassName('markdownx-preview')[0].setAttribute("id", "content_det");
+}
+
+if (document.getElementById('login_block')){
+    document.getElementById('login_block').querySelector(`[name="username"]`).classList.add("form-control");
+    document.getElementById('login_block').querySelector(`[name="username"]`).classList.add("form-control-custom");
+    document.getElementById('login_block').querySelector(`[name="password"]`).classList.add("form-control");
+    document.getElementById('login_block').querySelector(`[name="password"]`).classList.add("form-control-custom");
+}
 
 var button = document.getElementsByClassName("login");
 var img_logo = document.getElementById("mainLogo");

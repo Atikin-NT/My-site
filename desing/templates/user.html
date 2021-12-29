@@ -1,23 +1,61 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width? initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<meta name="description" content="NikTech Top">
+	<meta name="description" content="{{ meta_description }}">
 	<meta name="author" content="Nikita Ivanov ivanov.n.a.0620@gmail.com">
-	{% load static %}
-	<link rel="stylesheet" href="{% static 'css/normalize.min.css' %}">
-	<link rel="stylesheet" href="{% static 'css/user.css' %}">
+	<!-- <meta name="yandex-verification" content="a0050fefc0465978" /> -->
+	<link rel="stylesheet" href="../static/css/normalize.min.css">
+	<link rel="stylesheet" href="../static/css/halfmoon-variables.min.css" rel="stylesheet" />
+	<link rel="stylesheet" href="../static/css/user.css">
+	<link rel="stylesheet" href="../static/css/index.css">
+	<link rel="stylesheet" href="../static/fontawesome/css/all.css">
 	<link rel="icon" href="../../static/img/favicon.ico" type="image/x-icon">
   	<link rel="shortcut icon" href="../../static/img/favicon.ico" type="image/x-icon">
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<title>NikTech</title>
+	<!-- <script src="https://vk.com/js/api/openapi.js?168" type="text/javascript"></script> -->
+	<!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> -->
+	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script> -->
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+	<!-- <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
+	<!-- <script>hljs.initHighlightingOnLoad();</script> -->
+	
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-168648072-1"></script> -->
+    
+    <!-- <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-168648072-1');
+    </script>
+	<title>{{ meta_title }}</title>
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+			$preloader = $('.loaderArea'),
+			$loader = $preloader.find('.loader');
+			if (sessionStorage.getItem('preloader-uuid-here')) {
+				//alert('User just refreshed the page');
+				$loader.fadeOut();
+				$preloader.fadeOut();
+				return;
+			} else {
+				//alert('Show Preloader!');
+				$preloader.show()
+				$preloader.delay(3000);
+				sessionStorage.setItem('preloader-uuid-here', '1');
+				$preloader.fadeOut('slow');
+			}
+		});
+	</script> -->
 </head>
 <body>
 	<main>
-		<nav>
-			<div id="normal_size">
+		<nav id="top_nav">
+			<div class="normal_size normalSizeLight">
 				<div class="hamburger-menu">
 					<input id="menu__toggle" type="checkbox" />
 					<label class="menu__btn" for="menu__toggle">
@@ -26,83 +64,645 @@
 
 					<ul class="menu__box">
 						<li><a class="menu__item" href="/">Главная</a></li>
-						<li><a class="menu__item" href="/coding/">Кодинг</a></li>
-						<li><a class="menu__item" href="/news/">Новости</a></li>
-						<li><a class="menu__item" href="/something/">Прочее</a></li>
-						<li><a class="menu__item" href="/soft">Софт для ПК</a></li>
+						<li><a class="menu__item" href="/products/">Продукты</a></li>
+						<li><a class="menu__item" href="/tags">Теги</a></li>
+						<button class="btn login custom_click" type="button">
+							Вход
+						</button>
+						<button class="btn login custom_click" type="button">
+							Регистрация
+						</button>
 					</ul>
 				</div>
 				<div class="logo">
-					<a href="/"><img src="../../static/img/logo_full.svg" width="235px"></a>
+					<!-- <a href="/"><img src="../../static/img/logo_full.svg" width="235px"></a> -->
+					<a href="#">
+						<img id="mainLogo" src="../images/logo_dm.svg">
+						<div id="logo_main_text_nav">NikTech</div>
+						<span class="badge">v.1.2</span>
+					</a>
+					
 				</div>
 				<menu>
 					<ul>
 						<li class="iskl"><a href="/">Главная</a></li>
-						<li><a href="/coding/">Кодинг</a></li>
-						<li><a href="/news/">Новости</a></li>
-						<li><a href="/something/">Прочее</a></li>
-						<li><a href="/soft">Софт для ПК</a></li>
+						<li><a href="/products/">Продукты</a></li>
+						<li><a href="/tags">Теги</a></li>
 					</ul>
 				</menu>
-				<div id="find">
-					<div class="icon">
-						<a href="#findPlace"><svg width="50" height="50" viewBox="0 0 50 50" fill="#E4E6E8" xmlns="http://www.w3.org/2000/svg">
-							<path fill-rule="evenodd" clip-rule="evenodd" d="M20 9.99996C17.3478 9.99996 14.8043 11.0535 12.9289 12.9289C11.0536 14.8043 10 17.3478 10 20C10 22.6521 11.0536 25.1957 12.9289 27.071C14.8043 28.9464 17.3478 30 20 30C22.6522 30 25.1957 28.9464 27.0711 27.071C28.9464 25.1957 30 22.6521 30 20C30 17.3478 28.9464 14.8043 27.0711 12.9289C25.1957 11.0535 22.6522 9.99996 20 9.99996ZM5 20C4.9997 17.6392 5.55661 15.3117 6.62543 13.2068C7.69425 11.1019 9.24481 9.27896 11.151 7.88628C13.0572 6.4936 15.2652 5.57049 17.5954 5.19205C19.9256 4.8136 22.3122 4.99049 24.5612 5.70834C26.8101 6.42619 28.8579 7.66472 30.5379 9.3232C32.2179 10.9817 33.4828 13.0133 34.2296 15.2528C34.9765 17.4923 35.1841 19.8764 34.8358 22.2113C34.4875 24.5462 33.593 26.766 32.225 28.69L44.2675 40.7325C44.7229 41.204 44.9749 41.8355 44.9692 42.491C44.9635 43.1465 44.7006 43.7735 44.237 44.237C43.7735 44.7005 43.1465 44.9635 42.491 44.9692C41.8355 44.9749 41.204 44.7229 40.7325 44.2675L28.6925 32.2275C26.4484 33.8232 23.8084 34.7704 21.0617 34.9653C18.315 35.1602 15.5677 34.5952 13.1207 33.3324C10.6738 32.0696 8.62172 30.1575 7.18931 27.8058C5.7569 25.4542 4.99946 22.7535 5 20V20Z"/>
-						</svg>
-						</a>
+				<div id="nav_top_icons">
+					<div class="input-group input-group-nav">
+						<div class="input-group-prepend">
+						  <span class="input-group-text input-text-custom">
+							<i class="fas fa-search"></i>
+						  </span>
+						</div>
+						<input type="text" class="form-control form-control-custom" placeholder="Поиск...">
 					</div>
-				</div>
-				<div id="login">
-					<div class="icon endicon">
-					{% if user.is_authenticated %}
-						<a href="{% url 'edit' %}">
-							{% if user.profile.photo %}
-								<img src="{{user.profile.photo.url}}">
-							{% else %}
-								<img src="../../static/img/default.png"/>
-							{% endif %}
-						</a>
-					{% else %}
-						<a href="{% url 'login' %}"><svg width="50" height="50" viewBox="0 0 50 50" fill="#E4E6E8" xmlns="http://www.w3.org/2000/svg">
-							<path d="M25 4.16669C13.7063 4.16669 4.16669 13.7063 4.16669 25C4.16669 36.2938 13.7063 45.8334 25 45.8334C36.2938 45.8334 45.8334 36.2938 45.8334 25C45.8334 13.7063 36.2938 4.16669 25 4.16669ZM25 14.5834C28.5979 14.5834 31.25 17.2334 31.25 20.8334C31.25 24.4334 28.5979 27.0834 25 27.0834C21.4042 27.0834 18.75 24.4334 18.75 20.8334C18.75 17.2334 21.4042 14.5834 25 14.5834ZM14.3625 34.9417C16.2313 32.1917 19.3479 30.3584 22.9167 30.3584H27.0834C30.6542 30.3584 33.7688 32.1917 35.6375 34.9417C32.975 37.7917 29.1979 39.5834 25 39.5834C20.8021 39.5834 17.025 37.7917 14.3625 34.9417Z"/>
-						</svg></a>
-					{% endif %}
+					<div class="flex_icon theme login_theme">
+						<button class="btn login custom_click" type="button">
+							<i class="fas fa-cog"></i>
+							<i class="fas fa-caret-down"></i>
+							<ul class="settings_menu">
+								<li><a href="/profilesettings">Настройки</a></li>
+								<li><a href="/newarticle">Написать статью</a></li>
+								<li class="quit"><a href="/quit">Выйти</a></li>
+							</ul>
+						</button>
 					</div>
-				</div>
-			</div>
-			<div id="findPlace">
-				<div id="okno">
-					<div id="form_normal_size">
-						<form action="{% url 'index' %}">
-							<input name="search" type="text" placeholder="Введи слово или фразу для поиска ...">
-						</form>
+					<div class="flex_icon theme lm_mode_theme">
+						<button class="btn btn_theme" type="button" onclick="handleButtonClick()" onclick="handleButtonClick()">
+							<i class="far fa-moon" aria-hidden="true"></i>
+						</button>
 					</div>
-					<a href="#" class="close"><img src="../../static/img/close.svg" width="50px"></a>
 				</div>
 			</div>
 		</nav>
-		<div id="app_user">
-			<div id="normal_size_app_user">
-			{% block content %}{% endblock %}
+		<!-- <div id="particles-js"></div> -->
+		<div id="go_up">
+			<div id="button-up">
+				<i class="fas fa-caret-up"></i>
+			</div>
+		</div>
+		<!-- {% block content %}{% endblock %} -->
+		<div id="app">
+			<div id="normal_size_app">
+				<div id="title_acc">
+					<div id="text_app_icon">
+						<img src="../images/test_ava.jpg" alt="NikTech">
+					</div>
+					<div id="text_app_title">
+						<h2>NikTech</h2>
+					</div>
+					<div id="description_account">
+						<p>Внезапно, тщательные исследования конкурентов могут быть ассоциативно распределены по отраслям. Сложно сказать, почему непосредственные участники технического прогресса могут быть ограничены исключительно образом мышления. Приятно, граждане, наблюдать, как действия представителей оппозиции являются только методом политического участия и призваны к ответу.</p>
+					</div>
+				</div>
+				<div id="article_normal_size_block">
+					<article>
+						<div class="article_about_art">
+							<div class="text_art">
+								<div class="text_main_art">
+									<div class="second_text_main_art">
+										<div class="image">
+											<img src="../images/test.jpg">
+										</div>
+										<h2>Название статьи</h2>
+										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes. Cum sociis natoque penatibus et magnis dis parturient montes</p>
+									</div>
+								</div>
+								<div class="param_art">
+									<div class="param_art_left">
+										<div class="icons_param like">
+											<i class="fas fa-heart"></i>
+											1.5k реакций
+										</div>
+										<div class="icons_param comment">
+											<i class="fas fa-comment"></i>
+											1.5k комментов
+										</div>
+										<div class="icons_param date_art">
+											<i class="far fa-clock"></i>
+											10.06.2020
+										</div>
+									</div>
+									<div class="param_art_right">
+										5 мин чтения
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="author">
+							<div class="author_author">
+								<img src="../images/test_ava.jpg">
+								<h4>NikTech</h4>
+							</div>
+							<div class="heshteg_author">
+								<a class="iskl" href="#">#webdev</a>
+								<a href="#">#productivity</a>
+								<a href="#">#programming</a>
+								<a href="#">#aws</a>
+								<a href="#">#career</a>
+							</div>
+							<div class="actions_with_article">
+                                <a href="/editarticle/28" class="edit">Редактировать</a>
+                                <a href="/deletearticle/28" class="delete">Удалить</a>
+                            </div>
+						</div>
+					</article>
+					<article>
+						<div class="article_about_art">
+							<div class="text_art">
+								<div class="text_main_art">
+									<div class="second_text_main_art">
+										<div class="image">
+											<img src="../images/%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0.png">
+										</div>
+										<h2>Название статьи</h2>
+										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes. Cum sociis natoque penatibus et magnis dis parturient montes</p>
+									</div>
+								</div>
+								<div class="param_art">
+									<div class="param_art_left">
+										<div class="icons_param like">
+											<i class="fas fa-heart"></i>
+											1.5k реакций
+										</div>
+										<div class="icons_param comment">
+											<i class="fas fa-comment"></i>
+											1.5k комментов
+										</div>
+										<div class="icons_param date_art">
+											<i class="far fa-clock"></i>
+											10.06.2020
+										</div>
+									</div>
+									<div class="param_art_right">
+										5 мин чтения
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="author">
+							<div class="author_author">
+								<img src="C:\Users\Ave\Desktop\tmp\avatar.jpg">
+								<h4>NikTech</h4>
+							</div>
+							<div class="heshteg_author">
+								<a class="iskl" href="#">#webdev</a>
+								<a href="#">#productivity</a>
+								<a href="#">#programming</a>
+								<a href="#">#aws</a>
+								<a href="#">#career</a>
+							</div>
+						</div>
+					</article>
+					<article>
+						<div class="article_about_art">
+							<div class="text_art">
+								<div class="text_main_art">
+									<div class="second_text_main_art">
+										<div class="image">
+											<img src="../images/%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0.png">
+										</div>
+										<h2>Название статьи</h2>
+										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes. Cum sociis natoque penatibus et magnis dis parturient montes</p>
+									</div>
+								</div>
+								<div class="param_art">
+									<div class="param_art_left">
+										<div class="icons_param like">
+											<i class="fas fa-heart"></i>
+											1.5k реакций
+										</div>
+										<div class="icons_param comment">
+											<i class="fas fa-comment"></i>
+											1.5k комментов
+										</div>
+										<div class="icons_param date_art">
+											<i class="far fa-clock"></i>
+											10.06.2020
+										</div>
+									</div>
+									<div class="param_art_right">
+										5 мин чтения
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="author">
+							<div class="author_author">
+								<img src="C:\Users\Ave\Desktop\tmp\avatar.jpg">
+								<h4>NikTech</h4>
+							</div>
+							<div class="heshteg_author">
+								<a class="iskl" href="#">#webdev</a>
+								<a href="#">#productivity</a>
+								<a href="#">#programming</a>
+								<a href="#">#aws</a>
+								<a href="#">#career</a>
+							</div>
+						</div>
+					</article>
+					<div class="advertising"></div>
+					<article>
+						<div class="article_about_art">
+							<div class="text_art">
+								<div class="text_main_art">
+									<div class="second_text_main_art">
+										<div class="image">
+											<img src="../images/%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0.png">
+										</div>
+										<h2>Название статьи</h2>
+										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes. Cum sociis natoque penatibus et magnis dis parturient montes</p>
+									</div>
+								</div>
+								<div class="param_art">
+									<div class="param_art_left">
+										<div class="icons_param like">
+											<i class="fas fa-heart"></i>
+											1.5k реакций
+										</div>
+										<div class="icons_param comment">
+											<i class="fas fa-comment"></i>
+											1.5k комментов
+										</div>
+										<div class="icons_param date_art">
+											<i class="far fa-clock"></i>
+											10.06.2020
+										</div>
+									</div>
+									<div class="param_art_right">
+										5 мин чтения
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="author">
+							<div class="author_author">
+								<img src="C:\Users\Ave\Desktop\tmp\avatar.jpg">
+								<h4>NikTech</h4>
+							</div>
+							<div class="heshteg_author">
+								<a class="iskl" href="#">#webdev</a>
+								<a href="#">#productivity</a>
+								<a href="#">#programming</a>
+								<a href="#">#aws</a>
+								<a href="#">#career</a>
+							</div>
+						</div>
+					</article>
+					<article>
+						<div class="article_about_art">
+							<div class="text_art">
+								<div class="text_main_art">
+									<div class="second_text_main_art">
+										<div class="image">
+											<img src="../images/%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0.png">
+										</div>
+										<h2>Название статьи</h2>
+										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes. Cum sociis natoque penatibus et magnis dis parturient montes</p>
+									</div>
+								</div>
+								<div class="param_art">
+									<div class="param_art_left">
+										<div class="icons_param like">
+											<i class="fas fa-heart"></i>
+											1.5k реакций
+										</div>
+										<div class="icons_param comment">
+											<i class="fas fa-comment"></i>
+											1.5k комментов
+										</div>
+										<div class="icons_param date_art">
+											<i class="far fa-clock"></i>
+											10.06.2020
+										</div>
+									</div>
+									<div class="param_art_right">
+										5 мин чтения
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="author">
+							<div class="author_author">
+								<img src="C:\Users\Ave\Desktop\tmp\avatar.jpg">
+								<h4>NikTech</h4>
+							</div>
+							<div class="heshteg_author">
+								<a class="iskl" href="#">#webdev</a>
+								<a href="#">#productivity</a>
+								<a href="#">#programming</a>
+								<a href="#">#aws</a>
+								<a href="#">#career</a>
+							</div>
+						</div>
+					</article>
+					<article>
+						<div class="article_about_art">
+							<div class="text_art">
+								<div class="text_main_art">
+									<div class="second_text_main_art">
+										<div class="image">
+											<img src="../images/%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0.png">
+										</div>
+										<h2>Название статьи</h2>
+										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes. Cum sociis natoque penatibus et magnis dis parturient montes</p>
+									</div>
+								</div>
+								<div class="param_art">
+									<div class="param_art_left">
+										<div class="icons_param like">
+											<i class="fas fa-heart"></i>
+											1.5k реакций
+										</div>
+										<div class="icons_param comment">
+											<i class="fas fa-comment"></i>
+											1.5k комментов
+										</div>
+										<div class="icons_param date_art">
+											<i class="far fa-clock"></i>
+											10.06.2020
+										</div>
+									</div>
+									<div class="param_art_right">
+										5 мин чтения
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="author">
+							<div class="author_author">
+								<img src="C:\Users\Ave\Desktop\tmp\avatar.jpg">
+								<h4>NikTech</h4>
+							</div>
+							<div class="heshteg_author">
+								<a class="iskl" href="#">#webdev</a>
+								<a href="#">#productivity</a>
+								<a href="#">#programming</a>
+								<a href="#">#aws</a>
+								<a href="#">#career</a>
+							</div>
+						</div>
+					</article>
+					<div class="advertising"></div>
+					<article>
+						<div class="article_about_art">
+							<div class="text_art">
+								<div class="text_main_art">
+									<div class="second_text_main_art">
+										<div class="image">
+											<img src="../images/%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0.png">
+										</div>
+										<h2>Название статьи</h2>
+										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes. Cum sociis natoque penatibus et magnis dis parturient montes</p>
+									</div>
+								</div>
+								<div class="param_art">
+									<div class="param_art_left">
+										<div class="icons_param like">
+											<i class="fas fa-heart"></i>
+											1.5k реакций
+										</div>
+										<div class="icons_param comment">
+											<i class="fas fa-comment"></i>
+											1.5k комментов
+										</div>
+										<div class="icons_param date_art">
+											<i class="far fa-clock"></i>
+											10.06.2020
+										</div>
+									</div>
+									<div class="param_art_right">
+										5 мин чтения
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="author">
+							<div class="author_author">
+								<img src="C:\Users\Ave\Desktop\tmp\avatar.jpg">
+								<h4>NikTech</h4>
+							</div>
+							<div class="heshteg_author">
+								<a class="iskl" href="#">#webdev</a>
+								<a href="#">#productivity</a>
+								<a href="#">#programming</a>
+								<a href="#">#aws</a>
+								<a href="#">#career</a>
+							</div>
+						</div>
+					</article>
+					<article>
+						<div class="article_about_art">
+							<div class="text_art">
+								<div class="text_main_art">
+									<div class="second_text_main_art">
+										<div class="image">
+											<img src="../images/%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0.png">
+										</div>
+										<h2>Название статьи</h2>
+										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes. Cum sociis natoque penatibus et magnis dis parturient montes</p>
+									</div>
+								</div>
+								<div class="param_art">
+									<div class="param_art_left">
+										<div class="icons_param like">
+											<i class="fas fa-heart"></i>
+											1.5k реакций
+										</div>
+										<div class="icons_param comment">
+											<i class="fas fa-comment"></i>
+											1.5k комментов
+										</div>
+										<div class="icons_param date_art">
+											<i class="far fa-clock"></i>
+											10.06.2020
+										</div>
+									</div>
+									<div class="param_art_right">
+										5 мин чтения
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="author">
+							<div class="author_author">
+								<img src="C:\Users\Ave\Desktop\tmp\avatar.jpg">
+								<h4>NikTech</h4>
+							</div>
+							<div class="heshteg_author">
+								<a class="iskl" href="#">#webdev</a>
+								<a href="#">#productivity</a>
+								<a href="#">#programming</a>
+								<a href="#">#aws</a>
+								<a href="#">#career</a>
+							</div>
+						</div>
+					</article>
+					<article>
+						<div class="article_about_art">
+							<div class="text_art">
+								<div class="text_main_art">
+									<div class="second_text_main_art">
+										<div class="image">
+											<img src="../images/%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0.png">
+										</div>
+										<h2>Название статьи</h2>
+										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes. Cum sociis natoque penatibus et magnis dis parturient montes</p>
+									</div>
+								</div>
+								<div class="param_art">
+									<div class="param_art_left">
+										<div class="icons_param like">
+											<i class="fas fa-heart"></i>
+											1.5k реакций
+										</div>
+										<div class="icons_param comment">
+											<i class="fas fa-comment"></i>
+											1.5k комментов
+										</div>
+										<div class="icons_param date_art">
+											<i class="far fa-clock"></i>
+											10.06.2020
+										</div>
+									</div>
+									<div class="param_art_right">
+										5 мин чтения
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="author">
+							<div class="author_author">
+								<img src="C:\Users\Ave\Desktop\tmp\avatar.jpg">
+								<h4>NikTech</h4>
+							</div>
+							<div class="heshteg_author">
+								<a class="iskl" href="#">#webdev</a>
+								<a href="#">#productivity</a>
+								<a href="#">#programming</a>
+								<a href="#">#aws</a>
+								<a href="#">#career</a>
+							</div>
+						</div>
+					</article>
+					<div class="advertising"></div>
+					<article>
+						<div class="article_about_art">
+							<div class="text_art">
+								<div class="text_main_art">
+									<div class="second_text_main_art">
+										<div class="image">
+											<img src="../images/%D0%BA%D0%B0%D1%80%D1%82%D0%B8%D0%BD%D0%BA%D0%B0.png">
+										</div>
+										<h2>Название статьи</h2>
+										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Cum sociis natoque penatibus et magnis dis parturient montes. Cum sociis natoque penatibus et magnis dis parturient montes</p>
+									</div>
+								</div>
+								<div class="param_art">
+									<div class="param_art_left">
+										<div class="icons_param like">
+											<i class="fas fa-heart"></i>
+											1.5k реакций
+										</div>
+										<div class="icons_param comment">
+											<i class="fas fa-comment"></i>
+											1.5k комментов
+										</div>
+										<div class="icons_param date_art">
+											<i class="far fa-clock"></i>
+											10.06.2020
+										</div>
+									</div>
+									<div class="param_art_right">
+										5 мин чтения
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="author">
+							<div class="author_author">
+								<img src="C:\Users\Ave\Desktop\tmp\avatar.jpg">
+								<h4>NikTech</h4>
+							</div>
+							<div class="heshteg_author">
+								<a class="iskl" href="#">#webdev</a>
+								<a href="#">#productivity</a>
+								<a href="#">#programming</a>
+								<a href="#">#aws</a>
+								<a href="#">#career</a>
+							</div>
+						</div>
+					</article>
+					<nav id="paginator">
+						<ul class="pagination text-center paginator_custom">
+						  <!-- Previous page -->
+						  <li class="page-item">
+							<a href="#" class="page-link">
+							  <i class="fa fa-angle-left" aria-hidden="true"></i>
+							  <span class="sr-only">Previous</span> <!-- sr-only = only for screen readers -->
+							</a>
+						  </li>
+						  <!-- Pages and ellipses -->
+						  <li class="page-item"><a href="#" class="page-link">1</a></li>
+						  <li class="page-item ellipsis"></li>
+						  <li class="page-item"><a href="#" class="page-link">45</a></li>
+						  <!-- Active page item -->
+						  <li class="page-item active" aria-current="page">
+							<a href="#" class="page-link" tabindex="-1">46</a>
+						  </li>
+						  <li class="page-item"><a href="#" class="page-link">47</a></li>
+						  <li class="page-item ellipsis"></li>
+						  <li class="page-item"><a href="#" class="page-link">86</a></li>
+						  <!-- Next page -->
+						  <li class="page-item">
+							<a href="#" class="page-link">
+							  <i class="fa fa-angle-right" aria-hidden="true"></i>
+							  <span class="sr-only">Next</span> <!-- sr-only = only for screen readers -->
+							</a>
+						  </li>
+						</ul>
+					  </nav>
+				</div>
+			</div>
+		</div>
+		<div id="rigth_sounbar">
+			<div id="news">
+				<div id="body_news">
+					<div id="block_news_title">
+						<div id="text_news_news">Данные</div>
+					</div>
+					<div id="block_meta">
+						<div class="metaline">
+							<i class="fas fa-globe"></i>
+							Timisoara, Romania
+						</div>
+						<div class="metaline">
+							<i class="fas fa-birthday-cake"></i>
+							Joined on 26 нояб. 2019 г.
+						</div>
+						<div class="metaline">
+							<i class="far fa-newspaper"></i>
+							15 статей
+						</div>
+						<div class="metaline">
+							<a href="/profilesettings">Настройки</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="tags">
+				<div id="body_tags">
+					<div id="addarticle_block">
+						<div id="icon_add_article">
+							<button>
+								<i class="fas fa-plus"></i>
+							</button>
+						</div>
+						<div id="footer_add"></div>
+					</div>
+					<div id="addarticle_text">
+						<div id="addarticle_text_support">
+							Написав статью, вы поможете развитию этого сайта. А так же это мотивирует автора на его улучшение.<br>
+							ヾ(⌐■_■)ノ♪ 
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<footer>
-			<div id="downstairs_footer">
-				<div id="copyright">
-					<div id="copyright_norm_size">
-						<img src="../../static/img/copyright.svg">
-						<div id="copyright_text">Copyright 2020</div>
-					</div>
-				</div>
-				<menu>
-					<ul>
-						<li class="iskl"><a href="/">Главная</a></li>
-						<li><a href="/coding/">Кодинг</a></li>
-						<li><a href="/news/">Новости</a></li>
-						<li><a href="/something/">Прочее</a></li>
-						<li><a href="/soft">Софт для ПК</a></li>
-					</ul>
-				</menu>
+			<div id="copyright">
+				<i class="far fa-copyright"></i>
+				Copyright 2020-2021
+			</div>
+			<div id="social">
+				<a href="https://t.me/niktech_nt"><i class="fab fa-telegram-plane"></i></a>
+				<a href="https://www.instagram.com/niktech_nt_site/"><i class="fab fa-instagram"></i></a>
+			</div>
+			<div id="email">
+				niktechsite@gmail.com
 			</div>
 		</footer>
 	</main>
@@ -125,6 +725,10 @@
 			});
 		});
 	</script>
+	<script src="../static/js/text_anim.js"></script>
+	<script src="../static/js/particles.js"></script>
+	<script src="../static/js/app.js"></script>
+	<script src="../static/js/lib/stats.js"></script>
 	<script>//скрытие побочной подгруппы
 		$(document).ready(function() {
 			if ($(window).width() > 1024){
@@ -140,5 +744,21 @@
 			}
 		});
 	</script>
+	<script src="../static/js/halfmoon.min.js"></script>
+	<script src="../static/js/custom.js"></script>
+	<!-- Yandex.Metrika counter -->
+    <!-- <script type="text/javascript" >
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    
+       ym(66314386, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true
+       });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/66314386" style="position:absolute; left:-9999px;" alt="" /></div></noscript> -->
+    <!-- /Yandex.Metrika counter -->
 </body>
 </html>

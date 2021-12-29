@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="{% static 'css/normalize.min.css' %}">
 	<link rel="stylesheet" href="{% static 'css/halfmoon-variables.min.css' %}"/>
 	<link rel="stylesheet" href="{% static 'css/index.css' %}">
+	<link rel="stylesheet" href="{% static 'css/profilesettings.css' %}">
 	<link rel="stylesheet" href="{% static 'css/tags.css' %}">
 	<link rel="stylesheet" href="{% static 'fontawesome/css/all.css' %}">
 	<link rel="icon" href="../../static/img/favicon.ico" type="image/x-icon">
@@ -62,7 +63,7 @@
 					</label>
 					<ul class="menu__box">
 						<li><a class="menu__item" href="/">Главная</a></li>
-						<li><a class="menu__item" href="/products/">Продукты</a></li>
+<!--						<li><a class="menu__item" href="/products/">Продукты</a></li>-->
 						<li><a class="menu__item" href="/tags">Теги</a></li>
 						<button class="btn login custom_click" type="button">
 							Вход
@@ -82,7 +83,7 @@
 				<menu>
 					<ul>
 						<li class="iskl"><a href="/">Главная</a></li>
-						<li><a href="/products/">Продукты</a></li>
+<!--						<li><a href="/products/">Продукты</a></li>-->
 						<li><a href="/tags/">Теги</a></li>
 					</ul>
 				</menu>
@@ -99,7 +100,14 @@
 					<div class="flex_icon theme login_theme">
 						<button class="btn login custom_click" type="button">
 							{% if user.is_authenticated %}
-								Выход
+								<i class="fas fa-cog"></i>
+								<i class="fas fa-caret-down"></i>
+								<ul class="settings_menu">
+									<li><a href="{% url 'user_id' user.id %}">Ваши статьи</a></li>
+									<li><a href="/newarticle">Написать статью</a></li>
+									<li><a href="{% url 'profilesettings' %}">Настройки</a></li>
+									<li class="quit"><a href="/logout">Выйти</a></li>
+								</ul>
 							{% else %}
 								Вход
 							{% endif %}

@@ -1,8 +1,17 @@
-{% extends 'user.html' %} <!-- подключаем базовый шаблон -->
+{% extends 'index.html' %} <!-- подключаем базовый шаблон -->
 
 {% block content %}
-<div id="login_block">
-    <h1>Добро пожаловать!</h1>
-    <p>Ваш аккаунт успешно создан, теперь вы можете <a href='{% url "login" %}'>войти</a> в систему.</p>
+<div id="app">
+    <div id="normal_size_app">
+        <div id="title">
+            <div id="color_topic"></div>
+            <div id="text_app_heshteg">#</div>
+            <div id="text_app">Аккаунт создан</div>
+        </div>
+        <div id="login_block">
+            <h1>Добро пожаловать {{new_user.username}}!</h1>
+            <p>Ваш аккаунт успешно создан, теперь вы можете <a href='{% url "login" %}'>войти</a> в систему.</p>
+        </div>
+    </div>
 </div>
 {% endblock %}

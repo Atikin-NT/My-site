@@ -9,17 +9,24 @@
 	<meta name="author" content="Nikita Ivanov ivanov.n.a.0620@gmail.com">
 	<link rel="stylesheet" href="{% static 'css/normalize.min.css' %}">
 	<link rel="stylesheet" href="{% static 'css/halfmoon-variables.min.css' %}"/>
+	<link rel="stylesheet" href="{% static 'css/index.css' %}">
+	<link rel="stylesheet" href="{% static 'css/profilesettings.css' %}">
+	{% if css_params == 0%}
+	<link rel="stylesheet" href="{% static 'css/index.css' %}">
+	{% endif %}
 	{% if css_params == 1%}
 	<link rel="stylesheet" href="{% static 'css/article.css' %}">
+	<link rel="stylesheet" href="{% static 'css/index.css' %}">
 	{% endif %}
-	{% if css_params == 2%}
+	{% if css_params == 2%} <!-- articles by id -->
 	<link rel="stylesheet" href="{% static 'css/user.css' %}">
+	<link rel="stylesheet" href="{% static 'css/index.css' %}">
 	{% endif %}
-	{% if css_params == 3%}
+	{% if css_params == 3%}  <!-- newarticle -->
 	<link rel="stylesheet" href="{% static 'css/article.css' %}">
+	<link rel="stylesheet" href="{% static 'css/index.css' %}">
 	<link rel="stylesheet" href="{% static 'css/newarticle.css' %}">
 	{% endif %}
-	<link rel="stylesheet" href="{% static 'css/index.css' %}">
 	<link rel="stylesheet" href="{% static 'fontawesome/css/all.css' %}">
 	<link rel="icon" href="../../static/img/favicon.ico" type="image/x-icon">
   	<link rel="shortcut icon" href="../../static/img/favicon.ico" type="image/x-icon">
@@ -71,7 +78,7 @@
 					</label>
 					<ul class="menu__box">
 						<li><a class="menu__item" href="/">Главная</a></li>
-						<li><a class="menu__item" href="/products/">Продукты</a></li>
+<!--						<li><a class="menu__item" href="/products/">Продукты</a></li>-->
 						<li><a class="menu__item" href="/tags">Теги</a></li>
 						<button class="btn login custom_click" type="button">
 							Вход
@@ -82,7 +89,7 @@
 					</ul>
 				</div>
 				<div class="logo">
-					<a href="#">
+					<a href="/">
 						<img id="mainLogo" src="../../static/img/logo_dm.svg">
 						<div id="logo_main_text_nav">NikTech</div>
 						<span class="badge">v.1.2</span>
@@ -91,19 +98,20 @@
 				<menu>
 					<ul>
 						<li class="iskl"><a href="/">Главная</a></li>
-						<li><a href="/products/">Продукты</a></li>
+<!--						<li><a href="/products/">Продукты</a></li>-->
 						<li><a href="/tags/">Теги</a></li>
 					</ul>
 				</menu>
 				<div id="nav_top_icons">
-
 					<div class="input-group input-group-nav">
 						<div class="input-group-prepend">
 						  <span class="input-group-text input-text-custom">
 							<i class="fas fa-search"></i>
 						  </span>
 						</div>
-						<input type="text" class="form-control form-control-custom" placeholder="Поиск...">
+						<form action="{% url 'index' %}">
+							<input type="text" name="search" class="form-control form-control-custom" placeholder="Поиск...">
+						</form>
 					</div>
 					<div class="flex_icon theme login_theme">
 						<button class="btn login custom_click" type="button">
@@ -111,9 +119,9 @@
 								<i class="fas fa-cog"></i>
 								<i class="fas fa-caret-down"></i>
 								<ul class="settings_menu">
-									<li><a href="/articles/{{user.id}}">Ваши статьи</a></li>
-									<li><a href="/newarticle">Написать статью</a></li>
-									<li><a href="/profilesettings">Настройки</a></li>
+									<li><a href="{% url 'user_id' user.id %}">Ваши статьи</a></li>
+									<li><a href="{% url 'newArticle' %}">Написать статью</a></li>
+									<li><a href="{% url 'profilesettings' %}">Настройки</a></li>
 									<li class="quit"><a href="/logout">Выйти</a></li>
 								</ul>
 							{% else %}
@@ -135,52 +143,6 @@
 			</div>
 		</div>
 		{% block content %}{% endblock %}
-		<div id="rigth_sounbar">
-			<div id="news">
-				<div id="body_news">
-					<div id="block_news_title">
-						<div id="text_news_news">Сегодня</div>
-					</div>
-					<div id="block_news">
-						<div id="icon">
-							<i class="fas fa-angle-double-right"></i>
-						</div>
-						<div id="text_news">
-							<div id="text_news_day">{{day_text}}</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div id="tags">
-				<div id="body_tags">
-					<div id="body_tags_title">
-						<h3>Популярные теги</h3>
-					</div>
-					<div class="overflow-y-hidden overflow-y-md-auto tags_list">
-						<ul>
-							{% for tag in allTags %}
-								<li><a href="{% url 'tags' tag %}">#{{tag}}</a></li>
-							{% endfor %}
-<!--							<li><a href="#">#webdev</a></li>-->
-<!--							<li><a href="#">#beginners</a></li>-->
-<!--							<li><a href="#">#tutorial</a></li>-->
-<!--							<li><a href="#">#programming</a></li>-->
-<!--							<li><a href="#">#react</a></li>-->
-<!--							<li><a href="#">#productivity</a></li>-->
-<!--							<li><a href="#">#css</a></li>-->
-<!--							<li><a href="#">#python</a></li>-->
-<!--							<li><a href="#">#html</a></li>-->
-<!--							<li><a href="#">#codenewbie</a></li>-->
-<!--							<li><a href="#">#devops</a></li>-->
-<!--							<li><a href="#">#aws</a></li>-->
-<!--							<li><a href="#">#node</a></li>-->
-<!--							<li><a href="#">#career</a></li>-->
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-
 		<footer>
 			<div id="copyright">
 				<i class="far fa-copyright"></i>
@@ -215,7 +177,7 @@
 		});
 	</script>
 <!--	<script src="../static/js/text_anim.js"></script>-->
-	<script src="../static/js/particles.js"></script>
+<!--	<script src="../static/js/particles.js"></script>-->
 	<script src="../static/js/app.js"></script>
 	<script src="../static/js/lib/stats.js"></script>
 	<script>//скрытие побочной подгруппы
@@ -235,20 +197,6 @@
 	</script>
 	<script src="../static/js/halfmoon.min.js"></script>
 	<script src="../static/js/custom.js"></script>
-	<!-- Yandex.Metrika counter -->
-    <!-- <script type="text/javascript" >
-       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-       m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-       ym(66314386, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true
-       });
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/66314386" style="position:absolute; left:-9999px;" alt="" /></div></noscript> -->
-    <!-- /Yandex.Metrika counter -->
 	<script type="text/x-mathjax-config">
 		MathJax.Hub.Config({
 		  config: ["MMLorHTML.js"],
@@ -256,5 +204,45 @@
 		  extensions: ["MathMenu.js", "MathZoom.js"]
 		});
 	</script>
+	{% if css_params == 3%}  <!-- newarticle -->
+	<script>
+		function previewFile() {
+			var preview = document.getElementById('profile_image');
+			console.log(preview);
+			file    = document.getElementById('form').querySelector(`[name="article_picture"]`).files[0];
+			var reader  = new FileReader();
+
+			reader.onloadend = function () {
+			  preview.src = reader.result;
+			}
+
+			if (file) {
+			  reader.readAsDataURL(file);
+			} else {
+			  preview.src = "";
+			}
+		}
+	</script>
+	{% endif %}
+	{% if css_params == 4%}  <!-- edit profile -->
+	<script>
+		function previewFile() {
+			var preview = document.getElementById('profile_image');
+			console.log(preview);
+			file    = document.getElementById('form').querySelector(`[name="avatar"]`).files[0];
+			var reader  = new FileReader();
+
+			reader.onloadend = function () {
+			  preview.src = reader.result;
+			}
+
+			if (file) {
+			  reader.readAsDataURL(file);
+			} else {
+			  preview.src = "";
+			}
+		}
+	</script>
+	{% endif %}
 </body>
 </html>

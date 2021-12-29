@@ -117,10 +117,30 @@
 	font-family: "Rubik";
 	font-size: 1em;
 }
+.actions_with_article{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: row;
+	font-family: "Hack Bold";
+	font-size: 1em;
+	margin-right: 15px;
+	a{
+		text-decoration: none;
+		&:hover{cursor: pointer;}
+		padding: 5px;
+	}
+	.edit{color: #50C878;}
+	.delete{color: #EB4C42;}
+}
 
 
 .dark-mode{
 	#title_acc{
 		box-shadow: 0 0 0 1px $box_shadow_lm;
+	}
+	.actions_with_article{
+		.edit{color: #50C878;}
+		.delete{color: #EB4C42;}
 	}
 }
