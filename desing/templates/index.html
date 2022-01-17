@@ -101,31 +101,24 @@
 							<i class="fas fa-search"></i>
 						  </span>
 						</div>
-						<input type="text" class="form-control form-control-custom" placeholder="Поиск...">
+						<form action="/">
+							<input type="text" name="search" class="form-control form-control-custom" placeholder="Поиск...">
+						</form>
 					</div>
 					<div class="flex_icon theme login_theme">
 							<button class="btn login custom_click" type="button">
-								Вход
+								<a href="/login">Вход</a>
 							</button>
-							<!-- <a href="#"><svg width="50" height="50" viewBox="0 0 50 50" fill="#E4E6E8" xmlns="http://www.w3.org/2000/svg">
-								<path d="M25 4.16669C13.7063 4.16669 4.16669 13.7063 4.16669 25C4.16669 36.2938 13.7063 45.8334 25 45.8334C36.2938 45.8334 45.8334 36.2938 45.8334 25C45.8334 13.7063 36.2938 4.16669 25 4.16669ZM25 14.5834C28.5979 14.5834 31.25 17.2334 31.25 20.8334C31.25 24.4334 28.5979 27.0834 25 27.0834C21.4042 27.0834 18.75 24.4334 18.75 20.8334C18.75 17.2334 21.4042 14.5834 25 14.5834ZM14.3625 34.9417C16.2313 32.1917 19.3479 30.3584 22.9167 30.3584H27.0834C30.6542 30.3584 33.7688 32.1917 35.6375 34.9417C32.975 37.7917 29.1979 39.5834 25 39.5834C20.8021 39.5834 17.025 37.7917 14.3625 34.9417Z"/>
-								</svg>
-							</a> -->
-						<!-- <div class="icon endicon">
-						{% if user.is_authenticated %}
-							<a href="{% url 'edit' %}">
-								{% if user.profile.photo %}
-									<img src="{{user.profile.photo.url}}">
-								{% else %}
-									<img src="../../static/img/default.png"/>
-								{% endif %}
-							</a>
-						{% else %}
-							<a href="{% url 'login' %}"><svg width="50" height="50" viewBox="0 0 50 50" fill="#E4E6E8" xmlns="http://www.w3.org/2000/svg">
-								<path d="M25 4.16669C13.7063 4.16669 4.16669 13.7063 4.16669 25C4.16669 36.2938 13.7063 45.8334 25 45.8334C36.2938 45.8334 45.8334 36.2938 45.8334 25C45.8334 13.7063 36.2938 4.16669 25 4.16669ZM25 14.5834C28.5979 14.5834 31.25 17.2334 31.25 20.8334C31.25 24.4334 28.5979 27.0834 25 27.0834C21.4042 27.0834 18.75 24.4334 18.75 20.8334C18.75 17.2334 21.4042 14.5834 25 14.5834ZM14.3625 34.9417C16.2313 32.1917 19.3479 30.3584 22.9167 30.3584H27.0834C30.6542 30.3584 33.7688 32.1917 35.6375 34.9417C32.975 37.7917 29.1979 39.5834 25 39.5834C20.8021 39.5834 17.025 37.7917 14.3625 34.9417Z"/>
-							</svg></a>
-						{% endif %}
-						</div> -->
+							<!-- <button class="btn login custom_click" type="button">
+								<i class="fas fa-cog"></i>
+								<i class="fas fa-caret-down"></i>
+								<ul class="settings_menu">
+									<li><a href="/user/34/">Ваши статьи</a></li>
+									<li><a href="/newarticle/">Написать статью</a></li>
+									<li><a href="/profilesettings/">Настройки</a></li>
+									<li class="quit"><a href="/logout">Выйти</a></li>
+								</ul>
+							</button> -->
 					</div>
 					<div class="flex_icon theme lm_mode_theme">
 							<button class="btn btn_theme" type="button" onclick="handleButtonClick()" onclick="handleButtonClick()">

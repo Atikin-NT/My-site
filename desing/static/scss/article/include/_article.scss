@@ -104,20 +104,13 @@ $gl-lg: "screen and (max-width: 80em)";   // max 1280px
 			padding-left: 10px;
 		}
 	}
-	.highlight{
-		code{
-			border-radius: 5px;
-			border: #1D2029 solid 1px;
-			font-family: "Hack";
-		}
-	}
 	code{
 		border-radius: 4px;
 		padding: 2px 4px;
 		font-family: "Hack";
-		color: $code_color;
+		// color: #656e77;
 		font-size: 0.9em;
-		background-color: #f9f2f4;
+		// background-color: #101111;
 	}
 	blockquote{
 		border-left: $text_selected_app_color solid 5px;
@@ -183,7 +176,11 @@ $gl-lg: "screen and (max-width: 80em)";   // max 1280px
 	}
 	}
 
-	img {max-width: 90%;}
+	img {
+		max-width: 90%;
+		display: block;
+		margin: auto;
+	}
 	.emojione{
 		max-width: 25px;
 		margin: 0;
@@ -277,8 +274,10 @@ $gl-lg: "screen and (max-width: 80em)";   // max 1280px
 			display: block;
 		}
 	}
-	.MathJax_Preview{
+	.MathJax{
 		color: #fff;
+		display: flex;
+    	justify-content: center;
 	}
 } 
 

@@ -1,22 +1,22 @@
 @charset "UTF-8";
 @font-face {
   font-family: 'Rubik';
-  src: local("Rubik"), local("Rubik"), url("..//..//..//fonts//Rubik.ttf");
+  src: local("Rubik"), local("Rubik"), url("..//..//../fonts/Rubik.ttf");
 }
 
 @font-face {
   font-family: 'Rubik Bold';
-  src: local("Rubik Bold"), local("Rubik Bold"), url("..//..//..//fonts//Rubik-Bold.ttf");
+  src: local("Rubik Bold"), local("Rubik Bold"), url("..//..//../fonts/Rubik-Bold.ttf");
 }
 
 @font-face {
   font-family: 'Hack';
-  src: local("Hack"), local("Hack"), url("..//..//..//fonts//Hack-Regular.ttf");
+  src: local("Hack"), local("Hack"), url("..//..//../fonts/Hack-Regular.ttf");
 }
 
 @font-face {
   font-family: 'Hack Bold';
-  src: local("Hack Bold"), local("Hack Bold"), url("..//..//..//fonts//Hack-Bold.ttf");
+  src: local("Hack Bold"), local("Hack Bold"), url("..//..//../fonts/Hack-Bold.ttf");
 }
 
 html {
@@ -55,6 +55,17 @@ html {
   border: none;
 }
 
+/*
+1 - общий блок
+2 - ограничение в ширине
+3 - логотип
+4 - менюшка
+5 - иконки меню сверху
+6 - кнопка темы светлая/темная
+7 - поиск
+8 - settings menu
+9 - светлая тема
+*/
 #top_nav {
   position: absolute;
   width: 100%;
@@ -296,6 +307,8 @@ menu a:hover {
 
 .input-group-nav {
   width: 250px;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
 }
 
 .input-text-custom {
@@ -341,6 +354,104 @@ menu a:hover {
 .form-control-custom.active:hover, .form-control-custom:focus:hover {
   color: #fff;
   background-color: #405065;
+}
+
+.fa-caret-down {
+  margin-left: 5px;
+}
+
+.settings_menu {
+  overflow: hidden;
+  background: #FFFFFF;
+  border: #202833 solid 1px;
+  position: relative;
+  right: 50px;
+  margin: 0;
+  border-radius: 5px;
+  width: 150px;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.settings_menu li {
+  float: left;
+  padding: 0 5px;
+  width: 100%;
+  margin: 0;
+}
+
+.settings_menu li:hover {
+  background: #DADADA;
+}
+
+.settings_menu li a {
+  color: #202833;
+  text-decoration: none;
+  font-family: "Rubik";
+  font-size: 1em;
+}
+
+.settings_menu .quit:hover {
+  background: #EB4C42;
+}
+
+.settings_menu .quit:hover a {
+  color: #FFFFFF;
+}
+
+.login {
+  width: 80px;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login a {
+  text-decoration: none;
+  color: #DADADA;
+}
+
+.login:hover .settings_menu {
+  display: block;
+  animation: fadeInRight .3s ease;
+  -webkit-animation: fadeInRight .3s ease;
+}
+
+@-webkit-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
 }
 
 .dark-mode #top_nav {

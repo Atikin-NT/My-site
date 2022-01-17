@@ -1,3 +1,16 @@
+/*
+1 - общий блок
+2 - ограничение в ширине
+3 - логотип
+4 - менюшка
+5 - иконки меню сверху
+6 - кнопка темы светлая/темная
+7 - поиск
+8 - settings menu
+9 - светлая тема
+*/
+
+
 //общий блок
 #top_nav{
 	position: absolute;
@@ -177,6 +190,7 @@ menu{
 //поиск
 .input-group-nav{
 	width: 250px;
+	flex-wrap: nowrap;
 }
 .input-text-custom{
 	color: #fff;
@@ -204,6 +218,76 @@ menu{
 	color: #fff;
 	background-color: #405065;
 }
+
+
+//settings menu
+.fa-caret-down{
+	margin-left: 5px;
+}
+.settings_menu{
+	overflow: hidden;
+	background: #FFFFFF;
+	border: #202833 solid 1px;
+	position:relative;          
+	right: 50px; 
+	margin:0;
+	border-radius:5px;  
+	width: 150px;        
+	box-shadow:0 0 5px rgba(#000, .15);
+	display: none;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	li{
+		float: left;
+		padding: 0 5px;
+		width: 100%;
+		margin: 0;
+		&:hover{
+			background: #DADADA;
+		}
+		a{
+			color: #202833;
+			text-decoration: none;
+			font-family: "Rubik";
+			font-size: 1em;
+		}
+	}
+	.quit:hover{
+		background: #EB4C42;
+		a{color: #FFFFFF;}
+	}
+}
+.login{
+	width: 80px;
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	a{
+		text-decoration: none;
+		color: #DADADA;
+	}
+}
+.login:hover{
+	.settings_menu{
+		display:block;
+		animation:fadeInRight .3s ease;
+		-webkit-animation:fadeInRight .3s ease;
+	}
+}
+
+@keyframes fadeInRight{
+    0%{
+        opacity:0;
+        transform: translate3d(100%,0,0);
+    }
+    100%{
+        opacity:1;
+        transform: none;
+    }
+}
+
 
 //светлая тема
 .dark-mode {

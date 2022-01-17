@@ -119,19 +119,11 @@
   padding-left: 10px;
 }
 
-#content_det .highlight code {
-  border-radius: 5px;
-  border: #1D2029 solid 1px;
-  font-family: "Hack";
-}
-
 #content_det code {
   border-radius: 4px;
   padding: 2px 4px;
   font-family: "Hack";
-  color: #c7254e;
   font-size: 0.9em;
-  background-color: #f9f2f4;
 }
 
 #content_det blockquote {
@@ -237,6 +229,8 @@
 
 #content_det img {
   max-width: 90%;
+  display: block;
+  margin: auto;
 }
 
 #content_det .emojione {
@@ -369,8 +363,14 @@
   display: block;
 }
 
-#content_det .MathJax_Preview {
+#content_det .MathJax {
   color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 #likes_and_comments {
