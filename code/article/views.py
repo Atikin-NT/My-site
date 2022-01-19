@@ -7,6 +7,7 @@ from django.db.models import Q
 from .forms import UserRegistrationForm, ProfileEditForm, UserEditForm, NewArticle, ProfileForm
 from .models import Profile
 import time
+import os
 
 
 def currentDay() -> str:
@@ -201,22 +202,21 @@ def articleById(request, user_id):
 def newArticle(request):
     if request.method == "POST":
         form = NewArticle(data=request.POST, files=request.FILES)
-        article = Article.objects.create()
+        article = Article()
+
         article.article_title = form['article_title'].value()
+
         article.article_small_text = form['article_small_text'].value()
         article.article_content_md = form['myfield'].value()
         article.pub_date = datetime.date.today()
         article.author_id = request.user.id
-        if form['article_picture'].value(): article.article_picture = form['article_picture'].value()
+        print('ok', form['article_picture'].value())
+        if form['article_picture'].value():
+            article.article_picture = form['article_picture'].value()
+        else:
+            article.article_picture = "default.jpg"
         article.tagArticle = form['tagArticle'].value()
         article.save()
-        # Article.objects.create(article_title=data['article_title'],
-        #                            article_small_text=data['article_small_text'],
-        #                            article_content_md=data['myfield'],
-        #                            pub_date=datetime.date.today(),
-        #                            author_id=request.user.id,
-        #                            article_picture=data['article_picture'],
-        #                            tagArticle=data['tagArticle'])
         return redirect(articleById, user_id=request.user.id)
     else:
         form = NewArticle()
@@ -229,6 +229,7 @@ def editArticle(request, article_id):
         form = NewArticle(data=request.POST, files=request.FILES)
 
         article.article_title = form['article_title'].value()
+
         article.article_small_text = form['article_small_text'].value()
         article.article_content_md = form['myfield'].value()
         if form['article_picture'].value(): article.article_picture = form['article_picture'].value()
@@ -255,6 +256,8 @@ def register(request):
     if request.method == 'POST':
         profile_form = ProfileForm(data=request.POST, files=request.FILES)
         user_form = UserRegistrationForm(request.POST)
+        print(profile_form.errors)
+        print(user_form.errors)
         if user_form.is_valid() and profile_form.is_valid():
             # Create a new user object but avoid saving it yet
             profile_data = profile_form.cleaned_data
@@ -263,6 +266,9 @@ def register(request):
             new_user.set_password(user_form.cleaned_data['password'])
             # Save the User object
             new_user.save()
+
+            if profile_data['avatar'] == '':
+                print(arr)
             Profile.objects.create(user=new_user,
                                    avatar=profile_data['avatar'],
                                    description=profile_data['description'],
@@ -273,7 +279,7 @@ def register(request):
         user_form = UserRegistrationForm()
         profile_form = ProfileForm()
     return render(request, 'registration/register.html', {'user_form': user_form, 'profile_form': profile_form,
-                                                          'profile_flag_edit': 0})
+                                                          'profile_flag_edit': 0, 'css_params': 4})
 
 
 def edit(request):
@@ -302,7 +308,7 @@ def edit(request):
                                             'description': curr_profile.description,
                                             'where_you_leave': curr_profile.where_you_leave})
     return render(request, 'registration/register.html', {'user_form': user_form, 'profile_form': profile_form,
-                                                              'profile_flag_edit': 1, 'css_params': 4})
+                                                          'profile_flag_edit': 1, 'css_params': 4})
 
 
 def error404(request, exception):

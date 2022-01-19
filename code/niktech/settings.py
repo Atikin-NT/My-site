@@ -9,11 +9,13 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-
+from datetime import datetime
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from pymdownx import arithmatex
+from article.code_format import custom_format
+
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -47,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'multiselectfield',
     'markdownx',
+    'django_pygments',
 ]
 
 MIDDLEWARE = [
@@ -79,7 +82,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'niktech.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
@@ -89,7 +91,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -126,7 +127,7 @@ MARKDOWNX_MARKDOWN_EXTENSIONS = [
     'pymdownx.caret',
     'pymdownx.details',  # ! добавить css https://facelessuser.github.io/pymdown-extensions/extensions/details/
     'pymdownx.highlight',  # подсветка синтаксиса, проблема css
-    'pymdownx.inlinehilite',  # подсветка синтаксиса, проблема css
+    # 'pymdownx.inlinehilite',  # подсветка синтаксиса, проблема css
     'pymdownx.keys',  # подсветка клавиш
     'pymdownx.magiclink',  # ссылки
     'pymdownx.mark',  # выделение текста
@@ -148,7 +149,7 @@ MARKDOWNX_MARKDOWN_EXTENSION_CONFIGS = {
     },
     "pymdownx.tasklist": {
         "custom_checkbox": True
-    }
+    },
 }
 
 # Markdown urls
@@ -156,7 +157,8 @@ MARKDOWNX_URLS_PATH = '/markdownx/markdownify/'  # Path that returns compiled ma
 MARKDOWNX_UPLOAD_URLS_PATH = '/markdownx/upload/'  # Path that accepts file uploads, returns markdown notation of the image.
 
 # Media path
-MARKDOWNX_MEDIA_PATH = 'markdownx/'  # Subdirectory, where images will be stored in MEDIA_ROOT folder
+# MARKDOWNX_MEDIA_PATH = 'markdownx/'  # Subdirectory, where images will be stored in MEDIA_ROOT folder
+MARKDOWNX_MEDIA_PATH = datetime.now().strftime('markdownx/%Y/%m/%d')  # Subdirectory, where images will be stored in MEDIA_ROOT folder
 
 # Image
 MARKDOWNX_UPLOAD_MAX_SIZE = 52428800  # 50MB # Maximum file size

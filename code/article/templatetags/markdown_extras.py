@@ -23,7 +23,7 @@ def markdown(value):
         'pymdownx.caret',
         'pymdownx.details',  # ! добавить css https://facelessuser.github.io/pymdown-extensions/extensions/details/
         'pymdownx.highlight',  # подсветка синтаксиса, проблема css
-        'pymdownx.inlinehilite',  # подсветка синтаксиса, проблема css
+        # 'pymdownx.inlinehilite',  # подсветка синтаксиса, проблема css
         'pymdownx.keys',  # подсветка клавиш
         'pymdownx.magiclink',  # ссылки
         'pymdownx.mark',  # выделение текста

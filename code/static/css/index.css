@@ -55,6 +55,17 @@ html {
   border: none;
 }
 
+/*
+1 - общий блок
+2 - ограничение в ширине
+3 - логотип
+4 - менюшка
+5 - иконки меню сверху
+6 - кнопка темы светлая/темная
+7 - поиск
+8 - settings menu
+9 - светлая тема
+*/
 #top_nav {
   position: absolute;
   width: 100%;
@@ -296,6 +307,8 @@ menu a:hover {
 
 .input-group-nav {
   width: 250px;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
 }
 
 .input-text-custom {
@@ -341,6 +354,95 @@ menu a:hover {
 .form-control-custom.active:hover, .form-control-custom:focus:hover {
   color: #fff;
   background-color: #405065;
+}
+
+.fa-caret-down {
+  margin-left: 5px;
+}
+
+.settings_menu {
+  overflow: hidden;
+  background: #FFFFFF;
+  border: #202833 solid 1px;
+  position: relative;
+  right: 50px;
+  margin: 0;
+  border-radius: 5px;
+  width: 150px;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.settings_menu li {
+  float: left;
+  padding: 0 5px;
+  width: 100%;
+  margin: 0;
+}
+
+.settings_menu li:hover {
+  background: #DADADA;
+}
+
+.settings_menu li a {
+  color: #202833;
+  text-decoration: none;
+  font-family: "Rubik";
+  font-size: 1em;
+}
+
+.settings_menu .quit:hover {
+  background: #EB4C42;
+}
+
+.settings_menu .quit:hover a {
+  color: #FFFFFF;
+}
+
+.login {
+  width: 80px;
+  height: 50px;
+}
+
+.login a {
+  text-decoration: none;
+  color: #DADADA;
+}
+
+.login:hover .settings_menu {
+  display: block;
+  animation: fadeInRight .3s ease;
+  -webkit-animation: fadeInRight .3s ease;
+}
+
+@-webkit-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+            transform: none;
+  }
 }
 
 .dark-mode #top_nav {
@@ -1076,6 +1178,42 @@ article {
   margin: 0;
 }
 
+.actions_with_article {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  font-family: "Hack Bold";
+  font-size: 1em;
+  margin-right: 15px;
+}
+
+.actions_with_article a {
+  text-decoration: none;
+  padding: 5px;
+}
+
+.actions_with_article a:hover {
+  cursor: pointer;
+}
+
+.actions_with_article .edit {
+  color: #50C878;
+}
+
+.actions_with_article .delete {
+  color: #EB4C42;
+}
+
 #paginator {
   width: 100%;
   margin-top: 50px;
@@ -1230,6 +1368,14 @@ article {
 
 .dark-mode .advertising {
   background: #E4E6E8;
+}
+
+.dark-mode .actions_with_article .edit {
+  color: #50C878;
+}
+
+.dark-mode .actions_with_article .delete {
+  color: #EB4C42;
 }
 
 footer {

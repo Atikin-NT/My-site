@@ -1,9 +1,23 @@
+import os
 from django.db import models
 from django.contrib import admin
 from django.conf import settings
 from markdownx.models import MarkdownxField
 from markdownx.widgets import AdminMarkdownxWidget
 from multiselectfield import MultiSelectField
+
+
+def get_upload_path(instance, filename):
+    name = str(instance.id)
+    path = os.getcwd() + f"/media/images/{name}"
+    print("start")
+    if os.path.exists(path):
+        os.chdir(path)
+        for file in os.listdir():
+            print(file)
+            os.remove(file)
+        print(os.listdir())
+    return os.path.join(settings.MEDIA_ROOT, 'images', name, filename)
 
 
 class TagsList(models.Model):
@@ -19,7 +33,7 @@ choices = [(c.tag, c.tag) for c in TagsList.objects.all()]
 
 class Article(models.Model):
     article_title = models.CharField('Название статьи', max_length=200)  # название статьи
-    article_picture = models.ImageField('Основная картинка', upload_to='images/')  # картинка
+    article_picture = models.ImageField('Основная картинка', upload_to=get_upload_path, default='default.jpg')  # картинка
     article_small_text = models.TextField('Краткое описание')  # краткое описание
     article_content_md = MarkdownxField(null=True)  # markdown editor
     pub_date = models.DateField('Дата публикации')  # дата публикации
