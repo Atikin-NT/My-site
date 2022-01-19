@@ -8,6 +8,11 @@ from .forms import UserRegistrationForm, ProfileEditForm, UserEditForm, NewArtic
 from .models import Profile
 import time
 import os
+import vk_api
+
+
+def how_much_comments():
+    pass
 
 
 def currentDay() -> str:
@@ -137,16 +142,18 @@ def detail(request, article_id):
     if request.method == "POST":
         html = render(request, 'article/articledetail.html', {'article': article, 'allTags': allTags,
                                                               'day_text': day_text, 'css_params': 1})
-        print(request.COOKIES)
+        # print(request.COOKIES)
         if request.COOKIES.get(str(article_id)):
             pass
         else:
-            if article_id == 16:
-                html.set_cookie(str(article_id), '9 31 8 106 7 207 15', max_age=86400)
-            else:
-                html.set_cookie(str(article_id), 'Toad Sage', max_age=86400)
             article.likes += 1
             article.save()
+            html = render(request, 'article/articledetail.html', {'article': article, 'allTags': allTags,
+                                                                  'day_text': day_text, 'css_params': 1})
+            if article_id == 1:
+                html.set_cookie(str(article_id), '9 31 8 106 7 207 15', max_age=172800)
+            else:
+                html.set_cookie(str(article_id), 'Toad Sage', max_age=172800)
         return html
 
     return render(request, 'article/articledetail.html', {'article': article, 'allTags': allTags,
@@ -179,7 +186,10 @@ def product(request):
 
 
 def articleById(request, user_id):
-    articles_list = Article.objects.filter(Q(author_id=user_id)).all().order_by('-pub_date')
+    if user_id == 25:
+        articles_list = Article.objects.order_by('-pub_date')
+    else:
+        articles_list = Article.objects.filter(Q(author_id=user_id)).all().order_by('-pub_date')
     paginator = Paginator(articles_list, 10)  # 10 posts in each page
     page = request.GET.get('page')
     try:
@@ -200,6 +210,8 @@ def articleById(request, user_id):
 
 
 def newArticle(request):
+    if not request.user.is_authenticated:
+        return redirect(register)
     if request.method == "POST":
         form = NewArticle(data=request.POST, files=request.FILES)
         article = Article()
@@ -225,6 +237,8 @@ def newArticle(request):
 
 def editArticle(request, article_id):
     article = Article.objects.filter(Q(id=article_id))[0]
+    if (not request.user.is_authenticated) or (request.user.id != article.author_id and request.user.id != 25):
+        return redirect(index)
     if request.method == "POST":
         form = NewArticle(data=request.POST, files=request.FILES)
 
@@ -284,6 +298,8 @@ def register(request):
 
 def edit(request):
     current_user = request.user
+    if (not request.user.is_authenticated) or (request.user.id != current_user.id and request.user.id != 25):
+        return redirect(index)
     curr_profile = Profile.objects.filter(user_id=current_user.id)[0]
     if request.method == 'POST':
         user_form = UserRegistrationForm(data=request.POST)
