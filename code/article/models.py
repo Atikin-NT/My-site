@@ -41,6 +41,8 @@ class Article(models.Model):
     time_to_read = models.IntegerField('Время чтения', default=1)
     tagArticle = MultiSelectField(choices=choices, max_choices=5, null=True)
     author_id = models.IntegerField(default=25)
+    comments = models.IntegerField('Комментарии', default=0)
+    admin_check = models.IntegerField('Проверка', default=0)
 
     def __str__(self):
         return self.article_title

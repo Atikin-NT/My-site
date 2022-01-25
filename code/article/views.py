@@ -1,4 +1,6 @@
 import datetime
+
+import requests
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
 from .models import Article, TagsList, Products
@@ -7,12 +9,34 @@ from django.db.models import Q
 from .forms import UserRegistrationForm, ProfileEditForm, UserEditForm, NewArticle, ProfileForm
 from .models import Profile
 import time
-import os
-import vk_api
 
 
-def how_much_comments():
-    pass
+# https://oauth.vk.com/authorize?client_id=7546586&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=app_widget+messages&response_type=code&v=5.131
+# https://oauth.vk.com/access_token?client_id=7546586&client_secret=ZuuzrjpFNSQH5kmhJTBV&redirect_uri=https://oauth.vk.com/blank.html&code=f9c675957c432bbe8b
+
+def how_much_comments(article_id) -> int:
+    meth = "widgets.getComments"
+    widget_api_id = "7546586"
+    url = f"niktech.site/{article_id}/"
+    page_id = ""
+    order = "date"
+    fields = ""
+    offset = "0"
+    count = "100"
+    v = "5.131"
+    access_token = "6dcf6d3a734c42082b4f274406297983502ae65404ecab0f46c09eedbb024d7492d0ad3e8bc5273a89957"
+
+    response = requests.get(
+        f"https://api.vk.com/method/{meth}?widget_api_id={widget_api_id}&url={url}&page_id={page_id}&order={order}&fields={fields}&offset={offset}&count={count}&v={v}&access_token={access_token}")
+
+    data = response.json()
+    try:
+        count = data['response']["count"]
+    except Exception as ex:
+        return 0
+    for post in data['response']['posts']:
+        count += post['comments']['count']
+    return count
 
 
 def currentDay() -> str:
@@ -138,6 +162,11 @@ def detail(request, article_id):
     allTags = [c.tag for c in TagsList.objects.all()]
 
     day_text = currentDay()
+
+    count_of_comments = how_much_comments(article_id)
+    if count_of_comments > article.comments:
+        article.comments = count_of_comments
+        article.save()
 
     if request.method == "POST":
         html = render(request, 'article/articledetail.html', {'article': article, 'allTags': allTags,
