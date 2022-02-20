@@ -49,8 +49,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'multiselectfield',
     'markdownx',
-    'django_pygments',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -15,17 +15,24 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.conf.urls import url
 from django.conf import settings
-from django.views.static import serve
 from markdownx import urls as markdownx
 from django.conf.urls.static import static
+from django.contrib.sitemaps.views import sitemap
+from django.contrib.sitemaps import GenericSitemap
+from article.models import Article
 
+info_dict = {
+    'queryset': Article.objects.all(),
+    'date_field': 'pub_date',
+}
 
 urlpatterns = [
     path('markdownx/', include(markdownx)),
     path('admin/', admin.site.urls),
     path('', include('article.urls')),
+    path('sitemap.xml', sitemap, {'sitemaps': {'blog': GenericSitemap(info_dict, priority=0.6)}}, name='django.contrib.sitemaps.views.sitemap'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 handler404 = 'article.views.error404'
 handler500 = 'article.views.error500'

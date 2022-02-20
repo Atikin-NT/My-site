@@ -357,8 +357,8 @@ def edit(request):
 
 
 def error404(request, exception):
-    return render(request, 'error404.html')
+    return render(request, 'errorPage.html', {"error": "404"})
 
 
 def error500(request):
-    return render(request, 'error500.html')
+    return render(request, 'errorPage.html', {"error": "500"})

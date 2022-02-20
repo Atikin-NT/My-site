@@ -5,6 +5,7 @@ from django.conf import settings
 from markdownx.models import MarkdownxField
 from markdownx.widgets import AdminMarkdownxWidget
 from multiselectfield import MultiSelectField
+from django.urls import reverse
 
 
 def get_upload_path(instance, filename):
@@ -51,6 +52,9 @@ class Article(models.Model):
         self.time_to_read = len(str(self.article_content_md)) // 1400
         if self.time_to_read == 0: self.time_to_read = 1
         super(Article, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('recipe_detail', args=[str(self.id)])
 
 
 class Products(models.Model):

@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 from django.contrib.auth import views as log
+from django.contrib.sitemaps import GenericSitemap # new
+from django.contrib.sitemaps.views import sitemap # new
 
 urlpatterns = [
     path('', views.index, name='index'),
