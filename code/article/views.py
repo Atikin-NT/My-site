@@ -3,6 +3,8 @@ import datetime
 import requests
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
+
+import article
 from .models import Article, TagsList, Products
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models import Q
@@ -75,7 +77,12 @@ def index(request):
         meta_title = "home"
         meta_description = "Последние статьи на сайте NikTech. Программирование и IT"
     paginator = Paginator(latest_articles_list, 10)
-    page = request.GET.get('page')
+
+    if 'page' in request.GET:
+        page = request.GET.get('page')
+    else:
+        page = 1
+
     try:
         posts = paginator.page(page)
     except PageNotAnInteger:
@@ -91,6 +98,7 @@ def index(request):
     #   ----------------------------------------paginator------------------------------------------------
     previous_page = posts.number - 3  # меньшая граница слева
     nex_page = posts.number + 2  # большая граница слева
+
     arr_advert = []
     cout_of_advertisin = 0
     for a in posts:
@@ -158,7 +166,10 @@ def tagShow(request):
 @csrf_exempt
 def detail(request, article_id):
     # print(request.method)
-    article = Article.objects.get(id=article_id)
+    try:
+        article = Article.objects.get(id=article_id)
+    except Exception as ex:
+        return redirect(index)
     allTags = [c.tag for c in TagsList.objects.all()]
 
     day_text = currentDay()
@@ -215,10 +226,16 @@ def product(request):
 
 
 def articleById(request, user_id):
-    if user_id == 25:
-        articles_list = Article.objects.order_by('-pub_date')
-    else:
-        articles_list = Article.objects.filter(Q(author_id=user_id)).all().order_by('-pub_date')
+    try:
+        curr_user = Profile.objects.get(user_id=user_id)
+    except article.models.Profile.DoesNotExist:
+        return redirect(index)
+
+    admin_flag = 0
+    if request.user.is_authenticated and (request.user.is_superuser or request.user.id == user_id):
+        admin_flag = 1
+
+    articles_list = Article.objects.filter(author_id=user_id).order_by('-pub_date')
     paginator = Paginator(articles_list, 10)  # 10 posts in each page
     page = request.GET.get('page')
     try:
@@ -231,11 +248,10 @@ def articleById(request, user_id):
     previous_page = posts.number - 3  # меньшая граница слева
     nex_page = posts.number + 2  # большая граница слева
 
-    curr_user = Profile.objects.filter(Q(user_id=user_id))[0]
-
     return render(request, 'article/users_articles.html', {'posts': posts, 'curr': curr_user, 'css_params': 2,
                                                            'count_of_all_posts': len(articles_list),
-                                                           'previous_page': previous_page, 'nex_page': nex_page})
+                                                           'previous_page': previous_page, 'nex_page': nex_page,
+                                                           'admin_flag': admin_flag})
 
 
 def newArticle(request):
@@ -267,7 +283,7 @@ def newArticle(request):
 def editArticle(request, article_id):
     article = Article.objects.filter(Q(id=article_id))[0]
     if (not request.user.is_authenticated) or (request.user.id != article.author_id and request.user.id != 25):
-        return redirect(index)
+        return redirect('article:detail', article_id=article_id)
     if request.method == "POST":
         form = NewArticle(data=request.POST, files=request.FILES)
 
@@ -309,9 +325,6 @@ def register(request):
             new_user.set_password(user_form.cleaned_data['password'])
             # Save the User object
             new_user.save()
-
-            if profile_data['avatar'] == '':
-                print(arr)
             Profile.objects.create(user=new_user,
                                    avatar=profile_data['avatar'],
                                    description=profile_data['description'],
@@ -328,7 +341,7 @@ def register(request):
 def edit(request):
     current_user = request.user
     if (not request.user.is_authenticated) or (request.user.id != current_user.id and request.user.id != 25):
-        return redirect(index)
+        return redirect('article:index')
     curr_profile = Profile.objects.filter(user_id=current_user.id)[0]
     if request.method == 'POST':
         user_form = UserRegistrationForm(data=request.POST)

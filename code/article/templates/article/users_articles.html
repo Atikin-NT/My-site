@@ -74,11 +74,11 @@
                                     {% endif %}
                                 {% endfor %}
 							</div>
-                            {% if curr.user.id == user.id %}
-                            <div class="actions_with_article">
-                                <a href="{% url 'editarticle' a.id %}" class="edit">Редактировать</a>
-                                <a href="{% url 'deletearticle' a.id %}" class="delete">Удалить</a>
-                            </div>
+                            {% if admin_flag == 1%}
+                                <div class="actions_with_article">
+                                    <a href="{% url 'editarticle' a.id %}" class="edit">Редактировать</a>
+                                    <a href="{% url 'deletearticle' a.id %}" class="delete">Удалить</a>
+                                </div>
                             {% endif %}
 						</div>
                     </article>
