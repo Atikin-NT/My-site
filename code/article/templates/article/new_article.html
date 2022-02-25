@@ -23,9 +23,10 @@
                     {% csrf_token %}
                     <div class="textform">
                         <div class="inputlist">
-                            <label for="{{ form.article_title.id_for_label }}">Заголовок</label>
+                            <label for="{{ form.article_title.id_for_label }}">{{ form.article_title.label }}</label>
+                            {{ form.article_title.errors }}
                             {{ form.article_title }}
-                            <div class="memo">Заголовок</div>
+<!--                            <div class="memo">Заголовок</div>-->
                         </div>
                     </div>
                     <div class="imageform">
@@ -43,26 +44,25 @@
                     </div>
                     <div class="textform">
                         <div class="inputlist">
-                            <label for="{{ form.article_small_text.id_for_label }}">Краткое описание</label>
-                            {{ form.article_small_text }}
-                            <div class="memo">Краткое описание</div>
+                            <label for="{{ form.article_small_text.id_for_label }}">{{ form.article_small_text.label }}</label>
                             {{ form.article_small_text.errors }}
+                            {{ form.article_small_text }}
                         </div>
                     </div>
                     <div class="textform">
                         <div class="inputlist">
                             <label for="{{ form.myfield.id_for_label }}">Ввод</label>
                             <div class="memo">Эта функция еще находиться в разработке, поэтому не все проблемы решены. На данный момент не правильно отображается подсветка кода в правом столбике. Но не переживайте, как вы сохраните запись и посмотрите на нее на сайте это проблемы не будет. То есть это баг видите только вы и только в режиме редактора. Пока что... Видите...</div>
-                            {{ form.myfield }}
-                            {{ form.myfield.errors }}
+                            {{ form.article_content_md.errors }}
+                            {{ form.article_content_md }}
                         </div>
                     </div>
                     <div class="textform">
                         <div class="inputlist">
                             <label for="{{ form.tagArticle.id_for_label }}">Тэги</label>
                             <div class="memo">Это поле обязательное к заполнению. Выбрать можно до 5 тэгов.</div>
-                            {{ form.tagArticle }}
                             {{ form.tagArticle.errors }}
+                            {{ form.tagArticle }}
                         </div>
                     </div>
                     {% if new_or_old == 1 %}

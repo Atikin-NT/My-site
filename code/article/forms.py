@@ -1,10 +1,8 @@
-import datetime
-
 from django import forms
 from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
 from django.forms import ClearableFileInput
-
-from .models import Profile, Article
+from .models import Profile, Article, TagsList
 from markdownx.fields import MarkdownxFormField
 
 
@@ -13,15 +11,15 @@ class MyImageWidget(ClearableFileInput):
 
 
 class NewArticle(forms.ModelForm):
-    myfield = MarkdownxFormField()
+    article_title = forms.CharField(required=True, label='Заголовок', max_length=200)
+    article_content_md = MarkdownxFormField(required=True)  # myfield
     article_picture = forms.ImageField(required=False, widget=MyImageWidget)
+    article_small_text = forms.CharField(required=True, widget=forms.Textarea, label='Краткое описание')
+    tagArticle = forms.SelectMultiple()
 
     class Meta:
         model = Article
-        fields = ('article_title', 'article_picture', 'article_small_text', 'tagArticle', 'myfield')
-        # widgets = {
-        #     'article_picture': MyImageWidget(attrs={'onchange': 'previewFile()'}),
-        # }
+        fields = ('article_title', 'article_picture', 'article_small_text', 'tagArticle', 'article_content_md')
 
 
 class UserRegistrationForm(forms.ModelForm):
@@ -44,8 +42,8 @@ class DateInput(forms.DateInput):
 
 
 class ProfileForm(forms.ModelForm):
-    where_you_leave = forms.CharField(widget=forms.TextInput, required=False)
-    description = forms.CharField(widget=forms.Textarea, required=False)
+    where_you_leave = forms.CharField(widget=forms.TextInput, required=False, initial='Эльдия')
+    description = forms.CharField(widget=forms.Textarea, required=False, initial='Клевый чел:)')
     avatar = forms.ImageField(required=False)
 
     class Meta:

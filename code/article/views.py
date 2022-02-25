@@ -225,6 +225,7 @@ def product(request):
                    'day_text': day_text, 'allTags': allTags, 'css_params': 0})
 
 
+# done
 def articleById(request, user_id):
     try:
         curr_user = Profile.objects.get(user_id=user_id)
@@ -254,55 +255,49 @@ def articleById(request, user_id):
                                                            'admin_flag': admin_flag})
 
 
+# done
 def newArticle(request):
     if not request.user.is_authenticated:
         return redirect(register)
     if request.method == "POST":
         form = NewArticle(data=request.POST, files=request.FILES)
-        article = Article()
+        if form.is_valid():
+            new_article = form.save(commit=False)
 
-        article.article_title = form['article_title'].value()
+            new_article.pub_date = datetime.date.today()
+            new_article.author_id = request.user.id
 
-        article.article_small_text = form['article_small_text'].value()
-        article.article_content_md = form['myfield'].value()
-        article.pub_date = datetime.date.today()
-        article.author_id = request.user.id
-        print('ok', form['article_picture'].value())
-        if form['article_picture'].value():
-            article.article_picture = form['article_picture'].value()
-        else:
-            article.article_picture = "default.jpg"
-        article.tagArticle = form['tagArticle'].value()
-        article.save()
-        return redirect(articleById, user_id=request.user.id)
+            new_article.save()
+            return redirect(articleById, user_id=request.user.id)
+
     else:
-        form = NewArticle()
+        form = NewArticle(initial={'article_picture': 'default.jpg'})
     return render(request, 'article/new_article.html', {'css_params': 3, 'form': form, 'new_or_old': 1})
 
 
+# done
 def editArticle(request, article_id):
-    article = Article.objects.filter(Q(id=article_id))[0]
-    if (not request.user.is_authenticated) or (request.user.id != article.author_id and request.user.id != 25):
+    try:
+        curr_article = Article.objects.get(id=article_id)
+    except article.models.Article.DoesNotExist:
+        return redirect(index)
+
+    if (not request.user.is_authenticated) or (request.user.id != curr_article.author_id and (not request.user.is_superuser)):
         return redirect('article:detail', article_id=article_id)
+
     if request.method == "POST":
-        form = NewArticle(data=request.POST, files=request.FILES)
-
-        article.article_title = form['article_title'].value()
-
-        article.article_small_text = form['article_small_text'].value()
-        article.article_content_md = form['myfield'].value()
-        if form['article_picture'].value(): article.article_picture = form['article_picture'].value()
-        article.tagArticle = form['tagArticle'].value()
-        article.save()
-        return redirect(articleById, user_id=request.user.id)
+        form = NewArticle(data=request.POST, files=request.FILES, instance=curr_article)
+        if form.is_valid() and form.has_changed():
+            form.save()
+            return redirect(articleById, user_id=request.user.id)
     else:
-        form = NewArticle(initial={'article_title': article.article_title,
-                                   'article_small_text': article.article_small_text,
-                                   'myfield': article.article_content_md,
-                                   'article_picture': article.article_picture,
-                                   'tagArticle': article.tagArticle})
+        form = NewArticle(initial={'article_title': curr_article.article_title,
+                                   'article_small_text': curr_article.article_small_text,
+                                   'article_content_md': curr_article.article_content_md,
+                                   'article_picture': curr_article.article_picture,
+                                   'tagArticle': curr_article.tagArticle})
     return render(request, 'article/new_article.html',
-                  {'css_params': 3, 'form': form, 'new_or_old': 0, 'article': article})
+                  {'css_params': 3, 'form': form, 'new_or_old': 0, 'article': curr_article})
 
 
 def deleteArticle(request, article_id):

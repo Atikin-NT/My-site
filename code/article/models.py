@@ -29,15 +29,14 @@ class TagsList(models.Model):
         return self.tag
 
 
-choices = [(c.tag, c.tag) for c in TagsList.objects.all()]
-
-
 class Article(models.Model):
+    choices = [(c.tag, c.tag) for c in TagsList.objects.all()]
+
     article_title = models.CharField('Название статьи', max_length=200)  # название статьи
     article_picture = models.ImageField('Основная картинка', upload_to=get_upload_path, default='default.jpg')  # картинка
     article_small_text = models.TextField('Краткое описание')  # краткое описание
     article_content_md = MarkdownxField(null=True)  # markdown editor
-    pub_date = models.DateField('Дата публикации')  # дата публикации
+    pub_date = models.DateField('Дата публикации', auto_now=True)  # дата публикации
     likes = models.IntegerField('Лайки', default=0)  # количество просмтров
     time_to_read = models.IntegerField('Время чтения', default=1)
     tagArticle = MultiSelectField(choices=choices, max_choices=5, null=True)
@@ -51,7 +50,7 @@ class Article(models.Model):
     def save(self, *args, **kwargs):
         self.time_to_read = len(str(self.article_content_md)) // 1400
         if self.time_to_read == 0: self.time_to_read = 1
-        super(Article, self).save(*args, **kwargs)
+        super().save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse('recipe_detail', args=[str(self.id)])

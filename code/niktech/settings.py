@@ -70,7 +70,7 @@ ROOT_URLCONF = 'niktech.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(PROJECT_ROOT, 'templates')],
+        'DIRS': [os.path.join(PROJECT_ROOT, 'article/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,6 +79,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'string_if_invalid': 'ERROR:(',
+            'file_charset': 'utf-8',
+            'debug': True,
         },
     },
 ]
@@ -166,7 +169,7 @@ MARKDOWNX_MEDIA_PATH = datetime.now().strftime('markdownx/%Y/%m/%d')  # Subdirec
 # Image
 MARKDOWNX_UPLOAD_MAX_SIZE = 52428800  # 50MB # Maximum file size
 MARKDOWNX_UPLOAD_CONTENT_TYPES = ['image/jpeg', 'image/png', 'image/gif']  # Acceptable file types
-MARKDOWNX_IMAGE_MAX_SIZE = {'size': (500, 500),
+MARKDOWNX_IMAGE_MAX_SIZE = {'size': (1300, 1300),
                             'quality': 90, }  # Different options describing final image size, compression etc. after upload.
 
 # Editor
@@ -186,8 +189,10 @@ USE_L10N = True
 USE_TZ = True
 
 #   --------------------------------------------login----------------------------------------------------------------
+# LOGIN_URL = '/login'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+PASSWORD_RESET_TIMEOUT_DAYS = 1
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [

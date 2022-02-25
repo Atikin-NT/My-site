@@ -6,8 +6,8 @@ from django.contrib.sitemaps.views import sitemap # new
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('tags/', views.tagShow, name='tags'),
     path('tags/<str:curr_tag>/', views.tagPostShow, name='tags'),
+    path('tags/', views.tagShow, name='tags'),
     path('<int:article_id>/', views.detail, name='detail'),
     # path('products/<int:product_id>/', views.detail, name='product_id'),
     # path('products/', views.product, name='product'),
