@@ -1,9 +1,8 @@
 import datetime
-
 import requests
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt
-
+import os
 import article
 from .models import Article, TagsList, Products
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
@@ -42,27 +41,26 @@ def how_much_comments(article_id) -> int:
 
 
 def currentDay() -> str:
-    file_flag = 0
     day_text = ""
     try:
         file_days = open(r"days.txt", "r", encoding="utf-8")
-        file_flag = 1
     except FileNotFoundError:
         day_text = "¯\_(⊙_ʖ⊙)_/¯"
-    if file_flag == 1:
-        for line in file_days:
-            time_now = time.localtime()
-            month_now = int(time_now[1])
-            day_now = int(time_now[2])
-            mon_in_txt = int(line[0] + line[1])
-            day_in_txt = int(line[2] + line[3])
-            if mon_in_txt == month_now and day_in_txt == day_now:
-                day_text = ""
-                for i in range(4, len(line)): day_text = day_text + line[i]
-        file_days.close()
+        return day_text
+    for line in file_days:
+        time_now = time.localtime()
+        month_now = int(time_now[1])
+        day_now = int(time_now[2])
+        mon_in_txt = int(line[0] + line[1])
+        day_in_txt = int(line[2] + line[3])
+        if mon_in_txt == month_now and day_in_txt == day_now:
+            day_text = ""
+            for i in range(4, len(line)): day_text = day_text + line[i]
+    file_days.close()
     return day_text
 
 
+# done
 def index(request):
     #   ----------------------------------------poisk----------------------------------------------------------
     search_query = request.GET.get('search', '')
@@ -76,6 +74,7 @@ def index(request):
         latest_articles_list = Article.objects.order_by('-pub_date')
         meta_title = "home"
         meta_description = "Последние статьи на сайте NikTech. Программирование и IT"
+
     paginator = Paginator(latest_articles_list, 10)
 
     if 'page' in request.GET:
@@ -91,48 +90,34 @@ def index(request):
         posts = paginator.page(paginator.num_pages)
 
     user_metadata = []  # аватарка и имя каждого пользователя
+    admin_user = Profile.objects.get(user_id=25)
     for a in posts:
-        curr_user = Profile.objects.filter(Q(user_id=a.author_id))[0]
+        try:
+            curr_user = Profile.objects.get(user_id=a.author_id)
+        except article.models.Profile.DoesNotExist:
+            curr_user = admin_user
         user_metadata.append([curr_user.avatar.url, curr_user.user.username])
 
     #   ----------------------------------------paginator------------------------------------------------
     previous_page = posts.number - 3  # меньшая граница слева
     nex_page = posts.number + 2  # большая граница слева
 
-    arr_advert = []
-    cout_of_advertisin = 0
-    for a in posts:
-        cout_of_advertisin = cout_of_advertisin + 1
-        if cout_of_advertisin == 3:
-            cout_of_advertisin = 0
-            arr_advert.append(a.id)
-    try:
-        adver1 = arr_advert[0]
-    except IndexError:
-        adver1 = -1
-    try:
-        adver2 = arr_advert[1]
-    except IndexError:
-        adver2 = -1
-    try:
-        adver3 = arr_advert[2]
-    except IndexError:
-        adver3 = -1
     #   --------------------------------------------------days------------------------------------------------------
     day_text = currentDay()
 
     allTags = [c.tag for c in TagsList.objects.all()]
-    data = zip(posts, user_metadata)
-    if len(latest_articles_list) == 0: data = []
+    data = zip(posts, user_metadata, [x for x in range(len(posts))])
+    if len(latest_articles_list) == 0:
+        data = []
 
     return render(request, 'article/article.html',
                   {'posts': posts, 'previous_page': previous_page, 'nex_page': nex_page,
-                   'adver1': adver1, 'adver2': adver2, 'adver3': adver3,
                    'meta_title': meta_title, 'meta_description': meta_description,
                    'day_text': day_text, 'allTags': allTags, 'css_params': 0,
                    'data': data})
 
 
+# done
 def tagPostShow(request, curr_tag):
     articles_list = Article.objects.filter(tagArticle__contains=curr_tag).all().order_by('-pub_date')
     allTags = [c.tag for c in TagsList.objects.all()]
@@ -149,16 +134,22 @@ def tagPostShow(request, curr_tag):
         posts = paginator.page(paginator.num_pages)
 
     user_metadata = []  # аватарка и имя каждого пользователя
+    admin_user = Profile.objects.get(user_id=25)
     for a in posts:
-        curr_user = Profile.objects.filter(Q(user_id=a.author_id))[0]
+        try:
+            curr_user = Profile.objects.get(user_id=a.author_id)
+        except article.models.Profile.DoesNotExist:
+            curr_user = admin_user
         user_metadata.append([curr_user.avatar.url, curr_user.user.username])
 
-    data = zip(posts, user_metadata)
-    if len(articles_list) == 0: data = []
+    data = zip(posts, user_metadata, [x for x in range(len(posts))])
+    if len(articles_list) == 0:
+        data = []
     return render(request, 'article/article.html', {'meta_title': curr_tag, 'allTags': allTags,
                                                     'day_text': day_text, 'css_params': 0, 'data': data})
 
 
+# done
 def tagShow(request):
     return render(request, 'all_tags.html', {})
 
@@ -259,6 +250,7 @@ def articleById(request, user_id):
 def newArticle(request):
     if not request.user.is_authenticated:
         return redirect(register)
+
     if request.method == "POST":
         form = NewArticle(data=request.POST, files=request.FILES)
         if form.is_valid():
@@ -306,19 +298,19 @@ def deleteArticle(request, article_id):
     return redirect(articleById, user_id=request.user.id)
 
 
+# done
 def register(request):
+    if request.user.is_authenticated:
+        return redirect(index)
     if request.method == 'POST':
         profile_form = ProfileForm(data=request.POST, files=request.FILES)
         user_form = UserRegistrationForm(request.POST)
-        print(profile_form.errors)
-        print(user_form.errors)
         if user_form.is_valid() and profile_form.is_valid():
-            # Create a new user object but avoid saving it yet
             profile_data = profile_form.cleaned_data
             new_user = user_form.save(commit=False)
-            # Set the chosen password
+
             new_user.set_password(user_form.cleaned_data['password'])
-            # Save the User object
+
             new_user.save()
             Profile.objects.create(user=new_user,
                                    avatar=profile_data['avatar'],
@@ -333,29 +325,24 @@ def register(request):
                                                           'profile_flag_edit': 0, 'css_params': 4})
 
 
+# done
 def edit(request):
     current_user = request.user
     if (not request.user.is_authenticated) or (request.user.id != current_user.id and request.user.id != 25):
         return redirect('article:index')
     curr_profile = Profile.objects.filter(user_id=current_user.id)[0]
     if request.method == 'POST':
-        user_form = UserRegistrationForm(data=request.POST)
-        profile_form = ProfileForm(data=request.POST, files=request.FILES)
-
-        current_user.username = user_form['username'].value()
-        current_user.email = user_form['email'].value()
-        current_user.save()
-
-        if profile_form['avatar'].value(): curr_profile.avatar = profile_form['avatar'].value()
-        if profile_form['date_of_birth'].value(): curr_profile.date_of_birth = profile_form['date_of_birth'].value()
-        if profile_form['description'].value(): curr_profile.description = profile_form['description'].value()
-        curr_profile.where_you_leave = profile_form['where_you_leave'].value()
-        curr_profile.save()
-
-        return redirect(articleById, user_id=request.user.id)
+        user_form = UserEditForm(data=request.POST, instance=current_user)
+        profile_form = ProfileForm(data=request.POST, files=request.FILES, instance=curr_profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            if user_form.has_changed():
+                user_form.save()
+            if profile_form.has_changed():
+                profile_form.save()
+            return redirect(articleById, user_id=request.user.id)
     else:
-        user_form = UserRegistrationForm(initial={'username': current_user.username,
-                                                  'email': current_user.email})
+        user_form = UserEditForm(initial={'username': current_user.username,
+                                          'email': current_user.email})
         profile_form = ProfileForm(initial={'avatar': curr_profile.avatar,
                                             'date_of_birth': curr_profile.date_of_birth,
                                             'description': curr_profile.description,

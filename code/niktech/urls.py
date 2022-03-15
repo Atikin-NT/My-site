@@ -29,11 +29,13 @@ info_dict = {
 
 urlpatterns = [
     path('markdownx/', include(markdownx)),
+    path('captcha/', include('captcha.urls')),
     path('admin/', admin.site.urls),
     path('', include('article.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': {'blog': GenericSitemap(info_dict, priority=0.6)}}, name='django.contrib.sitemaps.views.sitemap'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 handler404 = 'article.views.error404'
 handler500 = 'article.views.error500'
 if settings.DEBUG:

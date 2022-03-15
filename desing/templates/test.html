@@ -10,18 +10,20 @@
 	<meta name="author" content="Nikita Ivanov ivanov.n.a.0620@gmail.com">
 	<link rel="stylesheet" href="../static/css/normalize.min.css">
 	<link rel="stylesheet" href="../static/css/halfmoon-variables.min.css"/>
+	<link rel="stylesheet" href="../static/css/newarticle.css">
 	<link rel="stylesheet" href="../static/css/article.css">
 	<link rel="stylesheet" href="../static/css/index.css">
-	<link rel="stylesheet" href="../static/css/newarticle.css">
 	<link rel="stylesheet" href="../static/fontawesome/css/all.css">
 	<link rel="icon" href="../../static/img/favicon.ico" type="image/x-icon">
   	<link rel="shortcut icon" href="../../static/img/favicon.ico" type="image/x-icon">
-	<!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css"> -->
-	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script> -->
+	<!-- <script src="../static/markdownx/js/markdownx.js"></script> -->
+	<!-- <link href="../static/markdownx/admin/css/markdownx.css" type="text/css" media="all" rel="stylesheet"> -->
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css">
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 
-	<!-- <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-	<!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script> -->
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 
 	<!-- <script>hljs.initHighlightingOnLoad();</script> -->
 
@@ -35,13 +37,13 @@
 	</script>
 	<script id="MathJax-script" async
 	  	src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-	</script> -->
-	<!-- <script>window.noAdBlock = false;</script> -->
+	</script>
+	<script>window.noAdBlock = false;</script> -->
 </head>
 <body>
 	<!-- <script src="/static/js/_adverts.js"></script> -->
 	<main>
-		<div id="modal_full">
+		<!-- <div id="modal_full">
 			<div id="modal_content_flex">
 				<div id="modal_content">
 					<div id="top"></div>
@@ -53,7 +55,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<nav id="top_nav">
 			<div class="GoogleAdv"></div>
 			<div class="normal_size normalSizeLight">
@@ -76,7 +78,7 @@
 				</div>
 				<div class="logo">
 					<a href="#">
-						<img id="mainLogo" src="../../static/img/logo_dm.svg">
+						<img id="mainLogo" src="../images/logo_dm.svg">
 						<div id="logo_main_text_nav">NikTech</div>
 						<span class="badge">v.1.2</span>
 					</a>
@@ -134,54 +136,49 @@
             <div id="text_app">новая статья</div>
         </div>
         <div id="article_normal_size_block">
-			<div id="mobile_adaptetion">
-				<p>На телефоне вносить изменения в статью очень неудобно. Зайдите пожалуйста на сайт с планшета или компьютера и у вас появиться возможность редактирования</p>
-				<mytext>С заботой,<br> <strong>NikTech</strong></mytext>
-			</div>
             <div id="formsettings">
-                <form action="/newarticle/" method="post" enctype="multipart/form-data" id="form">
-                    <input type="hidden" name="csrfmiddlewaretoken" value="cCNAKBCGkV3xlwoqMHajQ2e3qxNEOQwGwEFbnEuy58Ezea6lIU2lfp1NDQ2anAcU">
+                <form action="/newarticle/" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="csrfmiddlewaretoken" value="gkWB3zSmdgk5OQcsOI8330fkP3gubKxNZPONwKg39Mk64jaJ2GxvvFFvGN23429F">
                     <div class="textform">
                         <div class="inputlist">
                             <label for="id_article_title">Заголовок</label>
-                            <input type="text" name="article_title" maxlength="200" required id="id_article_title">
+                            <input type="text" name="article_title" maxlength="200" required id="id_article_title" class="form-control form-control-custom">
                             <div class="memo">Заголовок</div>
                         </div>
                     </div>
                     <div class="imageform">
-						<input type="file" onchange="previewFile()" accept="image/png, image/gif, image/jpeg" name="article_picture" required id="id_article_picture">
-						<label for="id_article_picture">
-							<i class="fas fa-image"></i>
-							Выберите картинку
-						</label>
-						<img src="../images/dojocat.jpg" height="200" alt="Profile Image" id="profile_image">
+                        <div class="inputlist">
+                       		<label for="id_article_picture">Заголовок</label>
+                            <input type="file" name="article_picture" accept="image/*" required id="id_article_picture">
+                            <div class="memo">Заголовок</div>
+                        </div>
                     </div>
                     <div class="textform">
                         <div class="inputlist">
                             <label for="id_article_small_text">Краткое описание</label>
-                            <textarea name="article_small_text" cols="40" rows="10" required id="id_article_small_text">
-</textarea>
+                            <textarea name="article_small_text" cols="40" rows="10" required id="id_article_small_text" class="form-control form-control-custom"></textarea>
                             <div class="memo">Краткое описание</div>
                         </div>
                     </div>
+					<div id="editor-label">Редактор статьи</div>
+					<div id="nt-editor">
+						<div class="textform">
+							<div class="inputlist">
+								<label class="required" for="id_article_small_text">Краткое описание:</label>
+								<div class="markdownx">
+										<textarea name="article_small_text" cols="40" rows="10" class="vLargeTextField markdownx-editor markdownx-editor" required id="id_article_small_text" data-markdownx-editor-resizable data-markdownx-urls-path="/markdownx/markdownify/" data-markdownx-upload-urls-path="/markdownx/upload/" data-markdownx-latency="500">
+									asdfsfasdfasdfas</textarea>
+									<div class="markdownx-preview"><p>12321</p>
+										<p><strong>Hello</strong></p>
+										<h2>Hello</h2>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
                     <div class="textform">
                         <div class="inputlist">
-                            <label for="id_article_content_md">Ввод</label>
-                            <div class="markdownx">
-    <textarea name="myfield" cols="40" rows="10" required id="id_myfield" class="markdownx-editor markdownx-editor" data-markdownx-editor-resizable data-markdownx-urls-path="/markdownx/markdownify/" data-markdownx-upload-urls-path="/markdownx/upload/" data-markdownx-latency="500">
-</textarea>
-
-	<div class="markdownx-preview form-control form-control-custom"><p>12321</p>
-		<p><strong>Hello</strong></p>
-		<h2>Hello</h2>
-	</div>
-</div>
-                        </div>
-                    </div>
-                    <div class="textform">
-                        <div class="inputlist">
-                            <label for="">Тэги</label>
-							<div class="memo">Вы можете выбрать до 5 тэгов</div>
+                            <label for="">Заголовок</label>
                             <ul id="id_tagArticle">
     <li><label for="id_tagArticle_0"><input type="checkbox" name="tagArticle" value="python" id="id_tagArticle_0">
  python</label>
@@ -210,13 +207,57 @@
 </ul>
                         </div>
                     </div>
+<!--                    <button class="btn btn-success btn-save-custom" type="button">Опубликовать</button>-->
                     <input class="btn btn-success btn-save-custom" type="submit" value="Опубликовать">
                 </form>
-                <!-- <script src="../static/markdownx/js/markdownx.js"></script> -->
             </div>
         </div>
     </div>
 </div>
+
+		<div id="rigth_sounbar">
+			<div id="news">
+				<div id="body_news">
+					<div id="block_news_title">
+						<div id="text_news_news">Сегодня</div>
+					</div>
+					<div id="block_news">
+						<div id="icon">
+							<i class="fas fa-angle-double-right"></i>
+						</div>
+						<div id="text_news">
+							<div id="text_news_day"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="tags">
+				<div id="body_tags">
+					<div id="body_tags_title">
+						<h3>Популярные теги</h3>
+					</div>
+					<div class="overflow-y-hidden overflow-y-md-auto tags_list">
+						<ul>
+							
+<!--							<li><a href="#">#webdev</a></li>-->
+<!--							<li><a href="#">#beginners</a></li>-->
+<!--							<li><a href="#">#tutorial</a></li>-->
+<!--							<li><a href="#">#programming</a></li>-->
+<!--							<li><a href="#">#react</a></li>-->
+<!--							<li><a href="#">#productivity</a></li>-->
+<!--							<li><a href="#">#css</a></li>-->
+<!--							<li><a href="#">#python</a></li>-->
+<!--							<li><a href="#">#html</a></li>-->
+<!--							<li><a href="#">#codenewbie</a></li>-->
+<!--							<li><a href="#">#devops</a></li>-->
+<!--							<li><a href="#">#aws</a></li>-->
+<!--							<li><a href="#">#node</a></li>-->
+<!--							<li><a href="#">#career</a></li>-->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<footer>
 			<div id="copyright">
@@ -251,10 +292,11 @@
 			});
 		});
 	</script>
-<!--	<script src="../static/js/text_anim.js"></script>-->
-	<!-- <script src="../static/js/particles.js"></script> -->
+	<script src="../static/js/text_anim.js"></script>
+	<script src="../static/js/particles.js"></script>
 	<script src="../static/js/app.js"></script>
-	<!-- <script src="../static/js/lib/stats.js"></script> -->
+	<script src="../static/js/lib/stats.js"></script>
+	<script src="../static/js/markdown.js"></script>
 	<script>//скрытие побочной подгруппы
 		$(document).ready(function() {
 			if ($(window).width() > 1024){
@@ -272,6 +314,20 @@
 	</script>
 	<script src="../static/js/halfmoon.min.js"></script>
 	<script src="../static/js/custom.js"></script>
+	<!-- Yandex.Metrika counter -->
+    <!-- <script type="text/javascript" >
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+       ym(66314386, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true
+       });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/66314386" style="position:absolute; left:-9999px;" alt="" /></div></noscript> -->
+    <!-- /Yandex.Metrika counter -->
 	<!-- <script type="text/x-mathjax-config">
 		MathJax.Hub.Config({
 		  config: ["MMLorHTML.js"],
@@ -279,24 +335,5 @@
 		  extensions: ["MathMenu.js", "MathZoom.js"]
 		});
 	</script> -->
-	<script>
-	function previewFile() {
-		var preview = document.getElementById('profile_image');
-		console.log(preview);
-		// var file    = document.querySelector('input[type=file]').files[0];
-		file    = document.getElementById('form').querySelector(`[name="article_picture"]`).files[0];
-		var reader  = new FileReader();
-	  
-		reader.onloadend = function () {
-		  preview.src = reader.result;
-		}
-	  
-		if (file) {
-		  reader.readAsDataURL(file);
-		} else {
-		  preview.src = "";
-		}
-	}
-	</script>
 </body>
 </html>

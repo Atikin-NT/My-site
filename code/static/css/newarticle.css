@@ -45,11 +45,6 @@
   color: #FFFFFF;
 }
 
-.login {
-  width: 60px;
-  height: 50px;
-}
-
 .login:hover .settings_menu {
   display: block;
   animation: fadeInRight .3s ease;
@@ -310,30 +305,6 @@
   float: left;
 }
 
-#editor-label {
-  font-size: 1.5em;
-  font-family: "Rubik";
-  color: #EEF0F1;
-  text-align: center;
-  width: 100%;
-}
-
-#nt-editor {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-}
-
 .markdownx {
   width: 100%;
   min-height: 500px;
@@ -356,6 +327,8 @@
 .markdownx textarea {
   min-height: 500px;
   width: 48%;
+  border-radius: 5px;
+  border: #9B9C9D solid 1px;
 }
 
 #content_det {

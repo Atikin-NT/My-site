@@ -1,3 +1,23 @@
+var katexMath = (function () {
+    var maths = document.querySelectorAll('.arithmatex'),
+        tex;
+
+    for (var i = 0; i < maths.length; i++) {
+      tex = maths[i].textContent || maths[i].innerText;
+      if (tex.startsWith('\\(') && tex.endsWith('\\)')) {
+        katex.render(tex.slice(2, -2), maths[i], {'displayMode': false});
+      } else if (tex.startsWith('\\[') && tex.endsWith('\\]')) {
+        katex.render(tex.slice(2, -2), maths[i], {'displayMode': true});
+      }
+      if (tex.startsWith('$') && tex.endsWith('$')) {
+        katex.render(tex.slice(1, -1), maths[i], {'displayMode': false});
+      } else if (tex.startsWith('$$') && tex.endsWith('$$')) {
+        katex.render(tex.slice(2, -2), maths[i], {'displayMode': true});
+      }
+    }
+});
+
+
 (function e(t, n, r) {
     function s(o, u) {
         if (!n[o]) {
@@ -27,6 +47,8 @@
         Object.defineProperty(exports, "__esModule", {
             value: true
         });
+        // let descriptor = Object.getOwnPropertyDescriptor(exports, "__esModule");
+        // console.log( JSON.stringify(descriptor, null, 2 ) );
         var utils_1 = require("./utils");
         var UPLOAD_URL_ATTRIBUTE = "data-markdownx-upload-urls-path", PROCESSING_URL_ATTRIBUTE = "data-markdownx-urls-path", RESIZABILITY_ATTRIBUTE = "data-markdownx-editor-resizable", LATENCY_ATTRIBUTE = "data-markdownx-latency", LATENCY_MINIMUM = 500, XHR_RESPONSE_ERROR = "Invalid response", UPLOAD_START_OPACITY = "0.3", NORMAL_OPACITY = "1";
         var EventHandlers = {
@@ -473,6 +495,7 @@
                 detail: args
             });
             element.dispatchEvent(event);
+            katexMath();
         }
         exports.triggerCustomEvent = triggerCustomEvent;
         function addClass(element) {

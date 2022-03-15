@@ -36,12 +36,12 @@
     }
     h5{
         font-family: "Rubik Bold";
-        font-size: 2em;
+        font-size: 32px;
         padding: 0 10px 0 10px;
     }
     p{
         font-family: "Rubik";
-        font-size: 1em;
+        font-size: 16px;
         padding: 0 10px 0 10px;
         text-align: center;
     }
@@ -53,25 +53,27 @@
         flex-direction: row;
         margin: 10px;
         #ok{
-            height: 50px;
+            min-height: 50px;
+            height: auto;
             padding: 5px;
             background: #50C878;
             border-radius: 2px;
             color: #fff;
             font-family: "Rubik Bold";
-            font-size: 1.5em;
+            font-size: 23px;
             border: none;
             cursor: pointer;
             &:hover{background: #5CE589;}
         }
         #pidr{
-            height: 50px;
+            min-height: 50px;
+            height: auto;
             padding: 5px;
             background: #DA1709;
             border-radius: 2px;
             color: #fff;
             font-family: "Rubik Bold";
-            font-size: 1.5em;
+            font-size: 23px;
             border: none;
             cursor: pointer;
             &:hover{background: #FD1A0A;}

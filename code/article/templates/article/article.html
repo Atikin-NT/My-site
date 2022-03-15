@@ -10,7 +10,7 @@
         </div>
         <div id="article_normal_size_block">
             {% if data %}
-                {% for a, user_data in data %}
+                {% for a, user_data, advert in data %}
                     <article>
                         <div class="article_about_art">
                             <div class="text_art">
@@ -64,13 +64,13 @@
 							</div>
 						</div>
                     </article>
-                    {% if a.id == adver1 %}
+                    {% if advert == 2 %}
                         <div class="advertising"></div>
                     {% endif %}
-                    {% if a.id == adver2 %}
+                    {% if advert == 5 %}
                         <div class="advertising"></div>
                     {% endif %}
-                    {% if a.id == adver3 %}
+                    {% if advert == 8 %}
                         <div class="advertising"></div>
                     {% endif %}
                 {% endfor %}

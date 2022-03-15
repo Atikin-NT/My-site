@@ -55,6 +55,56 @@ $gl-lg: "screen and (max-width: 80em)";   // max 1280px
 	}
 }
 //основной контент статьи---------------------------------------------------
+.task-list-item {
+	list-style-type: none !important;
+}
+
+.task-list-item input[type="checkbox"] {
+	margin: 0 4px 0.25em -20px;
+	vertical-align: middle;
+}
+
+.task-list-control {
+	display: inline; /* Ensure label is inline incase theme sets it to block.*/
+}
+
+.task-list-control {
+	position: relative;
+	display: inline-block;
+	color: #555;
+}
+
+.task-list-control input[type="checkbox"] {
+	position: absolute;
+	opacity: 0;
+	z-index: -1; /* Put the input behind the label so it doesn't overlay text */
+}
+
+.task-list-indicator {
+	position: absolute;
+	top: -12px;
+	left: -30px;
+	display: block;
+	width:  30px;
+	height: 30px;
+	background-color: #52545F;
+	border-radius: 1rem;
+	content: "✔";
+	color: #1D2029;
+}
+
+.task-list-control input[type="checkbox"]:checked + .task-list-indicator::before {
+	display: block;
+	width:  30px;
+	height: 30px;
+	font-size: 16px;
+	line-height: 1;
+	content: "✔";
+	color: #1D2029;
+	background-color: #1EBB52;
+	border-radius: 1rem;
+	padding: 8px;
+}
 #content_det{
 	width: 100%;  
 	height: auto; 
@@ -83,6 +133,8 @@ $gl-lg: "screen and (max-width: 80em)";   // max 1280px
 		list-style-type: disc;
 		padding-left: 40px;
 		padding-right: 0;
+		display: flex;
+		flex-direction: column;
 		li, p{
 			font-family: "Rubik";
 			font-size: 1em;
@@ -274,10 +326,8 @@ $gl-lg: "screen and (max-width: 80em)";   // max 1280px
 			display: block;
 		}
 	}
-	.MathJax{
+	.arithmatex{
 		color: #fff;
-		display: flex;
-    	justify-content: center;
 	}
 } 
 
@@ -341,8 +391,8 @@ $gl-lg: "screen and (max-width: 80em)";   // max 1280px
 		}
 		ul li, p{color: $text_app_p_color;}
 		ol li, p{color: $text_app_p_color;}
-		.highlight code{border: #9B9C9D solid 1px;}
-		code{border: #9B9C9D solid 1px;}
+		.highlight{border: #9B9C9D solid 1px;}
+		// code{border: #9B9C9D solid 1px;}
 		table {
 			box-shadow: 0 0 0 1px $box_shadow_lm;
 			tbody tr{color: $text_app_color;}

@@ -14,8 +14,6 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from pymdownx import arithmatex
-from article.code_format import custom_format
-
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -51,6 +49,7 @@ INSTALLED_APPS = [
     'markdownx',
     'django.contrib.sites',
     'django.contrib.sitemaps',
+    'captcha',
 ]
 
 SITE_ID = 1
@@ -122,40 +121,41 @@ MARKDOWNX_MARKDOWNIFY_FUNCTION = 'markdownx.utils.markdownify'  # Default functi
 # Markdown extensions
 MARKDOWNX_MARKDOWN_EXTENSIONS = [
     'markdown.extensions.footnotes',
-    'pymdownx.betterem',
-    'pymdownx.emoji',
+    'pymdownx.emoji',  # исправить перенос на новую строку
     'markdown.extensions.footnotes',
     'markdown.extensions.attr_list',
     'markdown.extensions.def_list',
     'markdown.extensions.tables',
     'markdown.extensions.abbr',
     'markdown.extensions.md_in_html',
-    'pymdownx.caret',
+    'pymdownx.caret',  # ok
     'pymdownx.details',  # ! добавить css https://facelessuser.github.io/pymdown-extensions/extensions/details/
     'pymdownx.highlight',  # подсветка синтаксиса, проблема css
-    # 'pymdownx.inlinehilite',  # подсветка синтаксиса, проблема css
-    'pymdownx.keys',  # подсветка клавиш
-    'pymdownx.magiclink',  # ссылки
+    'pymdownx.superfences',
+    'pymdownx.keys',  # подсветка клавиш. На базовом уровне работает
     'pymdownx.mark',  # выделение текста
     'pymdownx.progressbar',  # прогрессбар
     'pymdownx.smartsymbols',  # спец знаки
-    'pymdownx.superfences',  # что-то нужное
     'pymdownx.tabbed',  # вкладки с контентом
-    'pymdownx.tasklist',  # выполнил / не выполнил
+    'pymdownx.tasklist',  # выполнил / не выполнил, доработать стили!
     'pymdownx.arithmatex',  # матан
-    'mdx_math',
-
+    # 'mdx_math',
+    # 'markdown_katex',
 ]
 MARKDOWN_EXTENSIONS = ['extra']
 MARKDOWNX_MARKDOWN_EXTENSION_CONFIGS = {
-    "pymdownx.inlinehilite": {
-        "custom_inline": [
-            {"name": "math", "class": "arithmatex", "format": arithmatex.inline_mathjax_format}
-        ]
-    },
     "pymdownx.tasklist": {
-        "custom_checkbox": True
+        "custom_checkbox": True,
     },
+    "pymdownx.highlight": {
+        'use_pygments': True,
+        'guess_lang': True,
+        'noclasses': False,
+        'pygments_style': 'friendly',
+    },
+    "pymdownx.arithmatex": {
+        'generic': True,
+    }
 }
 
 # Markdown urls
@@ -164,7 +164,8 @@ MARKDOWNX_UPLOAD_URLS_PATH = '/markdownx/upload/'  # Path that accepts file uplo
 
 # Media path
 # MARKDOWNX_MEDIA_PATH = 'markdownx/'  # Subdirectory, where images will be stored in MEDIA_ROOT folder
-MARKDOWNX_MEDIA_PATH = datetime.now().strftime('markdownx/%Y/%m/%d')  # Subdirectory, where images will be stored in MEDIA_ROOT folder
+MARKDOWNX_MEDIA_PATH = datetime.now().strftime(
+    'markdownx/%Y/%m/%d')  # Subdirectory, where images will be stored in MEDIA_ROOT folder
 
 # Image
 MARKDOWNX_UPLOAD_MAX_SIZE = 52428800  # 50MB # Maximum file size
@@ -193,6 +194,8 @@ USE_TZ = True
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 PASSWORD_RESET_TIMEOUT_DAYS = 1
+
+# CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [

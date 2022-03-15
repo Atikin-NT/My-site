@@ -6,28 +6,38 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width? initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<meta name="description" content="">
+	<meta name="description" content="ERROR:(">
 	<meta name="author" content="Nikita Ivanov ivanov.n.a.0620@gmail.com">
 	<link rel="stylesheet" href="../static/css/normalize.min.css">
 	<link rel="stylesheet" href="../static/css/halfmoon-variables.min.css"/>
-	<link rel="stylesheet" href="../static/css/newarticle.css">
+	<link rel="stylesheet" href="../static/css/stackoverflow-light.css"/>
+	<link rel="stylesheet" href="../static/css/index.css">
+	<link rel="stylesheet" href="../static/css/profilesettings.css">
+	
+	
+	
+	  <!-- newarticle -->
 	<link rel="stylesheet" href="../static/css/article.css">
 	<link rel="stylesheet" href="../static/css/index.css">
+	<link rel="stylesheet" href="../static/css/newarticle.css">
+	
 	<link rel="stylesheet" href="../static/fontawesome/css/all.css">
+	<link rel="stylesheet" href="../static/css/highlight.css">
 	<link rel="icon" href="../../static/img/favicon.ico" type="image/x-icon">
   	<link rel="shortcut icon" href="../../static/img/favicon.ico" type="image/x-icon">
-	<!-- <script src="../static/markdownx/js/markdownx.js"></script> -->
-	<!-- <link href="../static/markdownx/admin/css/markdownx.css" type="text/css" media="all" rel="stylesheet"> -->
-	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css">
+<!--	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css">-->
+<!--	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>-->
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 
 	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 
-	<!-- <script>hljs.initHighlightingOnLoad();</script> -->
+	<!--подсветка кода-->
+<!--	<script src="/static/highlight/highlight.min.js"></script>-->
+	<link rel="stylesheet" href="/static/highlight/styles/a11y-light.min.css">
+<!--	<script type='text/javascript'>hljs.initHighlightingOnLoad();</script>-->
 
-	<!-- <title></title>
+	<title>ERROR:(</title>
 	<script>
 		MathJax = {
 		  tex: {
@@ -38,7 +48,7 @@
 	<script id="MathJax-script" async
 	  	src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
 	</script>
-	<script>window.noAdBlock = false;</script> -->
+	<script>window.noAdBlock = false;</script>
 </head>
 <body>
 	<!-- <script src="/static/js/_adverts.js"></script> -->
@@ -128,132 +138,972 @@
 			</div>
 		</div>
 		
-<div id="app">
-    <div id="normal_size_app">
-        <div id="title">
-            <div id="color_topic"></div>
-            <div id="text_app_heshteg">#</div>
-            <div id="text_app">новая статья</div>
-        </div>
-        <div id="article_normal_size_block">
-            <div id="formsettings">
-                <form action="/newarticle/" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="csrfmiddlewaretoken" value="gkWB3zSmdgk5OQcsOI8330fkP3gubKxNZPONwKg39Mk64jaJ2GxvvFFvGN23429F">
-                    <div class="textform">
-                        <div class="inputlist">
-                            <label for="id_article_title">Заголовок</label>
-                            <input type="text" name="article_title" maxlength="200" required id="id_article_title" class="form-control form-control-custom">
-                            <div class="memo">Заголовок</div>
-                        </div>
-                    </div>
-                    <div class="imageform">
-                        <div class="inputlist">
-                       		<label for="id_article_picture">Заголовок</label>
-                            <input type="file" name="article_picture" accept="image/*" required id="id_article_picture">
-                            <div class="memo">Заголовок</div>
-                        </div>
-                    </div>
-                    <div class="textform">
-                        <div class="inputlist">
-                            <label for="id_article_small_text">Краткое описание</label>
-                            <textarea name="article_small_text" cols="40" rows="10" required id="id_article_small_text" class="form-control form-control-custom"></textarea>
-                            <div class="memo">Краткое описание</div>
-                        </div>
-                    </div>
-					<div id="editor-label">Редактор статьи</div>
-					<div id="nt-editor">
-						<div class="textform">
-							<div class="inputlist">
-								<label class="required" for="id_article_small_text">Краткое описание:</label>
-								<div class="markdownx">
-										<textarea name="article_small_text" cols="40" rows="10" class="vLargeTextField markdownx-editor markdownx-editor" required id="id_article_small_text" data-markdownx-editor-resizable data-markdownx-urls-path="/markdownx/markdownify/" data-markdownx-upload-urls-path="/markdownx/upload/" data-markdownx-latency="500">
-									asdfsfasdfasdfas</textarea>
-									<div class="markdownx-preview"><p>12321</p>
-										<p><strong>Hello</strong></p>
-										<h2>Hello</h2>
-									</div>
+		<div id="app">
+			<div id="normal_size_app">
+				<div id="title">
+					<div id="color_topic"></div>
+					<div id="text_app_heshteg">#</div>
+					
+						<div id="text_app">редактирование</div>
+					
+				</div>
+				<div id="article_normal_size_block">
+					<div id="formsettings">
+						
+							<form action="/editarticle/57" method="post" enctype="multipart/form-data" id="form">
+						
+							<input type="hidden" name="csrfmiddlewaretoken" value="prRmp6PRfm0NyUrcvqaP35SKYqfMKeClSbeeUz1dytZcMXZH9wPxPL5mtK0OOGgL">
+							<div class="textform">
+								<div class="inputlist">
+									<label for="id_article_title">Заголовок</label>
+									
+									<input type="text" name="article_title" value="Все возможности редактора" maxlength="200" required="" id="id_article_title" class="form-control form-control-custom">
+		<!--                            <div class="memo">Заголовок</div>-->
 								</div>
 							</div>
-						</div>
-					</div>
-                    <div class="textform">
-                        <div class="inputlist">
-                            <label for="">Заголовок</label>
-                            <ul id="id_tagArticle">
-    <li><label for="id_tagArticle_0"><input type="checkbox" name="tagArticle" value="python" id="id_tagArticle_0">
- python</label>
-
-</li>
-    <li><label for="id_tagArticle_1"><input type="checkbox" name="tagArticle" value="webdev" id="id_tagArticle_1">
- webdev</label>
-
-</li>
-    <li><label for="id_tagArticle_2"><input type="checkbox" name="tagArticle" value="c++" id="id_tagArticle_2">
- c++</label>
-
-</li>
-    <li><label for="id_tagArticle_3"><input type="checkbox" name="tagArticle" value="c#" id="id_tagArticle_3">
- c#</label>
-
-</li>
-    <li><label for="id_tagArticle_4"><input type="checkbox" name="tagArticle" value="base" id="id_tagArticle_4">
- base</label>
-
-</li>
-    <li><label for="id_tagArticle_5"><input type="checkbox" name="tagArticle" value="sql" id="id_tagArticle_5">
- sql</label>
-
-</li>
-</ul>
-                        </div>
-                    </div>
-<!--                    <button class="btn btn-success btn-save-custom" type="button">Опубликовать</button>-->
-                    <input class="btn btn-success btn-save-custom" type="submit" value="Опубликовать">
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-		<div id="rigth_sounbar">
-			<div id="news">
-				<div id="body_news">
-					<div id="block_news_title">
-						<div id="text_news_news">Сегодня</div>
-					</div>
-					<div id="block_news">
-						<div id="icon">
-							<i class="fas fa-angle-double-right"></i>
-						</div>
-						<div id="text_news">
-							<div id="text_news_day"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div id="tags">
-				<div id="body_tags">
-					<div id="body_tags_title">
-						<h3>Популярные теги</h3>
-					</div>
-					<div class="overflow-y-hidden overflow-y-md-auto tags_list">
-						<ul>
+							<div class="imageform">
+								<input type="file" name="article_picture" accept="image/*" id="id_article_picture" onchange="previewFile()">
+								<label for="id_article_picture">
+									<i class="fas fa-image"></i>
+									Выберите картинку
+								</label>
+								
+									<img src="/media/default.jpg" alt="Profile Image" id="profile_image" height="200">
+								
+								
+							</div>
+							<div class="textform">
+								<div class="inputlist">
+									<label for="id_article_small_text">Краткое описание</label>
+									
+									<textarea name="article_small_text" cols="40" rows="10" required="" id="id_article_small_text" class="form-control form-control-custom">Все возможности редактора</textarea>
+								</div>
+							</div>
+							<div class="textform">
+								<div class="inputlist">
+									<label for="ERROR:(">Ввод</label>
+									<div class="memo">Эта функция еще находиться в разработке, поэтому не все проблемы решены. На данный момент не правильно отображается подсветка кода в правом столбике. Но не переживайте, как вы сохраните запись и посмотрите на нее на сайте это проблемы не будет. То есть это баг видите только вы и только в режиме редактора. Пока что... Видите...</div>
+									
+									<div class="markdownx">
+			<textarea name="article_content_md" cols="40" rows="10" required="" id="id_article_content_md" class="markdownx-editor markdownx-editor" data-markdownx-editor-resizable="" data-markdownx-urls-path="/markdownx/markdownify/" data-markdownx-upload-urls-path="/markdownx/upload/" data-markdownx-latency="500" data-markdownx-init="" style="transition: opacity 1s ease 0s;">##Базовый синтаксис MARKDOWN
+		
+		---
+		
+		###Заголовки
+		
+		Заголовки первого, третьего и шестого уровней, выполненные с помощью символа («#»), выглядят следующим образом
+		
+		```md
+		#  Заголовок первого уровня
+		### Заголовок третьего уровня
+		###### Заголовок шестого уровня
+		```
+		
+		В результате на экран выводиться:
+		
+		#  Заголовок первого уровня
+		### Заголовок третьего уровня
+		###### Заголовок шестого уровня
+		
+		###Цитаты
+		
+		Для обозначения цитат в языке Markdown используется знак «больше» («&gt;»). Также синтаксис Markdown позволяет создавать вложенные цитаты (цитаты внутри цитат). Для их разметки используются дополнительные уровни знаков цитирования («&gt;»). Цитаты в Markdown могут содержать всевозможные элементы разметки. Цитаты в языке Markdown выглядят следующим образом:
+		
+		```md
+		&gt; Первый уровень цитирования
+		&gt;&gt; Второй уровень цитирования
+		&gt;&gt;&gt; Третий уровень цитирования
+		&gt;
+		&gt;Первый уровень цитирования
+		```
+		&gt; Первый уровень цитирования
+		&gt;&gt; Второй уровень цитирования
+		&gt;&gt;&gt; Третий уровень цитирования
+		&gt;
+		&gt;Первый уровень цитирования
+		
+		###Списки
+		
+		Markdown поддерживает упорядоченные (нумерованные) и неупорядоченные (ненумерованные) списки. Для формирования неупорядоченный списков используются такие маркеры, как звездочки, плюсы и дефисы. Все перечисленные маркеры могут использоваться взаимозаменяемо. Для формирования упорядоченных списков в качестве маркеров используются числа с точкой. Маркеры списков обычно начинаются с начала строки, однако они могут быть сдвинуты, но не более чем на 3 пробела. За маркером должен следовать пробел, либо символ табуляции.
+		
+		
+		Упорядоченные списки выглядят следующим образом:
+		
+		```md
+		1.	Проводник
+		2.	Полупроводник
+		3.	Диэлектрик
+		```
+		
+		Результат
+		
+		1.	Проводник
+		2.	Полупроводник
+		3.	Диэлектрик
+		
+		Неупорядоченные списки выглядят следующим образом:
+		
+		```md
+		* Проводник
+		* Полупроводник
+		* Диэлектрик
+		```
+		
+		Или
+		
+		```md
+		- Проводник
+		- Полупроводник
+		- Диэлектрик
+		```
+		
+		Или
+		
+		```md
+		+ Проводник
+		+ Полупроводник
+		+ Диэлектрик
+		```
+		
+		Результат
+		
+		+ Проводник
+		+ Полупроводник
+		+ Диэлектрик
+		
+		###Горизонтальные линии (разделители)
+		
+		Для того чтобы создать горизонтальную линию с использованием синтаксиса языка Markdown, необходимо поместить три (или более)дефиса или звездочки на отдельной строке текста.
+		
+		```md
+		Первая часть текста, который необходимо разделить
+		***
+		Вторая часть текста, который необходимо разделить
+		```
+		
+		Или
+		
+		```md
+		Первая часть текста, который необходимо разделить
+		
+		---
+		
+		Вторая часть текста, который необходимо разделить
+		```
+		
+		Результат
+		
+		Первая часть текста, который необходимо разделить
+		
+		---
+		
+		Вторая часть текста, который необходимо разделить
+		
+		###Строчные элементы
+		
+		####Ссылки
+		
+		Markdown поддерживает два стиля оформления ссылок:
+		
+		+    Гиперссылка, с немедленным указанием адреса (внутритекстовая);
+		+    Гиперссылка, подобная сноске.
+		
+		Подразумевается, что помимо URL-адреса существует еще текст ссылки. Он заключается в квадратные скобки. Для создания внутритекстовой гиперссылки необходимо использовать круглые скобки сразу после закрывающей квадратной. Внутри них необходимо поместить URL-адрес. В них же возможно расположить название, заключенное в кавычки, которое будет отображаться при наведении, но этот пункт не является обязательным.
+		
+		```md
+		 [пример](http://example.com/ "Необязательная подсказка")
+		```
+		
+		Результат
+		
+		 [пример](http://example.com/ "Необязательная подсказка")
+		
+		При создании сносной гиперссылки вместо целевого адреса используется вторая пара квадратных скобок, внутри которых помещается метка, идентификатор ссылки (id).
+		
+		```md
+		[пример][id]:
+		
+		...какой-то текст...
+		
+		[id]: http://example.com/ "Необязательная подсказка"
+		```
+		
+		В результате получаем туже самую ссылку, что и выше [пример][id]:
+		
+		[id]: http://example.com/ "Необязательная подсказка"
+		
+		####Выделение текста
+		
+		Markdown воспринимает звёздочки «*» и символы подчёркивания «_» как признаки смыслового выделения текста:
+		
+		+ Текст, окружённый одиночными «*» или «_», будет заключен в HTML-тэг ```&lt;em&gt;```.
+		+ Текст, окружённый двойными «*» или «_», будет заключен в HTML-тэг ```&lt;strong&gt;```.
+		
+		Иными словами, текст, окруженный одинарными символами, выделяется курсивным шрифтом, а текст, окруженный двойными символами, выделяется полужирным шрифтом. Также, выделенный фрагмент может находиться в любой части слова. Текст, выделенный курсивом с использованием синтаксиса языка Markdown, выглядит следующим образом:
+		
+		```md
+		*Пример*  
+		
+		**Пример** 
+		
+		_Пример_
+		
+		__Пример__ 
+		```
+		
+		Результат
+		
+		*Пример*  
+		
+		**Пример** 
+		
+		_Пример_
+		
+		__Пример__ 
+		
+		---
+		
+		####Изображения
+		
+		В Markdown существует 2 способа вставки изображений в документ:
+		
+		С помощью непосредственного указания URL-адреса изображения. Синтаксис данной команды выглядит следующим образом:
+		
+		```md
+		![Альтернативный текст](/путь/к/изображению.jpg)
+		```
+		
+		или
+		
+		```md
+		![Альтернативный текст](/путь/к/изображению.jpg "Подсказка")
+		```
+		
+		![Альтернативный текст](https://i.pinimg.com/originals/be/c1/8d/bec18decb0f21b7a6e22dd0798048f2e.jpg)
+		
+		Иными словами, он состоит из следующих элементов:
+		
+		+ восклицательный знак;
+		+ квадратные скобки, в которых указывается альтернативный изображению текст (он станет содержимым атрибута в элементе img);
+		+ круглые скобки, содержащие URL-адрес или относительный путь изображения, а также (необязательно) всплывающую подсказку, заключённуе в двойные или одиночные кавычки.
+		
+		---
+		
+		##Дополнительные возможности редактора
+		
+		---
+		
+		###Подсветка кода
+		
+		В этом редакторе присутствует возможность подсветки кода. Что бы это сделать необходимо прописать три апострофа ` в начале и в конце блока кода.
+		
+		```
+		```&lt;- начало
+		...код...
+		```&lt;- конец
+		```
+		
+		Редактор сам определяет, какой код находится внутри. Но если он это сделал неправильно, то вы можете ему напрямую указать.
+		
+		Вот пример кода на C++
+		
+		```md
+		```cpp &lt;- начало блока с кодом с указанием языка программирования
+		#include &lt;iostream&gt;
+		
+		int main(int argc, char *argv[]) {
+		
+		  /* An annoying "Hello World" example */
+		  for (auto i = 0; i &lt; 0xFFFF; i++)
+			cout &lt;&lt; "Hello, World!" &lt;&lt; endl;
+		
+		  char c = '\n';
+		  unordered_map &lt;string, vector&lt;string&gt; &gt; m;
+		  m["key"] = "\\\\"; // this is an error
+		
+		  return -2e3 + 12l;
+		}
+		``` &lt;- конец блока с кодом
+		```
+		
+		В результате получаем:
+		
+		```cpp
+		#include &lt;iostream&gt;
+		
+		int main(int argc, char *argv[]) {
+		
+		  /* An annoying "Hello World" example */
+		  for (auto i = 0; i &lt; 0xFFFF; i++)
+			cout &lt;&lt; "Hello, World!" &lt;&lt; endl;
+		
+		  char c = '\n';
+		  unordered_map &lt;string, vector&lt;string&gt; &gt; m;
+		  m["key"] = "\\\\"; // this is an error
+		
+		  return -2e3 + 12l;
+		}
+		```
+		
+		###Подсветка клавиш
+		
+		Если в статье необходимо указать какие-то комбинации клавиш, то вы можете использовать следующий синтаксис. Перед началом комбинации надо поставить ++, затем после каждой клавиши по одному знаку + и в конце опять ++.
+		
+		```md
+		++ctrl+alt+delete++
+		```
+		
+		Результат
+		
+		++ctrl+alt+delete++
+		
+		###Выделения текста
+		
+		Если требуется выделить кусок текста или конкретное слово, то для этого можно воспользоваться синтаксисом выделения.
+		
+		```md
+		==Пример==
+		```
+		
+		Результат
+		
+		==Пример==
+		
+		###Индикаторы прогресса
+		
+		Если требуется вставить в статью элемент полосу с прогрессом, то это можно осуществить так:
+		
+		```md
+		[=0% "0%"]
+		[=5% "5%"]
+		[=25% "25%"]
+		[=45% "45%"]
+		[=65% "65%"]
+		[=85% "85%"]
+		[=100% "Всем Ку"]
+		```
+		
+		Первое значение это уровень прогресса, второе - надпись или текст
+		
+		Результат
+		
+		[=0% "0%"]
+		[=5% "5%"]
+		[=25% "25%"]
+		[=45% "45%"]
+		[=65% "65%"]
+		[=85% "85%"]
+		[=100% "Всем Ку"]
+		
+		Для тонкой полосы прогресса без подписи нужно в фигурный скобках добавить ": .thin" :
+		
+		```md
+		[=0%]{: .thin}
+		[=5%]{: .thin}
+		[=25%]{: .thin}
+		[=45%]{: .thin}
+		[=65%]{: .thin}
+		[=85%]{: .thin}
+		[=100%]{: .thin}
+		```
+		
+		Результат
+		
+		[=0%]{: .thin}
+		[=5%]{: .thin}
+		[=25%]{: .thin}
+		[=45%]{: .thin}
+		[=65%]{: .thin}
+		[=85%]{: .thin}
+		[=100%]{: .thin}
+		
+		###Специальные символы
+		
+		Добавляет синтаксис для создания специальных символов, таких как товарные знаки, стрелки, дроби и т. д.
+		
+		```md
+		(tm)
+		(c)
+		(r)
+		c/o
+		+/-
+		--&gt;
+		&lt;--
+		&lt;--&gt;
+		=/=
+		1/4, etc.
+		1st 2nd etc.
+		```
+		
+		Результат
+		
+		(tm)
+		(c)
+		(r)
+		c/o
+		+/-
+		--&gt;
+		&lt;--
+		&lt;--&gt;
+		=/=
+		1/4, etc.
+		1st 2nd etc.
+		
+		###Вкладки
+		
+		Предоставляет синтаксис для простого добавления содержимого Markdown с вкладками. Вкладки начинаются с === для обозначения вкладки, за которой следует заголовок в кавычках. Последовательные вкладки группируются в набор вкладок.
+		
+		```md
+		=== "Tab 1"
+			Markdown **content**.
+		
+			Multiple paragraphs.
+		
+		=== "Tab 2"
+			More Markdown **content**.
+		
+			- list item a
+			- list item b
+		```
+		
+		Результат
+		
+		=== "Tab 1"
+			Markdown **content**.
+		
+			Multiple paragraphs.
+		
+		=== "Tab 2"
+			More Markdown **content**.
+		
+			- list item a
+			- list item b
+		
+		###Списки
+		
+		Добавляет списки задач в стиле GFM. Они следуют тому же синтаксису, что и GFM. Просто начинайте каждый элемент списка с пары квадратных скобок, содержащих либо пробел (неотмеченный элемент), либо X (отмеченный элемент).
+		
+		```md
+		Task List
+		
+		- [X] item 1
+			* [X] item A
+			* [ ] item B
+				more text
+				+ [x] item a
+				+ [ ] item b
+				+ [x] item c
+			* [X] item C
+		- [ ] item 2
+		- [ ] item 3
+		```
+		
+		Результат
+		
+		Task List
+		
+		- [X] item 1
+			* [X] item A
+			* [ ] item B
+				more text
+				+ [x] item a
+				+ [ ] item b
+				+ [x] item c
+			* [X] item C
+		- [ ] item 2
+		- [ ] item 3</textarea>
+		
+			<div class="markdownx-preview" id="content_det"><h2>Базовый синтаксис MARKDOWN</h2>
+		<hr>
+		<h3>Заголовки</h3>
+		<p>Заголовки первого, третьего и шестого уровней, выполненные с помощью символа («#»), выглядят следующим образом</p>
+		<div class="highlight"><pre><span></span><code><span class="gh">#  Заголовок первого уровня</span>
+		<span class="gu">### Заголовок третьего уровня</span>
+		<span class="gu">###### Заголовок шестого уровня</span>
+		</code></pre></div>
+		<p>В результате на экран выводиться:</p>
+		<h1>Заголовок первого уровня</h1>
+		<h3>Заголовок третьего уровня</h3>
+		<h6>Заголовок шестого уровня</h6>
+		<h3>Цитаты</h3>
+		<p>Для обозначения цитат в языке Markdown используется знак «больше» («&gt;»). Также синтаксис Markdown позволяет создавать вложенные цитаты (цитаты внутри цитат). Для их разметки используются дополнительные уровни знаков цитирования («&gt;»). Цитаты в Markdown могут содержать всевозможные элементы разметки. Цитаты в языке Markdown выглядят следующим образом:</p>
+		<div class="highlight"><pre><span></span><code><span class="k">&gt; </span><span class="ge">Первый уровень цитирования</span>
+		&gt;&gt; Второй уровень цитирования
+		&gt;&gt;&gt; Третий уровень цитирования
+		<span class="k">&gt;</span>
+		<span class="ge">&gt;Первый уровень цитирования</span>
+		</code></pre></div>
+		<blockquote>
+		<p>Первый уровень цитирования</p>
+		<blockquote>
+		<p>Второй уровень цитирования</p>
+		<blockquote>
+		<p>Третий уровень цитирования</p>
+		</blockquote>
+		</blockquote>
+		<p>Первый уровень цитирования</p>
+		</blockquote>
+		<h3>Списки</h3>
+		<p>Markdown поддерживает упорядоченные (нумерованные) и неупорядоченные (ненумерованные) списки. Для формирования неупорядоченный списков используются такие маркеры, как звездочки, плюсы и дефисы. Все перечисленные маркеры могут использоваться взаимозаменяемо. Для формирования упорядоченных списков в качестве маркеров используются числа с точкой. Маркеры списков обычно начинаются с начала строки, однако они могут быть сдвинуты, но не более чем на 3 пробела. За маркером должен следовать пробел, либо символ табуляции.</p>
+		<p>Упорядоченные списки выглядят следующим образом:</p>
+		<div class="highlight"><pre><span></span><code><span class="k">1.</span>  Проводник
+		<span class="k">2.</span>  Полупроводник
+		<span class="k">3.</span>  Диэлектрик
+		</code></pre></div>
+		<p>Результат</p>
+		<ol>
+		<li>Проводник</li>
+		<li>Полупроводник</li>
+		<li>Диэлектрик</li>
+		</ol>
+		<p>Неупорядоченные списки выглядят следующим образом:</p>
+		<div class="highlight"><pre><span></span><code><span class="k">*</span> Проводник
+		<span class="k">*</span> Полупроводник
+		<span class="k">*</span> Диэлектрик
+		</code></pre></div>
+		<p>Или</p>
+		<div class="highlight"><pre><span></span><code><span class="k">-</span> Проводник
+		<span class="k">-</span> Полупроводник
+		<span class="k">-</span> Диэлектрик
+		</code></pre></div>
+		<p>Или</p>
+		<div class="highlight"><pre><span></span><code>+ Проводник
+		+ Полупроводник
+		+ Диэлектрик
+		</code></pre></div>
+		<p>Результат</p>
+		<ul>
+		<li>Проводник</li>
+		<li>Полупроводник</li>
+		<li>Диэлектрик</li>
+		</ul>
+		<h3>Горизонтальные линии (разделители)</h3>
+		<p>Для того чтобы создать горизонтальную линию с использованием синтаксиса языка Markdown, необходимо поместить три (или более)дефиса или звездочки на отдельной строке текста.</p>
+		<div class="highlight"><pre><span></span><code>Первая часть текста, который необходимо разделить
+		***
+		Вторая часть текста, который необходимо разделить
+		</code></pre></div>
+		<p>Или</p>
+		<div class="highlight"><pre><span></span><code>Первая часть текста, который необходимо разделить
+		
+		---
+		
+		Вторая часть текста, который необходимо разделить
+		</code></pre></div>
+		<p>Результат</p>
+		<p>Первая часть текста, который необходимо разделить</p>
+		<hr>
+		<p>Вторая часть текста, который необходимо разделить</p>
+		<h3>Строчные элементы</h3>
+		<h4>Ссылки</h4>
+		<p>Markdown поддерживает два стиля оформления ссылок:</p>
+		<ul>
+		<li>Гиперссылка, с немедленным указанием адреса (внутритекстовая);</li>
+		<li>Гиперссылка, подобная сноске.</li>
+		</ul>
+		<p>Подразумевается, что помимо URL-адреса существует еще текст ссылки. Он заключается в квадратные скобки. Для создания внутритекстовой гиперссылки необходимо использовать круглые скобки сразу после закрывающей квадратной. Внутри них необходимо поместить URL-адрес. В них же возможно расположить название, заключенное в кавычки, которое будет отображаться при наведении, но этот пункт не является обязательным.</p>
+		<div class="highlight"><pre><span></span><code> [<span class="nt">пример</span>](<span class="na">http://example.com/ "Необязательная подсказка"</span>)
+		</code></pre></div>
+		<p>Результат</p>
+		<p><a href="http://example.com/" title="Необязательная подсказка">пример</a></p>
+		<p>При создании сносной гиперссылки вместо целевого адреса используется вторая пара квадратных скобок, внутри которых помещается метка, идентификатор ссылки (id).</p>
+		<div class="highlight"><pre><span></span><code>[<span class="nt">пример</span>][<span class="nl">id</span>]:
+		
+		...какой-то текст...
+		
+		[<span class="nl">id</span>]: <span class="na">http://example.com/ "Необязательная подсказка"</span>
+		</code></pre></div>
+		<p>В результате получаем туже самую ссылку, что и выше <a href="http://example.com/" title="Необязательная подсказка">пример</a>:</p>
+		<h4>Выделение текста</h4>
+		<p>Markdown воспринимает звёздочки «*» и символы подчёркивания «_» как признаки смыслового выделения текста:</p>
+		<ul>
+		<li>Текст, окружённый одиночными «*» или «_», будет заключен в HTML-тэг <code>&lt;em&gt;</code>.</li>
+		<li>Текст, окружённый двойными «*» или «_», будет заключен в HTML-тэг <code>&lt;strong&gt;</code>.</li>
+		</ul>
+		<p>Иными словами, текст, окруженный одинарными символами, выделяется курсивным шрифтом, а текст, окруженный двойными символами, выделяется полужирным шрифтом. Также, выделенный фрагмент может находиться в любой части слова. Текст, выделенный курсивом с использованием синтаксиса языка Markdown, выглядит следующим образом:</p>
+		<div class="highlight"><pre><span></span><code><span class="ge">*Пример*</span>  
+		
+		<span class="gs">**Пример**</span> 
+		
+		<span class="ge">_Пример_</span>
+		
+		<span class="gs">__Пример__</span> 
+		</code></pre></div>
+		<p>Результат</p>
+		<p><em>Пример</em>  </p>
+		<p><strong>Пример</strong> </p>
+		<p><em>Пример</em></p>
+		<p><strong>Пример</strong> </p>
+		<hr>
+		<h4>Изображения</h4>
+		<p>В Markdown существует 2 способа вставки изображений в документ:</p>
+		<p>С помощью непосредственного указания URL-адреса изображения. Синтаксис данной команды выглядит следующим образом:</p>
+		<div class="highlight"><pre><span></span><code>![<span class="nt">Альтернативный текст</span>](<span class="na">/путь/к/изображению.jpg</span>)
+		</code></pre></div>
+		<p>или</p>
+		<div class="highlight"><pre><span></span><code>![<span class="nt">Альтернативный текст</span>](<span class="na">/путь/к/изображению.jpg "Подсказка"</span>)
+		</code></pre></div>
+		<p><img alt="Альтернативный текст" src="https://i.pinimg.com/originals/be/c1/8d/bec18decb0f21b7a6e22dd0798048f2e.jpg"></p>
+		<p>Иными словами, он состоит из следующих элементов:</p>
+		<ul>
+		<li>восклицательный знак;</li>
+		<li>квадратные скобки, в которых указывается альтернативный изображению текст (он станет содержимым атрибута в элементе img);</li>
+		<li>круглые скобки, содержащие URL-адрес или относительный путь изображения, а также (необязательно) всплывающую подсказку, заключённуе в двойные или одиночные кавычки.</li>
+		</ul>
+		<hr>
+		<h2>Дополнительные возможности редактора</h2>
+		<hr>
+		<h3>Подсветка кода</h3>
+		<p>В этом редакторе присутствует возможность подсветки кода. Что бы это сделать необходимо прописать три апострофа ` в начале и в конце блока кода.</p>
+		<div class="highlight"><pre><span></span><code>```&lt;- начало
+		...код...
+		```&lt;- конец
+		</code></pre></div>
+		<p>Редактор сам определяет, какой код находится внутри. Но если он это сделал неправильно, то вы можете ему напрямую указать.</p>
+		<p>Вот пример кода на C++</p>
+		<div class="highlight"><pre><span></span><code>```cpp &lt;- начало блока с кодом с указанием языка программирования
+		<span class="gh">#include &lt;iostream&gt;</span>
+		
+		int main(int argc, char *argv[]) {
+		
+		  /* An annoying "Hello World" example */
+		  for (auto i = 0; i &lt; 0xFFFF; i++)
+			cout &lt;&lt; "Hello, World!" &lt;&lt; endl;
+		
+		  char c = '\n';
+		  unordered_map &lt;string, vector&lt;string&gt; &gt; m;
+		  m["key"] = "\\\\"; // this is an error
+		
+		  return -2e3 + 12l;
+		}
+		``` &lt;- конец блока с кодом
+		</code></pre></div>
+		<p>В результате получаем:</p>
+		<div class="highlight"><pre><span></span><code><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+		
+		<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+		
+		<span class="w">  </span><span class="cm">/* An annoying "Hello World" example */</span><span class="w"></span>
+		<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mh">0xFFFF</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+		<span class="w">    </span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Hello, World!"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+		
+		<span class="w">  </span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">'\n'</span><span class="p">;</span><span class="w"></span>
+		<span class="w">  </span><span class="n">unordered_map</span><span class="w"> </span><span class="o">&lt;</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"></span>
+		<span class="w">  </span><span class="n">m</span><span class="p">[</span><span class="s">"key"</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"</span><span class="se">\\\\</span><span class="s">"</span><span class="p">;</span><span class="w"> </span><span class="c1">// this is an error</span>
+		
+		<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="mf">-2e3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">12l</span><span class="p">;</span><span class="w"></span>
+		<span class="p">}</span><span class="w"></span>
+		</code></pre></div>
+		<h3>Подсветка клавиш</h3>
+		<p>Если в статье необходимо указать какие-то комбинации клавиш, то вы можете использовать следующий синтаксис. Перед началом комбинации надо поставить ++, затем после каждой клавиши по одному знаку + и в конце опять ++.</p>
+		<div class="highlight"><pre><span></span><code>++ctrl+alt+delete++
+		</code></pre></div>
+		<p>Результат</p>
+		<p><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-delete">Del</kbd></span></p>
+		<h3>Выделения текста</h3>
+		<p>Если требуется выделить кусок текста или конкретное слово, то для этого можно воспользоваться синтаксисом выделения.</p>
+		<div class="highlight"><pre><span></span><code>==Пример==
+		</code></pre></div>
+		<p>Результат</p>
+		<p><mark>Пример</mark></p>
+		<h3>Индикаторы прогресса</h3>
+		<p>Если требуется вставить в статью элемент полосу с прогрессом, то это можно осуществить так:</p>
+		<div class="highlight"><pre><span></span><code>[=0% "0%"]
+		[=5% "5%"]
+		[=25% "25%"]
+		[=45% "45%"]
+		[=65% "65%"]
+		[=85% "85%"]
+		[=100% "Всем Ку"]
+		</code></pre></div>
+		<p>Первое значение это уровень прогресса, второе - надпись или текст</p>
+		<p>Результат</p>
+		<p>
+		</p><div class="progress progress-0plus">
+		<div class="progress-bar" style="width:0.00%">
+		<p class="progress-label">0%</p>
+		</div>
+		</div>
+		<div class="progress progress-0plus">
+		<div class="progress-bar" style="width:5.00%">
+		<p class="progress-label">5%</p>
+		</div>
+		</div>
+		<div class="progress progress-20plus">
+		<div class="progress-bar" style="width:25.00%">
+		<p class="progress-label">25%</p>
+		</div>
+		</div>
+		<div class="progress progress-40plus">
+		<div class="progress-bar" style="width:45.00%">
+		<p class="progress-label">45%</p>
+		</div>
+		</div>
+		<div class="progress progress-60plus">
+		<div class="progress-bar" style="width:65.00%">
+		<p class="progress-label">65%</p>
+		</div>
+		</div>
+		<div class="progress progress-80plus">
+		<div class="progress-bar" style="width:85.00%">
+		<p class="progress-label">85%</p>
+		</div>
+		</div>
+		<div class="progress progress-100plus">
+		<div class="progress-bar" style="width:100.00%">
+		<p class="progress-label">Всем Ку</p>
+		</div>
+		</div>
+		<p></p>
+		<p>Для тонкой полосы прогресса без подписи нужно в фигурный скобках добавить ": .thin" :</p>
+		<div class="highlight"><pre><span></span><code>[=0%]{: .thin}
+		[=5%]{: .thin}
+		[=25%]{: .thin}
+		[=45%]{: .thin}
+		[=65%]{: .thin}
+		[=85%]{: .thin}
+		[=100%]{: .thin}
+		</code></pre></div>
+		<p>Результат</p>
+		<p>
+		</p><div class="progress progress-0plus thin">
+		<div class="progress-bar" style="width:0.00%">
+		<p class="progress-label"></p>
+		</div>
+		</div>
+		<div class="progress progress-0plus thin">
+		<div class="progress-bar" style="width:5.00%">
+		<p class="progress-label"></p>
+		</div>
+		</div>
+		<div class="progress progress-20plus thin">
+		<div class="progress-bar" style="width:25.00%">
+		<p class="progress-label"></p>
+		</div>
+		</div>
+		<div class="progress progress-40plus thin">
+		<div class="progress-bar" style="width:45.00%">
+		<p class="progress-label"></p>
+		</div>
+		</div>
+		<div class="progress progress-60plus thin">
+		<div class="progress-bar" style="width:65.00%">
+		<p class="progress-label"></p>
+		</div>
+		</div>
+		<div class="progress progress-80plus thin">
+		<div class="progress-bar" style="width:85.00%">
+		<p class="progress-label"></p>
+		</div>
+		</div>
+		<div class="progress progress-100plus thin">
+		<div class="progress-bar" style="width:100.00%">
+		<p class="progress-label"></p>
+		</div>
+		</div>
+		<p></p>
+		<h3>Специальные символы</h3>
+		<p>Добавляет синтаксис для создания специальных символов, таких как товарные знаки, стрелки, дроби и т. д.</p>
+		<div class="highlight"><pre><span></span><code>(tm)
+		(c)
+		(r)
+		c/o
+		+/-
+		--&gt;
+		&lt;--
+		&lt;--&gt;
+		=/=
+		1/4, etc.
+		1st 2nd etc.
+		</code></pre></div>
+		<p>Результат</p>
+		<p>™
+		©
+		®
+		℅
+		±
+		→
+		←
+		↔
+		≠
+		¼, etc.
+		1<sup>st</sup> 2<sup>nd</sup> etc.</p>
+		<h3>Вкладки</h3>
+		<p>Предоставляет синтаксис для простого добавления содержимого Markdown с вкладками. Вкладки начинаются с === для обозначения вкладки, за которой следует заголовок в кавычках. Последовательные вкладки группируются в набор вкладок.</p>
+		<div class="highlight"><pre><span></span><code>=== "Tab 1"
+			Markdown <span class="gs">**content**</span>.
+		
+			Multiple paragraphs.
+		
+		=== "Tab 2"
+			More Markdown <span class="gs">**content**</span>.
+		
+			<span class="k">-</span> list item a
+			<span class="k">-</span> list item b
+		</code></pre></div>
+		<p>Результат</p>
+		<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><label for="__tabbed_1_1">Tab 1</label><div class="tabbed-content">
+		<p>Markdown <strong>content</strong>.</p>
+		<p>Multiple paragraphs.</p>
+		</div>
+		<input id="__tabbed_1_2" name="__tabbed_1" type="radio"><label for="__tabbed_1_2">Tab 2</label><div class="tabbed-content">
+		<p>More Markdown <strong>content</strong>.</p>
+		<ul>
+		<li>list item a</li>
+		<li>list item b</li>
+		</ul>
+		</div>
+		</div>
+		<h3>Списки</h3>
+		<p>Добавляет списки задач в стиле GFM. Они следуют тому же синтаксису, что и GFM. Просто начинайте каждый элемент списка с пары квадратных скобок, содержащих либо пробел (неотмеченный элемент), либо X (отмеченный элемент).</p>
+		<div class="highlight"><pre><span></span><code>Task List
+		
+		<span class="k">- [X]</span> item 1
+			<span class="k">* [X]</span> item A
+			<span class="k">* [ ]</span> item B
+				more text
+				+ [x] item a
+				+ [ ] item b
+				+ [x] item c
+			<span class="k">* [X]</span> item C
+		<span class="k">- [ ]</span> item 2
+		<span class="k">- [ ]</span> item 3
+		</code></pre></div>
+		<p>Результат</p>
+		<p>Task List</p>
+		<ul class="task-list">
+		<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled="" checked=""><span class="task-list-indicator"></span></label> item 1<ul class="task-list">
+		<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled="" checked=""><span class="task-list-indicator"></span></label> item A</li>
+		<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> item B
+			more text<ul class="task-list">
+		<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled="" checked=""><span class="task-list-indicator"></span></label> item a</li>
+		<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> item b</li>
+		<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled="" checked=""><span class="task-list-indicator"></span></label> item c</li>
+		</ul>
+		</li>
+		<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled="" checked=""><span class="task-list-indicator"></span></label> item C</li>
+		</ul>
+		</li>
+		<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> item 2</li>
+		<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled=""><span class="task-list-indicator"></span></label> item 3</li>
+		</ul></div>
+		</div>
+								</div>
+							</div>
+							<div class="textform">
+								<div class="inputlist">
+									<label for="">Тэги</label>
+									<div class="memo">Это поле обязательное к заполнению. Выбрать можно до 5 тэгов.</div>
+									
+									<ul id="id_tagArticle">
+			<li><label for="id_tagArticle_0"><input type="checkbox" name="tagArticle" value="python" id="id_tagArticle_0">
+		 python</label>
+		
+		</li>
+			<li><label for="id_tagArticle_1"><input type="checkbox" name="tagArticle" value="cpp" id="id_tagArticle_1">
+		 cpp</label>
+		
+		</li>
+			<li><label for="id_tagArticle_2"><input type="checkbox" name="tagArticle" value="cs" id="id_tagArticle_2">
+		 cs</label>
+		
+		</li>
+			<li><label for="id_tagArticle_3"><input type="checkbox" name="tagArticle" value="javascript" id="id_tagArticle_3">
+		 javascript</label>
+		
+		</li>
+			<li><label for="id_tagArticle_4"><input type="checkbox" name="tagArticle" value="java" id="id_tagArticle_4">
+		 java</label>
+		
+		</li>
+			<li><label for="id_tagArticle_5"><input type="checkbox" name="tagArticle" value="github" id="id_tagArticle_5">
+		 github</label>
+		
+		</li>
+			<li><label for="id_tagArticle_6"><input type="checkbox" name="tagArticle" value="css" id="id_tagArticle_6" checked="">
+		 css</label>
+		
+		</li>
+			<li><label for="id_tagArticle_7"><input type="checkbox" name="tagArticle" value="html" id="id_tagArticle_7">
+		 html</label>
+		
+		</li>
+			<li><label for="id_tagArticle_8"><input type="checkbox" name="tagArticle" value="android" id="id_tagArticle_8">
+		 android</label>
+		
+		</li>
+			<li><label for="id_tagArticle_9"><input type="checkbox" name="tagArticle" value="ios" id="id_tagArticle_9">
+		 ios</label>
+		
+		</li>
+			<li><label for="id_tagArticle_10"><input type="checkbox" name="tagArticle" value="c" id="id_tagArticle_10">
+		 c</label>
+		
+		</li>
+			<li><label for="id_tagArticle_11"><input type="checkbox" name="tagArticle" value="begginers" id="id_tagArticle_11">
+		 begginers</label>
+		
+		</li>
+			<li><label for="id_tagArticle_12"><input type="checkbox" name="tagArticle" value="react" id="id_tagArticle_12">
+		 react</label>
+		
+		</li>
+			<li><label for="id_tagArticle_13"><input type="checkbox" name="tagArticle" value="tutorial" id="id_tagArticle_13">
+		 tutorial</label>
+		
+		</li>
+			<li><label for="id_tagArticle_14"><input type="checkbox" name="tagArticle" value="node" id="id_tagArticle_14">
+		 node</label>
+		
+		</li>
+			<li><label for="id_tagArticle_15"><input type="checkbox" name="tagArticle" value="opensource" id="id_tagArticle_15">
+		 opensource</label>
+		
+		</li>
+			<li><label for="id_tagArticle_16"><input type="checkbox" name="tagArticle" value="career" id="id_tagArticle_16">
+		 career</label>
+		
+		</li>
+			<li><label for="id_tagArticle_17"><input type="checkbox" name="tagArticle" value="security" id="id_tagArticle_17">
+		 security</label>
+		
+		</li>
+			<li><label for="id_tagArticle_18"><input type="checkbox" name="tagArticle" value="linux" id="id_tagArticle_18">
+		 linux</label>
+		
+		</li>
+			<li><label for="id_tagArticle_19"><input type="checkbox" name="tagArticle" value="php" id="id_tagArticle_19">
+		 php</label>
+		
+		</li>
+			<li><label for="id_tagArticle_20"><input type="checkbox" name="tagArticle" value="angular" id="id_tagArticle_20">
+		 angular</label>
+		
+		</li>
+			<li><label for="id_tagArticle_21"><input type="checkbox" name="tagArticle" value="machinelearning" id="id_tagArticle_21">
+		 machinelearning</label>
+		
+		</li>
+			<li><label for="id_tagArticle_22"><input type="checkbox" name="tagArticle" value="database" id="id_tagArticle_22">
+		 database</label>
+		
+		</li>
+			<li><label for="id_tagArticle_23"><input type="checkbox" name="tagArticle" value="blockchain" id="id_tagArticle_23">
+		 blockchain</label>
+		
+		</li>
+			<li><label for="id_tagArticle_24"><input type="checkbox" name="tagArticle" value="niktech" id="id_tagArticle_24">
+		 niktech</label>
+		
+		</li>
+		</ul>
+								</div>
+							</div>
 							
-<!--							<li><a href="#">#webdev</a></li>-->
-<!--							<li><a href="#">#beginners</a></li>-->
-<!--							<li><a href="#">#tutorial</a></li>-->
-<!--							<li><a href="#">#programming</a></li>-->
-<!--							<li><a href="#">#react</a></li>-->
-<!--							<li><a href="#">#productivity</a></li>-->
-<!--							<li><a href="#">#css</a></li>-->
-<!--							<li><a href="#">#python</a></li>-->
-<!--							<li><a href="#">#html</a></li>-->
-<!--							<li><a href="#">#codenewbie</a></li>-->
-<!--							<li><a href="#">#devops</a></li>-->
-<!--							<li><a href="#">#aws</a></li>-->
-<!--							<li><a href="#">#node</a></li>-->
-<!--							<li><a href="#">#career</a></li>-->
-						</ul>
+								<input class="btn btn-success btn-save-custom" type="submit" value="Сохранить">
+							
+						</form>
+						<script src="/static/markdownx/js/markdownx.js"></script>
 					</div>
 				</div>
 			</div>

@@ -6,32 +6,43 @@ import markdown as md
 register = template.Library()
 
 
-@register.filter()
+@register.filter
 @stringfilter
 def markdown(value):
     return md.markdown(value, extensions=[
-        'markdown.extensions.fenced_code',
         'markdown.extensions.footnotes',
-        'pymdownx.betterem',
-        'pymdownx.emoji',
+        'pymdownx.emoji',  # исправить перенос на новую строку
         'markdown.extensions.footnotes',
         'markdown.extensions.attr_list',
         'markdown.extensions.def_list',
         'markdown.extensions.tables',
         'markdown.extensions.abbr',
         'markdown.extensions.md_in_html',
-        'pymdownx.caret',
+        'pymdownx.caret',  # ok
         'pymdownx.details',  # ! добавить css https://facelessuser.github.io/pymdown-extensions/extensions/details/
         'pymdownx.highlight',  # подсветка синтаксиса, проблема css
-        # 'pymdownx.inlinehilite',  # подсветка синтаксиса, проблема css
-        'pymdownx.keys',  # подсветка клавиш
-        'pymdownx.magiclink',  # ссылки
+        'pymdownx.superfences',
+        'pymdownx.keys',  # подсветка клавиш. На базовом уровне работает
         'pymdownx.mark',  # выделение текста
         'pymdownx.progressbar',  # прогрессбар
         'pymdownx.smartsymbols',  # спец знаки
-        'pymdownx.superfences',  # что-то нужное
         'pymdownx.tabbed',  # вкладки с контентом
-        'pymdownx.tasklist',  # выполнил / не выполнил
+        'pymdownx.tasklist',  # выполнил / не выполнил, доработать стили!
         'pymdownx.arithmatex',  # матан
-        'mdx_math',
-])
+        # 'mdx_math',
+        # 'markdown_katex',
+    ],
+                       extension_configs={
+        "pymdownx.arithmatex": {
+            'generic': True,
+        },
+       "pymdownx.tasklist": {
+           "custom_checkbox": True,
+       },
+       "pymdownx.highlight": {
+           'use_pygments': True,
+           'guess_lang': True,
+           'noclasses': False,
+           'pygments_style': 'friendly',
+       },
+    })

@@ -29,28 +29,36 @@
 	<link rel="stylesheet" href="{% static 'css/newarticle.css' %}">
 	{% endif %}
 	<link rel="stylesheet" href="{% static 'fontawesome/css/all.css' %}">
+	<link rel="stylesheet" href="{% static 'css/highlight.css' %}">
 	<link rel="icon" href="../../static/img/favicon.ico" type="image/x-icon">
   	<link rel="shortcut icon" href="../../static/img/favicon.ico" type="image/x-icon">
-<!--	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/solarized-dark.min.css">-->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
-	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css">
 
-	<script type='text/javascript'>hljs.initHighlightingOnLoad();</script>
+
+
+	<!--подсветка кода-->
+<!--	<script src="{% static 'highlight/highlight.min.js' %}"></script>-->
+<!--	<link rel="stylesheet" href="{% static 'highlight/styles/a11y-light.min.css' %}">-->
+<!--	<script type='text/javascript'>hljs.initHighlightingOnLoad();</script>-->
 
 	<title>{{ meta_title }}</title>
-	<script>
-		MathJax = {
-		  tex: {
-			inlineMath: [['$', '$'], ['\\(', '\\)']]
-		  }
-		};
-	</script>
-	<script id="MathJax-script" async
-	  	src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
-	</script>
+<!--	<script>-->
+<!--	MathJax = {-->
+<!--	  tex: {-->
+<!--		inlineMath: [['$', '$'], ['\\(', '\\)']]-->
+<!--	  },-->
+<!--	  svg: {-->
+<!--		fontCache: 'global'-->
+<!--	  }-->
+<!--	};-->
+<!--	</script>-->
+<!--	<script id="MathJax-script" async-->
+<!--	  	src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">-->
+<!--	</script>-->
+
 	<script>window.noAdBlock = false;</script>
 </head>
 <body>

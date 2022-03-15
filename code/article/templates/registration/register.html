@@ -86,6 +86,13 @@
                                 {{ user_form.password2.errors }}
                             </div>
                         </div>
+                        <div class="textform">
+                            <div class="inputlist">
+                                <label for="{{ profile_form.captcha.id_for_label }}">{{ profile_form.captcha_f.label }}</label>
+                                {{ profile_form.captcha_f }}
+                                {{ profile_form.captcha_f.errors }}
+                            </div>
+                        </div>
                     {% else %}
                         <div class="textform">
                             <div class="inputlist">
