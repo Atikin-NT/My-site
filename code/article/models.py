@@ -24,6 +24,7 @@ def get_upload_path(instance, filename):
 class TagsList(models.Model):
     tag = models.CharField('name', max_length=50, default="home")
     description = models.TextField('Description', default="")
+    count = models.IntegerField('count', default=0)
 
     def __str__(self):
         return self.tag

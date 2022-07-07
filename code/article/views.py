@@ -105,7 +105,7 @@ def index(request):
     #   --------------------------------------------------days------------------------------------------------------
     day_text = currentDay()
 
-    allTags = [c.tag for c in TagsList.objects.all()]
+    allTags = [(c.tag, c.count) for c in TagsList.objects.all().order_by('-count')[:7]]
     data = zip(posts, user_metadata, [x for x in range(len(posts))])
     if len(latest_articles_list) == 0:
         data = []

@@ -696,15 +696,15 @@ menu a:hover {
 }
 
 .tags_list {
-  height: 300px;
+  height: auto;
   width: 100%;
-  scrollbar-color: #323846 #F9FAFA;
 }
 
 .tags_list ul {
   height: inherit;
   width: 100%;
   padding: 5px;
+  margin: 0;
 }
 
 .tags_list li {
@@ -735,7 +735,8 @@ menu a:hover {
 
 .tags_list a {
   display: block;
-  width: inherit;
+  width: 80%;
+  float: left;
   text-decoration: none;
   font-family: "Hack";
   font-size: 1.2em;
@@ -744,6 +745,30 @@ menu a:hover {
 
 .tags_list a:hover {
   color: #386AE8;
+}
+
+.tags_list #other_tags {
+  color: #386AE8;
+}
+.tags_list #other_tags:hover {
+  color: #45a3fb;
+}
+.tags_list span {
+  display: block;
+  width: 20%;
+  float: left;
+  text-decoration: none;
+  font-family: "Hack";
+  font-size: 1.2em;
+  color: #797c93;
+}
+
+#advert_right_soundbar {
+  margin-top: 20px;
+  width: 80%;
+  height: 500px;
+  border-radius: 5px;
+  background: #E4E6E8;
 }
 
 .dark-mode #go_up {

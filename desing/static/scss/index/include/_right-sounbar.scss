@@ -118,13 +118,14 @@
 	}
 }
 .tags_list{
-	height: 300px;
+	height: auto;
 	width: 100%;
-	scrollbar-color: #323846 #F9FAFA;
+	// scrollbar-color: #323846 #F9FAFA;
 	ul{
 		height: inherit;
 		width: 100%;
 		padding: 5px;
+		margin: 0;
 	}
 	li{
 		width: inherit;
@@ -142,9 +143,10 @@
 		border-radius: 3px;
 		transition: 0.2s;
 	}
-	a{
+	a{  
 		display: block;
-		width: inherit;
+		width: 80%;
+		float: left;
 		text-decoration: none;
 		font-family: "Hack";
 		font-size: 1.2em;
@@ -153,6 +155,29 @@
 	a:hover{
 		color: #386AE8;
 	}
+	#other_tags{
+		color: #386AE8;
+		&:hover{
+			color: #45a3fb;
+		}
+	}
+	span{
+		display: block;
+		width: 20%;
+		float: left;
+		text-decoration: none;
+		font-family: "Hack";
+		font-size: 1.2em;
+		color: #797c93;
+	}
+}
+
+#advert_right_soundbar{
+	margin-top: 20px;
+	width: 80%;
+	height: 500px;
+	border-radius: 5px;
+	background: #E4E6E8;
 }
 
 .dark-mode {
