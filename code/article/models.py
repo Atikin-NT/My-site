@@ -29,6 +29,15 @@ class TagsList(models.Model):
     def __str__(self):
         return self.tag
 
+    def add(self):
+        self.count += 1
+        self.save()
+
+    def remove(self):
+        if self.count != 0:
+            self.count -= 1
+        self.save()
+
 
 class Article(models.Model):
     choices = [(c.tag, c.tag) for c in TagsList.objects.all()]
@@ -48,10 +57,14 @@ class Article(models.Model):
     def __str__(self):
         return self.article_title
 
-    def save(self, *args, **kwargs):
+    def save(self, new=False, *args, **kwargs):
+        if new:
+            for curr_tag in self.tagArticle:
+                TagsList.objects.get(tag=curr_tag).add()
+
         self.time_to_read = len(str(self.article_content_md)) // 1400
         if self.time_to_read == 0: self.time_to_read = 1
-        super().save(*args, **kwargs)
+        super(Article, self).save(new, *args, **kwargs)
 
     def get_absolute_url(self):
         return reverse('recipe_detail', args=[str(self.id)])

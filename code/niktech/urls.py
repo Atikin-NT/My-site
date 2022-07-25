@@ -29,10 +29,11 @@ info_dict = {
 
 urlpatterns = [
     path('markdownx/', include(markdownx)),
-    path('captcha/', include('captcha.urls')),
+    # path('captcha/', include('captcha.urls')),
     path('admin/', admin.site.urls),
     path('', include('article.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': {'blog': GenericSitemap(info_dict, priority=0.6)}}, name='django.contrib.sitemaps.views.sitemap'),
+    path('__debug__/', include('debug_toolbar.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

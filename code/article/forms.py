@@ -4,7 +4,7 @@ from django.forms import ClearableFileInput
 from .models import Profile, Article
 from markdownx.fields import MarkdownxFormField
 from django.core.exceptions import MultipleObjectsReturned
-from captcha.fields import CaptchaField
+# from captcha.fields import CaptchaField
 from captcha.helpers import math_challenge
 from django.core import validators
 

@@ -259,7 +259,7 @@ def newArticle(request):
             new_article.pub_date = datetime.date.today()
             new_article.author_id = request.user.id
 
-            new_article.save()
+            new_article.save(new=True)
             return redirect(articleById, user_id=request.user.id)
 
     else:
@@ -294,6 +294,8 @@ def editArticle(request, article_id):
 
 def deleteArticle(request, article_id):
     article = Article.objects.filter(Q(id=article_id))[0]
+    for curr_tag in article.tagArticle:
+        TagsList.objects.get(tag=curr_tag).remove()
     article.delete()
     return redirect(articleById, user_id=request.user.id)
 

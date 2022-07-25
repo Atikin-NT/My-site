@@ -21,17 +21,10 @@
 #icon_add_article {
   width: inherit;
   height: 40px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
-
 #icon_add_article button {
   width: 60px;
   height: 60px;
@@ -41,16 +34,12 @@
   border-radius: 100%;
   cursor: pointer;
 }
-
 #icon_add_article button i {
   font-size: 2em;
   color: #fff;
 }
-
 #icon_add_article button:hover {
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-  -webkit-transition: 1s;
+  transform: rotate(180deg);
   transition: 1s;
 }
 
@@ -76,21 +65,11 @@
 #formsettings {
   padding: 15px;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
-
 #formsettings form {
   width: 100%;
 }
@@ -103,33 +82,23 @@
 .inputlist {
   padding: 5px;
 }
-
 .inputlist label {
   font-size: 1.5em;
   font-family: "Rubik";
   color: #EEF0F1;
 }
-
 .inputlist textarea {
   width: 100%;
   resize: vertical;
 }
-
 .inputlist ul {
   margin-top: 10px;
   list-style-type: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
+  flex-flow: row wrap;
 }
-
 .inputlist li {
-  -ms-flex-preferred-size: 33%;
-      flex-basis: 33%;
+  flex-basis: 33%;
 }
 
 .memo {
@@ -147,31 +116,19 @@
   width: 100%;
   height: auto;
   padding: 5px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: reverse;
-      -ms-flex-direction: column-reverse;
-          flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column-reverse;
 }
-
 .imageform img {
   width: 280px;
   height: 280px;
   border-radius: 5px;
 }
-
 .imageform input {
   display: none;
 }
-
 .imageform label[for=id_article_picture], .imageform label[for=id_avatar] {
   margin-top: 10px;
   width: 280px;
@@ -183,11 +140,9 @@
   font-size: 1em;
   color: #fff;
 }
-
 .imageform label[for=id_article_picture]:hover, .imageform label[for=id_avatar]:hover {
   cursor: pointer;
 }
-
 .imageform label[for=Avatar] {
   font-size: 1.5em;
   font-family: "Rubik";
@@ -208,11 +163,9 @@
   color: #EEF0F1;
   font-family: "Rubik";
 }
-
 #login_block p {
   color: #F9FAFA;
 }
-
 #login_block a {
   color: inherit;
   font-family: "Rubik";
@@ -220,11 +173,9 @@
   color: #64FDF1;
   border-bottom: 3px solid #535B75;
 }
-
 #login_block a:hover {
   border-bottom-color: #96A6D5;
 }
-
 #login_block ul {
   list-style: none;
 }
@@ -232,23 +183,13 @@
 #social_login {
   height: 50px;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
   font-family: "Rubik";
   color: #F9FAFA;
 }
-
 #social_login a {
   font-size: 2em;
   margin-left: 20px;
@@ -257,29 +198,19 @@
   border-radius: 5px;
   height: 50px;
   width: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-transition: 0.5s;
+  justify-content: center;
+  align-items: center;
   transition: 0.5s;
   border-bottom: none;
 }
-
 #social_login a:hover {
   color: #386AE8;
 }
 
 .dark-mode #title_acc {
-  -webkit-box-shadow: 0 0 0 1px rgba(8, 9, 10, 0.1);
-          box-shadow: 0 0 0 1px rgba(8, 9, 10, 0.1);
+  box-shadow: 0 0 0 1px rgba(8, 9, 10, 0.1);
 }
-
 .dark-mode .inputlist label {
   color: #202833;
 }
@@ -291,12 +222,10 @@
     margin: 100px 15px 15px 15px;
   }
 }
-
 @media only screen and (min-width: 320px) and (max-width: 766px) {
   #normal_size_app {
     height: 100%;
     width: 100%;
     margin: 100px 15px 15px 15px;
   }
-}
-/*# sourceMappingURL=profilesettings.css.map */
+}/*# sourceMappingURL=profilesettings.css.map */

@@ -1,10 +1,7 @@
 .article_about_art {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }
 
 .dark-mode .article_about_art {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-/*# sourceMappingURL=products.css.map */
+  box-shadow: none;
+}/*# sourceMappingURL=products.css.map */
