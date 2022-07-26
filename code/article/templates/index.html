@@ -77,6 +77,28 @@
 				</div>
 			</div>
 		</div>
+		<div id="container" style="visibility: hidden; opacity: 0;">
+        <script src="../../static/js/modal_delete_article.js"></script>
+        <div class="modal">
+            <!-- Header -->
+            <div class="modal__header">
+                <h1>Точно удалить статью?</h1>
+                <div class="close" onclick="openDeleteModal(0)">Close</div>
+            </div>
+
+            <!-- Content -->
+            <div class="modal__content">
+                Статья будет удалена без возможности восстановления !!! <br>
+                Если что, админ тут ни при чем 👀
+            </div>
+
+            <!-- Footer -->
+            <div class="modal__footer">
+                <a class="modal__button delete" id="modal_delete_art" href="/deletearticle/">Удалить</a>
+                <a class="modal__button" onclick="openDeleteModal(0)">Отмена</a>
+            </div>
+        </div>
+    </div>
 		<nav id="top_nav">
 			<div class="GoogleAdv"></div>
 			<div class="normal_size normalSizeLight">

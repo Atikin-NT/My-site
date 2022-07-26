@@ -2,6 +2,7 @@
 
 {% block content %}
 <div id="app">
+
     <div id="normal_size_app">
         <div id="title_acc">
             <div id="text_app_icon">
@@ -77,7 +78,8 @@
                             {% if admin_flag == 1%}
                                 <div class="actions_with_article">
                                     <a href="{% url 'editarticle' a.id %}" class="edit">Редактировать</a>
-                                    <a href="{% url 'deletearticle' a.id %}" class="delete">Удалить</a>
+<!--                                    <a href="{% url 'deletearticle' a.id %}" class="delete">Удалить</a>-->
+                                    <a onclick="openDeleteModal({{ a.id }})" href="#" class="delete">Удалить</a>
                                 </div>
                             {% endif %}
 						</div>
