@@ -264,7 +264,8 @@ def newArticle(request):
 
     else:
         form = NewArticle(initial={'article_picture': 'default.jpg'})
-    return render(request, 'article/new_article.html', {'css_params': 3, 'form': form, 'new_or_old': 1})
+    return render(request, 'article/new_article.html', {'css_params': 3, 'form': form, 'new_or_old': 1,
+                                                        'meta_title': 'Новая статья', 'meta_description': 'Новая статья'})
 
 
 # done
@@ -319,12 +320,14 @@ def register(request):
                                    description=profile_data['description'],
                                    where_you_leave=profile_data['where_you_leave'],
                                    date_of_birth=profile_data['date_of_birth'])
-            return render(request, 'registration/register_done.html', {'new_user': new_user})
+            return render(request, 'registration/register_done.html', {'new_user': new_user, 'meta_title': 'ヾ(⌐■_■)ノ♪',
+                                                                       'meta_description': 'ヾ(⌐■_■)ノ♪'})
     else:
         user_form = UserRegistrationForm()
         profile_form = ProfileForm()
     return render(request, 'registration/register.html', {'user_form': user_form, 'profile_form': profile_form,
-                                                          'profile_flag_edit': 0, 'css_params': 4})
+                                                          'profile_flag_edit': 0, 'css_params': 4,
+                                                          'meta_title': 'Регистрация', 'meta_description': 'Регистрация'})
 
 
 # done
@@ -350,7 +353,8 @@ def edit(request):
                                             'description': curr_profile.description,
                                             'where_you_leave': curr_profile.where_you_leave})
     return render(request, 'registration/register.html', {'user_form': user_form, 'profile_form': profile_form,
-                                                          'profile_flag_edit': 1, 'css_params': 4})
+                                                          'profile_flag_edit': 1, 'css_params': 4,
+                                                          'meta_title': 'Настройки', 'meta_description': 'Настройки'})
 
 
 def error404(request, exception):

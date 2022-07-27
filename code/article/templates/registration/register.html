@@ -68,6 +68,7 @@
                     <div class="textform">
                         <div class="inputlist">
                             <label for="{{ profile_form.date_of_birth.id_for_label }}">Ваша дата рождения</label>
+                            <div class="memo">Формат: XX.XX.XXXX</div>
                             {{ profile_form.date_of_birth }}
                             {{ profile_form.date_of_birth.errors }}
                         </div>
@@ -84,13 +85,6 @@
                                 <label for="{{ user_form.password2.id_for_label }}">Повторение пароля</label>
                                 {{ user_form.password2 }}
                                 {{ user_form.password2.errors }}
-                            </div>
-                        </div>
-                        <div class="textform">
-                            <div class="inputlist">
-                                <label for="{{ profile_form.captcha.id_for_label }}">{{ profile_form.captcha_f.label }}</label>
-                                {{ profile_form.captcha_f }}
-                                {{ profile_form.captcha_f.errors }}
                             </div>
                         </div>
                     {% else %}

@@ -82,7 +82,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-            'string_if_invalid': 'ERROR:(',
+            'string_if_invalid': 'ζ༼Ɵ͆ل͜Ɵ͆༽ᶘ',
             'file_charset': 'utf-8',
             'debug': True,
         },
