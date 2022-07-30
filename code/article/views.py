@@ -178,7 +178,7 @@ def detail(request, article_id):
             pass
         else:
             article.likes += 1
-            article.save()
+            article.save(update_fields=['likes'])
             html = render(request, 'article/articledetail.html', {'article': article, 'allTags': allTags,
                                                                   'day_text': day_text, 'css_params': 1})
             if article_id == 1:
