@@ -37,7 +37,6 @@
             {{article.article_content_md | markdown | safe}}
         </div>
         <div id="likes_and_comments">
-<!--            <p>Если вам понравилась статья, то поддержите ее лайком. Такая реакция будет мотивировать меня на улучшение этого сайта.</p>-->
             <div id="likes">
                 <div class="reaction">
                     <form action="{% url 'detail' article.id %}" method="POST">
