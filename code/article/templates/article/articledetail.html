@@ -74,9 +74,10 @@
             </div>
             <div class="overflow-y-hidden overflow-y-md-auto tags_list">
                 <ul>
-                    {% for tag in allTags %}
-                        <li><a href="{% url 'tags' tag %}">#{{tag}}</a></li>
+                    {% for tag, count in allTags %}
+                        <li><a href="{% url 'tags' tag %}">#{{tag}}</a><span>{{count}}</span></li>
                     {% endfor %}
+                    <li><a id="other_tags" href="/tags">Остальные теги...</a></li>
                 </ul>
             </div>
         </div>

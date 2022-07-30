@@ -120,7 +120,7 @@ def index(request):
 # done
 def tagPostShow(request, curr_tag):
     articles_list = Article.objects.filter(tagArticle__contains=curr_tag).all().order_by('-pub_date')
-    allTags = [c.tag for c in TagsList.objects.all()]
+    allTags = [(c.tag, c.count) for c in TagsList.objects.all().order_by('-count')[:7]]
 
     day_text = currentDay()
 
@@ -145,8 +145,13 @@ def tagPostShow(request, curr_tag):
     data = zip(posts, user_metadata, [x for x in range(len(posts))])
     if len(articles_list) == 0:
         data = []
-    return render(request, 'article/article.html', {'meta_title': curr_tag, 'allTags': allTags,
-                                                    'day_text': day_text, 'css_params': 0, 'data': data})
+
+    meta_title = curr_tag
+    meta_description = f"Последние статьи на сайте NikTech по тегу {curr_tag}"
+
+    return render(request, 'article/article.html', {'meta_title': meta_title, 'allTags': allTags,
+                                                    'day_text': day_text, 'css_params': 0, 'data': data,
+                                                    'meta_description': meta_description})
 
 
 # done
@@ -161,9 +166,12 @@ def detail(request, article_id):
         article = Article.objects.get(id=article_id)
     except Exception as ex:
         return redirect(index)
-    allTags = [c.tag for c in TagsList.objects.all()]
+    allTags = [(c.tag, c.count) for c in TagsList.objects.all().order_by('-count')[:7]]
 
     day_text = currentDay()
+
+    meta_title = article.article_title
+    meta_description = article.article_small_text
 
     count_of_comments = how_much_comments(article_id)
     if count_of_comments > article.comments:
@@ -188,7 +196,8 @@ def detail(request, article_id):
         return html
 
     return render(request, 'article/articledetail.html', {'article': article, 'allTags': allTags,
-                                                          'day_text': day_text, 'css_params': 1})
+                                                          'day_text': day_text, 'css_params': 1,
+                                                          'meta_title': meta_title, 'meta_description': meta_description})
 
 
 def product(request):
