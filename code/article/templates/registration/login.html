@@ -21,6 +21,9 @@
                             <a href="/login/vk-oauth2">
                                 <i class="fab fa-vk"></i>
                             </a>
+                            <a href="{% url 'social:begin' 'google-oauth2' %}">
+                                <i class="fa fa-google" aria-hidden="true"></i>
+                            </a>
                         </div>
                         <input type="submit" class="btn btn-success btn-save-custom" name="SendMess" value="Войти">
                     </form>
