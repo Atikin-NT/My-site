@@ -76,6 +76,7 @@ ROOT_URLCONF = 'niktech.urls'
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.vk.VKOAuth2',          # бекенд авторизации через ВКонтакте
     'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.github.GithubOAuth2',
     'django.contrib.auth.backends.ModelBackend', # бекенд классической аутентификации, чтобы работала авторизация через обычный логин и пароль
 )
 
@@ -87,6 +88,11 @@ SOCIAL_AUTH_VK_OAUTH2_SCOPE = ['email']
 # Google
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '243398191963-jrf1uihf7ga83102g4f88s8ftgq4cf61.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+
+# Github
+SOCIAL_AUTH_GITHUB_KEY = 'b9da72e7ff979347f03f'
+SOCIAL_AUTH_GITHUB_SECRET = '1952cb958524cfae50ad2258b25c5eb35c616784'
+SOCIAL_AUTH_GITHUB_SCOPE = ['email']
 
 SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.social_auth.social_details',
