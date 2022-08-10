@@ -280,7 +280,6 @@
     width: 100%;
     margin: 100px 15px 15px 15px;
   }
-
   #mobile_adaptetion {
     display: block;
   }
@@ -293,15 +292,12 @@
   #mobile_adaptetion strong {
     color: #386AE8;
   }
-
   .dark-mode #mobile_adaptetion p, .dark-mode #mobile_adaptetion mytext {
     color: #202833;
   }
-
   #formsettings {
     display: none;
   }
-
   #article_normal_size_block {
     height: 500px;
   }

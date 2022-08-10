@@ -329,6 +329,45 @@ $gl-lg: "screen and (max-width: 80em)";   // max 1280px
 	.arithmatex{
 		color: #fff;
 	}
+	del.critic{
+		color: #fff;
+		background-color: #734568;
+		padding: 2px;
+	}
+	del.critic.block{
+		box-shadow: none;
+		display: block;
+		margin: 1em 0;
+		overflow: auto;
+		padding-left: 0.8rem;
+		padding-right: 0.8rem;
+		background-color: #734568;
+	}
+	ins.critic{
+		color: #fff;
+		background-color: #36724e;
+		padding: 2px;
+	}
+	ins.critic.block{
+		box-shadow: none;
+		display: block;
+		margin: 1em 0;
+		overflow: auto;
+		padding-left: 0.8rem;
+		padding-right: 0.8rem;
+		background-color: #36724e;
+	}
+	mark.critic{
+		padding: 2px;
+		background-color: #6e7252;
+		color: #fff;
+		border-radius: 0;
+	}
+	.comment{
+		color: #6071a4;
+		&:before{content: "/* ";}
+		&:after{content: " */";}
+	}
 } 
 
 #likes_and_comments{

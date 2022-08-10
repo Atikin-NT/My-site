@@ -54,8 +54,7 @@
 }
 
 .task-list-control {
-  display: inline;
-  /* Ensure label is inline incase theme sets it to block.*/
+  display: inline; /* Ensure label is inline incase theme sets it to block.*/
 }
 
 .task-list-control {
@@ -67,8 +66,7 @@
 .task-list-control input[type=checkbox] {
   position: absolute;
   opacity: 0;
-  z-index: -1;
-  /* Put the input behind the label so it doesn't overlay text */
+  z-index: -1; /* Put the input behind the label so it doesn't overlay text */
 }
 
 .task-list-indicator {
@@ -355,6 +353,49 @@
 #content_det .arithmatex {
   color: #fff;
 }
+#content_det del.critic {
+  color: #fff;
+  background-color: #734568;
+  padding: 2px;
+}
+#content_det del.critic.block {
+  box-shadow: none;
+  display: block;
+  margin: 1em 0;
+  overflow: auto;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  background-color: #734568;
+}
+#content_det ins.critic {
+  color: #fff;
+  background-color: #36724e;
+  padding: 2px;
+}
+#content_det ins.critic.block {
+  box-shadow: none;
+  display: block;
+  margin: 1em 0;
+  overflow: auto;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  background-color: #36724e;
+}
+#content_det mark.critic {
+  padding: 2px;
+  background-color: #6e7252;
+  color: #fff;
+  border-radius: 0;
+}
+#content_det .comment {
+  color: #6071a4;
+}
+#content_det .comment:before {
+  content: "/* ";
+}
+#content_det .comment:after {
+  content: " */";
+}
 
 #likes_and_comments {
   font-size: 1em;
@@ -493,11 +534,9 @@
     font-size: 14px;
     margin: 8px 0 0 5px;
   }
-
   #text_app_det h1 {
     font-size: 1.2em;
   }
-
   #mainimg_content_det {
     width: 260px;
     height: 260px;
@@ -510,7 +549,6 @@
     align-items: center;
     flex-direction: column;
   }
-
   #title_det {
     margin: 0;
   }
@@ -518,13 +556,11 @@
     text-align: center;
     font-size: 1em;
   }
-
   #mainimg_content_det {
     width: 240px;
     height: 240px;
     float: none;
   }
-
   #content_det p {
     font-size: 0.9em;
   }
@@ -593,13 +629,11 @@
   #content_det .MathJax_Preview {
     font-size: 0.9em;
   }
-
   #likes_and_comments {
     font-size: 1em;
     font-family: "Rubik";
     color: #EEF0F1;
   }
-
   #likes {
     justify-content: center;
   }
