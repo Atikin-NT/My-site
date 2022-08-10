@@ -29,6 +29,7 @@ def markdown(value):
         'pymdownx.tabbed',  # вкладки с контентом
         'pymdownx.tasklist',  # выполнил / не выполнил, доработать стили!
         'pymdownx.arithmatex',  # матан
+        'pymdownx.critic',  # критика в статьях
         # 'mdx_math',
         # 'markdown_katex',
     ],

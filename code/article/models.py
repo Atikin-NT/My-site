@@ -46,13 +46,13 @@ class Article(models.Model):
     article_picture = models.ImageField('Основная картинка', upload_to=get_upload_path, default='default.jpg')  # картинка
     article_small_text = models.TextField('Краткое описание')  # краткое описание
     article_content_md = MarkdownxField(null=True)  # markdown editor
-    pub_date = models.DateField('Дата публикации', auto_now=True)  # дата публикации
+    pub_date = models.DateField('Дата публикации', auto_now_add=True)  # дата публикации
     likes = models.IntegerField('Лайки', default=0)  # количество просмтров
     time_to_read = models.IntegerField('Время чтения', default=1)
     tagArticle = MultiSelectField(choices=choices, max_choices=5, null=True)
     author_id = models.IntegerField(default=25)
     comments = models.IntegerField('Комментарии', default=0)
-    admin_check = models.IntegerField('Проверка', default=0)
+    admin_check = models.BooleanField('Проверка', default=False)
 
     def __str__(self):
         return self.article_title

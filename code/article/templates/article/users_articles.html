@@ -20,116 +20,200 @@
             </div>
         </div>
         <div id="article_normal_size_block">
-            {% if posts %}
-                {% for a in posts %}
-                    <article>
-                        <div class="article_about_art">
-                            <div class="text_art">
-                                <div class="text_main_art">
-                                    <div class="second_text_main_art">
-                                        <div class="image">
-                                            <img src="{{ a.article_picture.url}}" alt="{{ post.article_picture_alt }}">
+            <div class="article_in_prodaction">
+                <div class="tabs">
+                    <input type="radio" id="radio-1" name="tabs" checked  onclick="TabOnChecked();"/>
+                    <label class="tab" for="radio-1">Одобрены<span class="notification">{{count_of_all_posts_approved}}</span></label>
+                    <input type="radio" id="radio-2" name="tabs" onclick="TabOnChecked();"/>
+                    <label class="tab" for="radio-2">На проверке<span class="notification">{{count_of_all_posts_on_check}}</span></label>
+                    <span class="glider"></span>
+                </div>
+            </div>
+            <div id="Approved" style="display: block;">
+                {% if posts_approved %}
+                    {% for a in posts_approved %}
+                        <article>
+                            <div class="article_about_art">
+                                <div class="text_art">
+                                    <div class="text_main_art">
+                                        <div class="second_text_main_art">
+                                            <div class="image">
+                                                <img src="{{ a.article_picture.url}}" alt="{{ post.article_picture_alt }}">
+                                            </div>
+                                             <a href="{% url 'detail' a.id %}">
+                                                <h2>{{a.article_title}}</h2>
+                                                <p>{{a.article_small_text}}</p>
+                                            </a>
                                         </div>
-                                         <a href="{% url 'detail' a.id %}">
-                                            <h2>{{a.article_title}}</h2>
-                                            <p>{{a.article_small_text}}</p>
-                                        </a>
+                                    </div>
+                                    <div class="param_art">
+                                        <div class="param_art_left">
+                                            <div class="icons_param like">
+                                                <i class="fas fa-heart"></i>
+                                                {{a.likes}} реакций
+                                            </div>
+                                            <div class="icons_param comment">
+                                                <i class="fas fa-comment"></i>
+                                                {{a.likes}} комментов
+                                            </div>
+                                            <div class="icons_param date_art">
+                                                <i class="far fa-clock"></i>
+                                                {{a.pub_date|date:'d.m.Y'}}
+                                            </div>
+                                        </div>
+                                        <div class="param_art_right">
+                                            {{a.time_to_read}} мин чтения
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="param_art">
-									<div class="param_art_left">
-										<div class="icons_param like">
-											<i class="fas fa-heart"></i>
-											{{a.likes}} реакций
-										</div>
-										<div class="icons_param comment">
-											<i class="fas fa-comment"></i>
-											{{a.likes}} комментов
-										</div>
-										<div class="icons_param date_art">
-											<i class="far fa-clock"></i>
-											{{a.pub_date|date:'d.m.Y'}}
-										</div>
-									</div>
-									<div class="param_art_right">
-										{{a.time_to_read}} мин чтения
-									</div>
-								</div>
                             </div>
-						</div>
-						<div class="author">
-							<div class="author_author">
-								{% if curr.avatar %}
-                                    <img src="{{curr.avatar.url}}" alt="{{curr.user.username}}"/>
-                                {% else %}
-                                    <img src="../../static/img/default.png" alt="{{curr.user.username}}"/>
-                                {% endif %}
-								<h4>{{curr.user.username}}</h4>
-							</div>
-							<div class="heshteg_author">
-                                {% for tag in a.tagArticle %}
-                                    {% if tag.id == 1 %}
-                                        <a class="iskl" href="{% url 'tags' tag %}">#{{tag}}</a>
+                            <div class="author">
+                                <div class="author_author">
+                                    {% if curr.avatar %}
+                                        <img src="{{curr.avatar.url}}" alt="{{curr.user.username}}"/>
                                     {% else %}
-                                        <a href="{% url 'tags' tag %}">#{{tag}}</a>
+                                        <img src="../../static/img/default.png" alt="{{curr.user.username}}"/>
                                     {% endif %}
-                                {% endfor %}
-							</div>
-                            {% if admin_flag == 1%}
-                                <div class="actions_with_article">
-                                    <a href="{% url 'editarticle' a.id %}" class="edit">Редактировать</a>
-<!--                                    <a href="{% url 'deletearticle' a.id %}" class="delete">Удалить</a>-->
-                                    <a onclick="openDeleteModal({{ a.id }})" href="#" class="delete">Удалить</a>
+                                    <h4>{{curr.user.username}}</h4>
                                 </div>
-                            {% endif %}
-						</div>
-                    </article>
-                {% endfor %}
-            {% else %}
-                <div class="title_main_art">
-                    Ничего не найдено<br><br>
-                    (；⌣̀_⌣́)
-                </div>
-            {% endif %}
+                                <div class="heshteg_author">
+                                    {% for tag in a.tagArticle %}
+                                        {% if tag.id == 1 %}
+                                            <a class="iskl" href="{% url 'tags' tag %}">#{{tag}}</a>
+                                        {% else %}
+                                            <a href="{% url 'tags' tag %}">#{{tag}}</a>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                                {% if admin_flag == 1%}
+                                    <div class="actions_with_article">
+                                        <a href="{% url 'editarticle' a.id %}" class="edit">Редактировать</a>
+    <!--                                    <a href="{% url 'deletearticle' a.id %}" class="delete">Удалить</a>-->
+                                        <a onclick="openDeleteModal({{ a.id }})" href="#" class="delete">Удалить</a>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </article>
+                    {% endfor %}
+                {% else %}
+                    <div class="title_main_art">
+                        Ничего не найдено<br><br>
+                        (；⌣̀_⌣́)
+                    </div>
+                {% endif %}
+            </div>
+            <div id="OnCheck" style="display: none;">
+                {% if posts_on_check %}
+                    {% for a in posts_on_check %}
+                        <article>
+                            <div class="article_about_art">
+                                <div class="text_art">
+                                    <div class="text_main_art">
+                                        <div class="second_text_main_art">
+                                            <div class="image">
+                                                <img src="{{ a.article_picture.url}}" alt="{{ post.article_picture_alt }}">
+                                            </div>
+                                             <a href="{% url 'detail' a.id %}">
+                                                <h2>{{a.article_title}}</h2>
+                                                <p>{{a.article_small_text}}</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="param_art">
+                                        <div class="param_art_left">
+                                            <div class="icons_param like">
+                                                <i class="fas fa-heart"></i>
+                                                {{a.likes}} реакций
+                                            </div>
+                                            <div class="icons_param comment">
+                                                <i class="fas fa-comment"></i>
+                                                {{a.likes}} комментов
+                                            </div>
+                                            <div class="icons_param date_art">
+                                                <i class="far fa-clock"></i>
+                                                {{a.pub_date|date:'d.m.Y'}}
+                                            </div>
+                                        </div>
+                                        <div class="param_art_right">
+                                            {{a.time_to_read}} мин чтения
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="author">
+                                <div class="author_author">
+                                    {% if curr.avatar %}
+                                        <img src="{{curr.avatar.url}}" alt="{{curr.user.username}}"/>
+                                    {% else %}
+                                        <img src="../../static/img/default.png" alt="{{curr.user.username}}"/>
+                                    {% endif %}
+                                    <h4>{{curr.user.username}}</h4>
+                                </div>
+                                <div class="heshteg_author">
+                                    {% for tag in a.tagArticle %}
+                                        {% if tag.id == 1 %}
+                                            <a class="iskl" href="{% url 'tags' tag %}">#{{tag}}</a>
+                                        {% else %}
+                                            <a href="{% url 'tags' tag %}">#{{tag}}</a>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                                {% if admin_flag == 1%}
+                                    <div class="actions_with_article">
+                                        <a href="{% url 'editarticle' a.id %}" class="edit">Редактировать</a>
+    <!--                                    <a href="{% url 'deletearticle' a.id %}" class="delete">Удалить</a>-->
+                                        <a onclick="openDeleteModal({{ a.id }})" href="#" class="delete">Удалить</a>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </article>
+                    {% endfor %}
+                {% else %}
+                    <div class="title_main_art">
+                        Ничего не найдено<br><br>
+                        (；⌣̀_⌣́)
+                    </div>
+                {% endif %}
+            </div>
         </div>
-        <nav id="paginator">
+        <nav class="paginatorMain" id="pag_Approved">
             <ul class="pagination text-center paginator_custom">
-            {% if posts.has_previous %}
+            {% if posts_approved.has_previous %}
                 <li class="page-item">
-                    <a href="?page={{ posts.previous_page_number }}" class="page-link">
+                    <a href="?page={{ posts_approved.previous_page_number }}" class="page-link">
                         <i class="fa fa-angle-left" aria-hidden="true"></i>
                         <span class="sr-only">Previous</span>
                     </a>
                 </li>
             {% endif %}
-            {% for i in posts.paginator.page_range %}
-                {% if posts.number == i %}
-                    {% if posts.has_previous  %}
-                        {% if 1 != posts.previous_page_number %}
+            {% for i in posts_approved.paginator.page_range %}
+                {% if posts_approved.number == i %}
+                    {% if posts_approved.has_previous  %}
+                        {% if 1 != posts_approved.previous_page_number %}
                             <li class="page-item"><a href="?page=1" class="page-link">1</a></li>
                         {% endif %}
-                        {% if previous_page > 0  %}
+                        {% if previous_page_approved > 0  %}
                             <li class="page-item ellipsis"></li>
                         {% endif %}
-                        <li class="page-item"><a href="?page={{ posts.previous_page_number }}" class="page-link">{{ posts.previous_page_number }}</a></li>
+                        <li class="page-item"><a href="?page={{ posts_approved.previous_page_number }}" class="page-link">{{ posts_approved.previous_page_number }}</a></li>
                     {% endif %}
                     <li class="page-item active" aria-current="page">
                     <a href="?page={{ i }}" class="page-link" tabindex="-1">{{ i }}</a>
                     </li>
-                    {% if posts.has_next  %}
-                        <li class="page-item"><a href="?page={{ posts.next_page_number }}" class="page-link">{{ posts.next_page_number }}</a></li>
-                        {% if nex_page < posts.paginator.num_pages  %}
+                    {% if posts_approved.has_next  %}
+                        <li class="page-item"><a href="?page={{ posts.next_page_number }}" class="page-link">{{ posts_approved.next_page_number }}</a></li>
+                        {% if nex_page_approved < posts_approved.paginator.num_pages  %}
                             <li class="page-item ellipsis"></li>
                         {% endif %}
-                        {% if posts.paginator.num_pages != posts.next_page_number %}
-                            <li class="page-item"><a href="?page={{ posts.paginator.num_pages }}" class="page-link">{{ posts.paginator.num_pages }}</a></li>
+                        {% if posts_approved.paginator.num_pages != posts_approved.next_page_number %}
+                            <li class="page-item"><a href="?page={{ posts_approved.paginator.num_pages }}" class="page-link">{{ posts_approved.paginator.num_pages }}</a></li>
                         {% endif %}
                     {% endif %}
                 {% endif %}
             {% endfor %}
-            {% if posts.has_next %}
+            {% if posts_approved.has_next %}
                 <li class="page-item">
-                    <a href="?page={{ posts.next_page_number }}" class="page-link">
+                    <a href="?page={{ posts_approved.next_page_number }}" class="page-link">
                         <i class="fa fa-angle-right" aria-hidden="true"></i>
                         <span class="sr-only">Next</span>
                     </a>
@@ -137,6 +221,52 @@
             {% endif %}
             </ul>
         </nav>
+        <nav class="paginatorMain" id="pag_OnCheck" style="display: none;">
+            <ul class="pagination text-center paginator_custom">
+            {% if posts_on_check.has_previous %}
+                <li class="page-item">
+                    <a href="?page={{ posts_on_check.previous_page_number }}" class="page-link">
+                        <i class="fa fa-angle-left" aria-hidden="true"></i>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+            {% endif %}
+            {% for i in posts_on_check.paginator.page_range %}
+                {% if posts_on_check.number == i %}
+                    {% if posts_on_check.has_previous  %}
+                        {% if 1 != posts_on_check.previous_page_number %}
+                            <li class="page-item"><a href="?page=1" class="page-link">1</a></li>
+                        {% endif %}
+                        {% if previous_page_on_check > 0  %}
+                            <li class="page-item ellipsis"></li>
+                        {% endif %}
+                        <li class="page-item"><a href="?page={{ posts_on_check.previous_page_number }}" class="page-link">{{ posts_on_check.previous_page_number }}</a></li>
+                    {% endif %}
+                    <li class="page-item active" aria-current="page">
+                    <a href="?page={{ i }}" class="page-link" tabindex="-1">{{ i }}</a>
+                    </li>
+                    {% if posts_on_check.has_next  %}
+                        <li class="page-item"><a href="?page={{ posts_on_check.next_page_number }}" class="page-link">{{ posts_on_check.next_page_number }}</a></li>
+                        {% if nex_page_on_check < posts_on_check.paginator.num_pages  %}
+                            <li class="page-item ellipsis"></li>
+                        {% endif %}
+                        {% if posts_on_check.paginator.num_pages != posts_on_check.next_page_number %}
+                            <li class="page-item"><a href="?page={{ posts_on_check.paginator.num_pages }}" class="page-link">{{ posts_on_check.paginator.num_pages }}</a></li>
+                        {% endif %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+            {% if posts_on_check.has_next %}
+                <li class="page-item">
+                    <a href="?page={{ posts_on_check.next_page_number }}" class="page-link">
+                        <i class="fa fa-angle-right" aria-hidden="true"></i>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+            {% endif %}
+            </ul>
+        </nav>
+        <script src="/static/js/user/user.js"></script>
     </div>
 </div>
 <div id="rigth_sounbar">
@@ -156,7 +286,7 @@
                 </div>
                 <div class="metaline">
                     <i class="far fa-newspaper"></i>
-                    {{count_of_all_posts}} статей
+                    {{count_of_all_posts_approved}} статей
                 </div>
                 <div class="metaline">
                     <a href="{% url 'profilesettings' %}">Настройки</a>

@@ -66,12 +66,13 @@ def index(request):
     search_query = request.GET.get('search', '')
     if search_query:
         latest_articles_list = Article.objects.filter(
-            Q(article_title__icontains=search_query) | Q(article_small_text__icontains=search_query))
+            (Q(article_title__icontains=search_query) | Q(article_small_text__icontains=search_query)) &
+            Q(admin_check=True)).order_by('-pub_date')
         meta_title = "Результат поиска"
         meta_description = "NikTech"
     #   -------------------------------------------список статей-----------------------------------------------
     else:
-        latest_articles_list = Article.objects.order_by('-pub_date')
+        latest_articles_list = Article.objects.filter(admin_check=True).order_by('-pub_date')
         meta_title = "home"
         meta_description = "Последние статьи на сайте NikTech. Программирование и IT"
 
@@ -119,7 +120,7 @@ def index(request):
 
 # done
 def tagPostShow(request, curr_tag):
-    articles_list = Article.objects.filter(tagArticle__contains=curr_tag).all().order_by('-pub_date')
+    articles_list = Article.objects.filter(Q(tagArticle__contains=curr_tag) & Q(admin_check=True)).all().order_by('-pub_date')
     allTags = [(c.tag, c.count) for c in TagsList.objects.all().order_by('-count')[:7]]
 
     day_text = currentDay()
@@ -163,7 +164,7 @@ def tagShow(request):
 def detail(request, article_id):
     # print(request.method)
     try:
-        article = Article.objects.get(id=article_id)
+        article = Article.objects.get(id=article_id, admin_check=True)
     except Exception as ex:
         return redirect(index)
     allTags = [(c.tag, c.count) for c in TagsList.objects.all().order_by('-count')[:7]]
@@ -236,22 +237,33 @@ def articleById(request, user_id):
     if request.user.is_authenticated and (request.user.is_superuser or request.user.id == user_id):
         admin_flag = 1
 
-    articles_list = Article.objects.filter(author_id=user_id).order_by('-pub_date')
-    paginator = Paginator(articles_list, 10)  # 10 posts in each page
+    articles_list_approved = Article.objects.filter(Q(author_id=user_id) & Q(admin_check=True)).order_by('-pub_date')
+    articles_list_on_check = Article.objects.filter(Q(author_id=user_id) & Q(admin_check=False)).order_by('-pub_date')
+
+    paginator_approved = Paginator(articles_list_approved, 10)  # 10 posts in each page
+    paginator_on_check = Paginator(articles_list_on_check, 10)  # 10 posts in each page
     page = request.GET.get('page')
     try:
-        posts = paginator.page(page)
+        posts_approved = paginator_approved.page(page)
+        posts_on_check = paginator_on_check.page(page)
     except PageNotAnInteger:
-        posts = paginator.page(1)
+        posts_approved = paginator_approved.page(1)
+        posts_on_check = paginator_on_check.page(1)
     except EmptyPage:
-        posts = paginator.page(paginator.num_pages)
+        posts_approved = paginator_approved.page(paginator_approved.num_pages)
+        posts_on_check = paginator_on_check.page(paginator_on_check.num_pages)
 
-    previous_page = posts.number - 3  # меньшая граница слева
-    nex_page = posts.number + 2  # большая граница слева
+    previous_page_approved = posts_approved.number - 3  # меньшая граница слева
+    nex_page_approved = posts_approved.number + 2  # большая граница слева
 
-    return render(request, 'article/users_articles.html', {'posts': posts, 'curr': curr_user, 'css_params': 2,
-                                                           'count_of_all_posts': len(articles_list),
-                                                           'previous_page': previous_page, 'nex_page': nex_page,
+    previous_page_on_check = posts_on_check.number - 3  # меньшая граница слева
+    nex_page_on_check = posts_on_check.number + 2  # большая граница слева
+
+    return render(request, 'article/users_articles.html', {'posts_approved': posts_approved, 'posts_on_check': posts_on_check,
+                                                           'count_of_all_posts_approved': len(articles_list_approved), 'count_of_all_posts_on_check': len(articles_list_on_check),
+                                                           'previous_page_approved': previous_page_approved, 'nex_page_approved': nex_page_approved,
+                                                           'previous_page_on_check': previous_page_on_check, 'nex_page_on_check': nex_page_on_check,
+                                                           'curr': curr_user, 'css_params': 2,
                                                            'admin_flag': admin_flag})
 
 
@@ -297,7 +309,8 @@ def editArticle(request, article_id):
                                    'article_small_text': curr_article.article_small_text,
                                    'article_content_md': curr_article.article_content_md,
                                    'article_picture': curr_article.article_picture,
-                                   'tagArticle': curr_article.tagArticle})
+                                   'tagArticle': curr_article.tagArticle,
+                                   'admin_check': curr_article.admin_check})
     return render(request, 'article/new_article.html',
                   {'css_params': 3, 'form': form, 'new_or_old': 0, 'article': curr_article})
 

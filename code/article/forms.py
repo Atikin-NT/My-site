@@ -22,10 +22,12 @@ class NewArticle(forms.ModelForm):
                                        required=False, widget=MyImageWidget)
     article_small_text = forms.CharField(required=True, widget=forms.Textarea, label='Краткое описание')
     tagArticle = forms.SelectMultiple()
+    admin_check = forms.BooleanField(label="Одобрено админом", required=False)
 
     class Meta:
         model = Article
-        fields = ('article_title', 'article_picture', 'article_small_text', 'tagArticle', 'article_content_md')
+        fields = ('article_title', 'article_picture', 'article_small_text', 'tagArticle', 'article_content_md',
+                  'admin_check')
 
 
 class UserRegistrationForm(forms.ModelForm):

@@ -65,6 +65,16 @@
                             {{ form.tagArticle }}
                         </div>
                     </div>
+                    {% if user.is_superuser %}
+                    <div class="textform">
+                        <div class="inputlist">
+                            <label for="{{ form.admin_check.id_for_label }}">Одобрено одмином</label>
+                            <div class="memo">Перед публикаций необходимо пройти проверку.</div>
+                            {{ form.admin_check.errors }}
+                            {{ form.admin_check }}
+                        </div>
+                    </div>
+                    {% endif %}
                     {% if new_or_old == 1 %}
                         <input class="btn btn-success btn-save-custom" type="submit" value="Опубликовать">
                     {% else %}
