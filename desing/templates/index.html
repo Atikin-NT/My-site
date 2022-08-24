@@ -12,6 +12,7 @@
 	<!-- <link rel="stylesheet" href="../static/css/article.css"> -->
 	<link rel="stylesheet" href="../static/css/index.css">
 	<link rel="stylesheet" href="../fontawesome/css/all.css">
+	<link rel="stylesheet" href="../fontawesome5/css/all.css">
 	<link rel="icon" href="../../static/img/favicon.ico" type="image/x-icon">
   	<link rel="shortcut icon" href="../../static/img/favicon.ico" type="image/x-icon">
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -53,11 +54,6 @@
 </head>
 <body>
 	<main>
-	    <!-- <div class="loaderArea">
-			<div class="contpre">
-				<span class="loader"><img src="../../static/img/logo.gif" width="600px"/></span>
-			</div>
-		</div> -->
 		<div id="modal_full">
 			<div id="modal_content_flex">
 				<div id="modal_content">
@@ -71,20 +67,6 @@
 				</div>
 			</div>
 		</div>
-		<!-- <div class="container">
-			<div class="interior">
-				<a class="btn" href="#open-modal">👋 Basic CSS-Only Modal</a>
-			</div>
-		</div>
-		<div id="open-modal" class="modal-window">
-			<div>
-				<a href="#" title="Close" class="modal-close">Close</a>
-				<h1>Удаление статьи</h1>
-				<div>Вы точно уверены, что хотите удалить статью. Статья будет удалена <b>БЕЗ ВОЗМОЖНОСТИ ВОССТАНОВЛЕНИЯ!</b></div>
-				<br>
-				
-			</div>
-		</div> -->
 		<div id="container">
 			<div class="modal">
 				<!-- Header -->
@@ -115,15 +97,20 @@
 					</label>
 
 					<ul class="menu__box">
-						<li><a class="menu__item" href="/">Главная</a></li>
-						<li><a class="menu__item" href="/products/">Продукты</a></li>
-						<li><a class="menu__item" href="/tags">Теги</a></li>
-						<button class="btn login custom_click" type="button">
+						<h4>Menu</h4>
+						<li><a class="menu__item" href="/"><i class="fa-solid fa-house"></i>Главная</a></li>
+						<!-- <li><a class="menu__item" href="/products/">Продукты</a></li> -->
+						<li><a class="menu__item" href="/tags"><i class="fa-solid fa-tag"></i>Теги</a></li>
+						<li><a class="menu__item" href="/tags"><i class="fa-solid fa-book"></i>Ваши статьи</a></li>
+						<li><a class="menu__item" href="/tags"><i class="fa-solid fa-pencil"></i>Написать статью</a></li>
+						<li><a class="menu__item" href="/tags"><i class="fa-solid fa-gear"></i>Настройки</a></li>
+						<li><a class="menu__item logout" href="/tags"><i class="fa-solid fa-arrow-right-from-bracket"></i>Выйти</a></li>
+						<li><button class="btn login custom_click" type="button">
 							Вход
-						</button>
-						<button class="btn login custom_click" type="button">
+						</button></li>
+						<li><button class="btn login custom_click" type="button">
 							Регистрация
-						</button>
+						</button></li>
 					</ul>
 				</div>
 				<div class="logo">
@@ -154,9 +141,6 @@
 						</form>
 					</div>
 					<div class="flex_icon theme login_theme">
-							<!-- <button class="btn login custom_click" type="button">
-								<a href="/login">Вход</a>
-							</button> -->
 							<button class="btn login custom_click" type="button">
 								<i class="fas fa-cog"></i>
 								<i class="fas fa-caret-down"></i>
@@ -169,35 +153,18 @@
 							</button>
 					</div>
 					<div class="flex_icon theme lm_mode_theme">
-							<button class="btn btn_theme" type="button" onclick="handleButtonClick()" onclick="handleButtonClick()">
-								<i class="far fa-moon" aria-hidden="true"></i>
-							</button>
-						<!-- <div class="icon endicon">
-						{% if user.is_authenticated %}
-							<a href="{% url 'edit' %}">
-								{% if user.profile.photo %}
-									<img src="{{user.profile.photo.url}}">
-								{% else %}
-									<img src="../../static/img/default.png"/>
-								{% endif %}
-							</a>
-						{% else %}
-							<a href="{% url 'login' %}"><svg width="50" height="50" viewBox="0 0 50 50" fill="#E4E6E8" xmlns="http://www.w3.org/2000/svg">
-								<path d="M25 4.16669C13.7063 4.16669 4.16669 13.7063 4.16669 25C4.16669 36.2938 13.7063 45.8334 25 45.8334C36.2938 45.8334 45.8334 36.2938 45.8334 25C45.8334 13.7063 36.2938 4.16669 25 4.16669ZM25 14.5834C28.5979 14.5834 31.25 17.2334 31.25 20.8334C31.25 24.4334 28.5979 27.0834 25 27.0834C21.4042 27.0834 18.75 24.4334 18.75 20.8334C18.75 17.2334 21.4042 14.5834 25 14.5834ZM14.3625 34.9417C16.2313 32.1917 19.3479 30.3584 22.9167 30.3584H27.0834C30.6542 30.3584 33.7688 32.1917 35.6375 34.9417C32.975 37.7917 29.1979 39.5834 25 39.5834C20.8021 39.5834 17.025 37.7917 14.3625 34.9417Z"/>
-							</svg></a>
-						{% endif %}
-						</div> -->
+						<button class="btn btn_theme" type="button" onclick="handleButtonClick()" onclick="handleButtonClick()">
+							<i class="far fa-moon" aria-hidden="true"></i>
+						</button>
 					</div>
 				</div>
 			</div>
 		</nav>
-		<!-- <div id="particles-js"></div> -->
 		<div id="go_up">
 			<div id="button-up">
 				<i class="fas fa-caret-up"></i>
 			</div>
 		</div>
-		<!-- {% block content %}{% endblock %} -->
 		<div id="app">
 			<div id="normal_size_app">
 				<div id="title">
@@ -810,19 +777,5 @@
 	</script>
 	<script src="../static/js/halfmoon.min.js"></script>
 	<script src="../static/js/custom.js"></script>
-	<!-- Yandex.Metrika counter -->
-    <!-- <script type="text/javascript" >
-       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-       m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-    
-       ym(66314386, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true
-       });
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/66314386" style="position:absolute; left:-9999px;" alt="" /></div></noscript> -->
-    <!-- /Yandex.Metrika counter -->
 </body>
 </html>

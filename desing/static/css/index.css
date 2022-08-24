@@ -613,6 +613,7 @@ menu a:hover {
   width: 80%;
   height: 500px;
   border-radius: 5px;
+  background: #E4E6E8;
 }
 
 .dark-mode #go_up {
@@ -946,7 +947,7 @@ article {
   color: #EB4C42;
 }
 
-#paginator {
+.paginatorMain {
   width: 100%;
   margin-top: 50px;
   margin-bottom: 40px;
@@ -971,7 +972,9 @@ article {
 
 .advertising {
   width: 100%;
-  height: auto;
+  height: 200px;
+  border-radius: 5px;
+  background: #E4E6E8;
   margin: 40px 0 0 0;
 }
 
@@ -1261,96 +1264,6 @@ footer {
   cursor: pointer;
 }
 
-#container {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 999;
-  visibility: hidden;
-  opacity: 0;
-  background-color: rgba(0, 0, 0, 0.5411764706);
-}
-#container:target {
-  visibility: visible;
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.modal {
-  /* Border */
-  width: auto;
-  height: auto;
-  left: 50%;
-  position: fixed;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  border: 1px solid black;
-  border-radius: 25px;
-  background-color: #F9FAFA;
-  box-shadow: 0 0 5px black;
-  padding: 10px;
-}
-
-.modal__header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.modal__header h1 {
-  font-size: 1.7em;
-  padding: 5px;
-  font-family: "Rubik Bold";
-  color: #202833;
-}
-.modal__header .close {
-  font-size: 0.8em;
-  padding: 2px;
-  margin-left: 100px;
-  color: rgb(121, 121, 121);
-}
-.modal__header .close:hover {
-  color: rgb(54, 54, 54);
-}
-
-.modal__content {
-  padding: 0px 30px 10px 30px;
-  font-family: "Rubik";
-  color: #202833;
-}
-
-.modal__footer {
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: row;
-}
-.modal__footer .modal__button {
-  width: auto;
-  padding: 12px;
-  border-radius: 18px;
-  margin-left: 30px;
-  background: rgba(121, 121, 121, 0.15);
-  transition: 0.1s;
-}
-.modal__footer .modal__button:hover {
-  background: #50C878;
-  color: #F9FAFA;
-  transition: 0.2s;
-}
-.modal__footer a {
-  text-decoration: none;
-  color: #5e5e5e;
-  font-family: "Rubik Bold";
-}
-.modal__footer a:hover {
-  text-decoration: none;
-  cursor: pointer;
-}
-.modal__footer .delete:hover {
-  background: #FF1A0A;
-}
-
 @media only screen and (min-width: 1024px) and (max-width: 1200px) {
   menu li {
     margin-left: 10px;
@@ -1388,6 +1301,7 @@ footer {
   .hamburger-menu {
     height: 0;
     display: block;
+    z-index: 1;
   }
   #menu__toggle {
     opacity: 0;
@@ -1442,7 +1356,7 @@ footer {
     visibility: hidden;
     top: 0;
     left: -100%;
-    width: 200px;
+    width: 350px;
     height: 100%;
     margin: 0;
     padding: 80px 0;
@@ -1451,18 +1365,39 @@ footer {
     box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
     transition-duration: 0.25s;
   }
+  .menu__box h4 {
+    font-size: 3em;
+    margin: 10px 30px;
+    color: #fff;
+    font-family: "Rubik";
+  }
+  .menu__box li {
+    margin: 5px 30px;
+  }
   .menu__box button {
     margin-left: 24px;
+    width: auto;
     margin-top: 15px;
   }
   .menu__item {
     display: block;
     padding: 12px 24px;
-    color: #828282;
+    color: #fff;
     font-size: 1.5em;
     text-decoration: none;
     transition-duration: 0.25s;
     font-family: "Rubik";
+  }
+  .menu__item i {
+    margin: 0px 5px;
+    width: 25px;
+  }
+  .menu__item.logout {
+    color: #EB4C42;
+  }
+  .menu__item.logout:hover {
+    color: #fff;
+    background-color: #EB4C42;
   }
   .menu__item:hover {
     color: #68FAF2;
@@ -1500,6 +1435,32 @@ footer {
     font-size: 1.9em;
   }
 }
+.dark-mode .menu__btn > span,
+.dark-mode .menu__btn > span::before,
+.dark-mode .menu__btn > span::after {
+  background-color: #202833;
+}
+.dark-mode .menu__box {
+  background-color: #EEF0F1;
+  box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
+}
+.dark-mode .menu__box h4 {
+  color: #202833;
+}
+.dark-mode .menu__item {
+  color: #202833;
+}
+.dark-mode .menu__item.logout {
+  color: #EB4C42;
+}
+.dark-mode .menu__item.logout:hover {
+  color: #fff;
+  background-color: #EB4C42;
+}
+.dark-mode .menu__item:hover {
+  color: #386AE8;
+}
+
 @media only screen and (min-width: 320px) and (max-width: 766px) {
   #top_nav {
     position: fixed;
@@ -1507,6 +1468,7 @@ footer {
   .hamburger-menu {
     height: 0;
     display: block;
+    z-index: 1;
   }
   #menu__toggle {
     opacity: 0;
@@ -1561,7 +1523,7 @@ footer {
     visibility: hidden;
     top: 0;
     left: -100%;
-    width: 200px;
+    width: 100%;
     height: 100%;
     margin: 0;
     padding: 80px 0;
@@ -1570,8 +1532,18 @@ footer {
     box-shadow: 1px 0px 6px rgba(0, 0, 0, 0.2);
     transition-duration: 0.25s;
   }
+  .menu__box h4 {
+    font-size: 3em;
+    margin: 10px 30px;
+    color: #fff;
+    font-family: "Rubik";
+  }
+  .menu__box li {
+    margin: 5px 30px;
+  }
   .menu__box button {
     margin-left: 24px;
+    width: auto;
     margin-top: 15px;
   }
   .menu__item {
@@ -1582,6 +1554,17 @@ footer {
     text-decoration: none;
     transition-duration: 0.25s;
     font-family: "Rubik";
+  }
+  .menu__item i {
+    margin: 0px 5px;
+    width: 25px;
+  }
+  .menu__item.logout {
+    color: #EB4C42;
+  }
+  .menu__item.logout:hover {
+    color: #fff;
+    background-color: #EB4C42;
   }
   .menu__item:hover {
     color: #68FAF2;

@@ -7,6 +7,7 @@
 	.hamburger-menu{
 		height: 0;
 		display: block;
+		z-index: 1;
 	}
 	#menu__toggle {
 	  opacity: 0;
@@ -64,7 +65,7 @@
 	  visibility: hidden;
 	  top: 0;
 	  left: -100%;
-	  width: 200px;
+	  width: 350px;
 	  height: 100%;
 	  margin: 0;
 	  padding: 80px 0;
@@ -72,8 +73,18 @@
 	  background-color: #202833;
 	  box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
 	  transition-duration: .25s;
+	  h4{
+		font-size: 3em;
+		margin: 10px 30px;
+		color: #fff;
+		font-family: 'Rubik';
+	  }
+	  li{
+		margin: 5px 30px;
+	  }
 	  button{
 		  margin-left: 24px;
+		  width: auto;
 		  margin-top: 15px;
 	  }
 	}
@@ -81,11 +92,19 @@
 	.menu__item {
 	  display: block;
 	  padding: 12px 24px;
-	  color: #828282;
+	  color: #fff;
 	  font-size: 1.5em;
 	  text-decoration: none;
 	  transition-duration: .25s;
 	  font-family: "Rubik";
+	  i{ margin: 0px 5px; width: 25px;}
+	  &.logout{
+		color: $danger_color;
+		&:hover{
+			color: #fff;
+			background-color: $danger_color;
+		}
+	  }
 	}
 	.menu__item:hover {
 	  color: #68FAF2;
@@ -129,5 +148,33 @@
 		h2{
 			font-size: 1.9em;
 		}
+	}
+}
+
+.dark-mode{
+	.menu__btn > span,
+	.menu__btn > span::before,
+	.menu__btn > span::after {
+	  background-color: $text_app_color;
+	}
+
+	.menu__box {
+	  background-color: $bck_main_color;
+	  box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+	  h4{ color: $text_app_color; }
+	}
+
+	.menu__item {
+	  color: $text_app_color;
+	  &.logout{
+		color: $danger_color;
+		&:hover{
+			color: #fff;
+			background-color: $danger_color;
+		}
+	  }
+	}
+	.menu__item:hover {
+	  color: $text_selected_app_color;
 	}
 }
