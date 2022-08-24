@@ -29,6 +29,7 @@
 	<link rel="stylesheet" href="{% static 'css/newarticle.css' %}">
 	{% endif %}
 	<link rel="stylesheet" href="{% static 'fontawesome/css/all.css' %}">
+	<link rel="stylesheet" href="{% static 'fontawesome5/css/all.css' %}">
 	<link rel="stylesheet" href="{% static 'css/highlight.css' %}">
 	<link rel="icon" href="../../static/img/favicon.ico" type="image/x-icon">
   	<link rel="shortcut icon" href="../../static/img/favicon.ico" type="image/x-icon">
@@ -108,22 +109,33 @@
 						<span></span>
 					</label>
 					<ul class="menu__box">
-						<li><a class="menu__item" href="/">Главная</a></li>
-<!--						<li><a class="menu__item" href="/products/">Продукты</a></li>-->
-						<li><a class="menu__item" href="/tags">Теги</a></li>
-						<button class="btn login custom_click" type="button">
-							Вход
-						</button>
-						<button class="btn login custom_click" type="button">
-							Регистрация
-						</button>
+						<h4>Menu</h4>
+						<li><a class="menu__item" href="/"><i class="fa-solid fa-house"></i>Главная</a></li>
+						<!-- <li><a class="menu__item" href="/products/">Продукты</a></li> -->
+						<li><a class="menu__item" href="/tags"><i class="fa-solid fa-tag"></i>Теги</a></li>
+						{% if user.is_authenticated %}
+							<li><a class="menu__item" href="{% url 'user_id' user.id %}"><i class="fa-solid fa-book"></i>Ваши статьи</a></li>
+							<li><a class="menu__item" href="{% url 'newArticle' %}"><i class="fa-solid fa-pencil"></i>Написать статью</a></li>
+							<li><a class="menu__item" href="{% url 'profilesettings' %}"><i class="fa-solid fa-gear"></i>Настройки</a></li>
+							<li><a class="menu__item logout" href="/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i>Выйти</a></li>
+						{% else %}
+							<li>
+								<a href="{% url 'login' %}">
+								<button class="btn login custom_click" type="button" href="{% url 'login' %}">
+									Вход
+								</button></a>
+							</li>
+						{% endif %}
+<!--						<li><button class="btn login custom_click" type="button">-->
+<!--							Регистрация-->
+<!--						</button></li>-->
 					</ul>
 				</div>
 				<div class="logo">
 					<a href="/">
 						<img id="mainLogo" src="../../static/img/logo_dm.svg">
 						<div id="logo_main_text_nav">NikTech</div>
-						<span class="badge">v.1.2</span>
+						<span class="badge">v.1.2.2</span>
 					</a>
 				</div>
 				<menu>
